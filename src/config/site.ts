@@ -9,11 +9,12 @@ export const siteConfig = {
     "Inteligência artificial, automação e software sob medida. A Solint conecta estratégia, dados e tecnologia para gerar resultado.",
   locale: "pt-BR",
   contact: {
-    email: "contato@solint.com.br",
-    phone: "+55 (00) 0000-0000",
-    phoneHref: "tel:+550000000000",
+    email: "leonardo@solint.tech",
+    phone: "+55 79 9680-9911",
+    phoneHref: "https://wa.me/557996809911",
+    whatsappUrl: "https://wa.me/557996809911",
     location: "Brasil",
-    responseTime: "Resposta em até um dia útil. Sem compromisso.",
+    responseTime: "Resposta imediata via WhatsApp. Sem compromisso.",
   },
   logo: {
     src: "/assets/solint-logo.png",

@@ -19,7 +19,7 @@ export function ContactSection() {
       title={contactSection.title}
       description={contactSection.description}
       ctaLabel={contactSection.ctaLabel}
-      ctaHref={`mailto:${siteConfig.contact.email}`}
+      ctaHref={siteConfig.contact.whatsappUrl}
       note={siteConfig.contact.responseTime}
       extraBackdrop={
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">

@@ -1,8 +1,8 @@
 import type { NavLink, SocialLink } from "@/types";
 import { siteConfig } from "./site";
 
-/** Âncora canônica para o CTA de contato (seção da home). */
-export const CONTACT_ANCHOR = "/#contato";
+/** Âncora canônica / link direto para o WhatsApp oficial de contato. */
+export const CONTACT_ANCHOR = "https://wa.me/557996809911";
 
 export const navLinks: readonly NavLink[] = [
   { key: "home", label: "Home", href: "/" },
@@ -22,13 +22,11 @@ export const footerNavLinks: readonly NavLink[] = [
 export const socialLinks: readonly SocialLink[] = [
   { label: "LinkedIn", href: "#" },
   { label: "Instagram", href: "#" },
-  { label: "YouTube", href: "#" },
 ] as const;
 
 export const contactLinks: readonly SocialLink[] = [
-  { label: "Fale com a Solint", href: CONTACT_ANCHOR },
+  { label: "WhatsApp: +55 79 9680-9911", href: "https://wa.me/557996809911" },
   { label: siteConfig.contact.email, href: `mailto:${siteConfig.contact.email}` },
-  { label: siteConfig.contact.phone, href: siteConfig.contact.phoneHref },
 ] as const;
 
 export const legalLinks: readonly SocialLink[] = [

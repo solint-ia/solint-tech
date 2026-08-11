@@ -21,7 +21,7 @@ export const homeHero = {
   description:
     "A Solint conecta estratégia, dados e inovação para criar soluções digitais mais eficientes, escaláveis e preparadas para o futuro.",
   primaryCta: { label: "Conheça nossas soluções", href: "#atuacao" },
-  secondaryCta: { label: "Fale com um especialista", href: "#contato" },
+  secondaryCta: { label: "Fale com um especialista", href: "https://wa.me/557996809911" },
   /** Linhas rotacionadas no terminal simulado abaixo dos CTAs. */
   terminalLines: [
     "conectando estratégia, dados e execução… ok",
