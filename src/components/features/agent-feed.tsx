@@ -48,13 +48,13 @@ export function AgentFeed() {
 
         {/* Corpo do feed com trilha laser vertical contínua */}
         <div className="relative flex flex-col gap-5 p-5">
-          {/* Linha laser vertical contínua que atravessa todos os 4 nós */}
+          {/* Linha laser vertical contínua que liga do Evento 1 até o topo do Evento 4 (Handoff) */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-[38px] top-9 bottom-12 w-[1.5px] -translate-x-1/2 bg-[linear-gradient(to_bottom,#35D9FF_0%,#168CFF_50%,#FFB65C_100%)] shadow-[0_0_8px_rgb(53_217_255/0.4)]"
+            className="pointer-events-none absolute left-[38px] top-9 bottom-[96px] sm:bottom-[92px] w-[1.5px] -translate-x-1/2 bg-[linear-gradient(to_bottom,#35D9FF_0%,#168CFF_65%,#FFB65C_100%)] shadow-[0_0_8px_rgb(53_217_255/0.4)]"
           >
             {/* Feixe animado de pulso descendente */}
-            <div className="animate-flow absolute top-0 left-0 h-20 w-full bg-[linear-gradient(to_bottom,transparent,#FFFFFF,transparent)]" />
+            <div className="animate-flow absolute top-0 left-0 h-16 w-full bg-[linear-gradient(to_bottom,transparent,#FFFFFF,transparent)]" />
           </div>
 
           {/* EVENTO 1: Lead Identificado (Trigger / Input) */}
