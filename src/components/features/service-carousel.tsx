@@ -161,9 +161,14 @@ export function ServiceCarousel({ areas, hint }: ServiceCarouselProps) {
     [],
   );
 
+  const pointerDownRef = useRef(false);
   const dragStartRef = useRef({ x: 0, rotation: 0, lastX: 0, lastTime: 0, velocity: 0 });
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0 && event.pointerType === "mouse") return;
+
+    pointerDownRef.current = true;
+    draggingRef.current = false;
     pausedRef.current = true;
     dragDistanceRef.current = 0;
     dragStartRef.current = {
@@ -176,6 +181,8 @@ export function ServiceCarousel({ areas, hint }: ServiceCarouselProps) {
   };
 
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!pointerDownRef.current) return;
+
     const drag = dragStartRef.current;
     const deltaX = event.clientX - drag.x;
     dragDistanceRef.current = Math.abs(deltaX);
@@ -204,6 +211,9 @@ export function ServiceCarousel({ areas, hint }: ServiceCarouselProps) {
   };
 
   const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    if (!pointerDownRef.current) return;
+    pointerDownRef.current = false;
+
     try {
       if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
         event.currentTarget.releasePointerCapture(event.pointerId);
