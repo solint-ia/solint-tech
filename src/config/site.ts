@@ -17,7 +17,12 @@ export const siteConfig = {
     responseTime: "Resposta imediata via WhatsApp. Sem compromisso.",
   },
   logo: {
-    src: "/assets/solint-logo.png",
+    src: "/media/logo-header.png",
+    width: 512,
+    height: 128,
+  },
+  logoFooter: {
+    src: "/media/logo-footer.png",
     width: 512,
     height: 128,
   },

@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/media/favicon.png",
+    shortcut: "/media/favicon.png",
+    apple: "/media/favicon.png",
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",

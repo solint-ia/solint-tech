@@ -46,11 +46,11 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1240px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 px-6 pt-[clamp(48px,7vw,84px)]">
         <div className="sm:col-span-2 lg:col-span-2 min-w-0">
           <Image
-            src={siteConfig.logo.src}
+            src={siteConfig.logoFooter.src}
             alt={siteConfig.name}
-            width={siteConfig.logo.width}
-            height={siteConfig.logo.height}
-            className="mb-5 block h-6 w-auto brightness-125 saturate-110"
+            width={siteConfig.logoFooter.width}
+            height={siteConfig.logoFooter.height}
+            className="mb-5 block h-7 w-auto brightness-110"
           />
           <p className="m-0 mb-6 max-w-[340px] text-pretty text-[0.93rem]/[1.7] font-light text-steel-2">
             {siteConfig.shortDescription}

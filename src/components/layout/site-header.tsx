@@ -54,7 +54,7 @@ export function SiteHeader() {
             width={siteConfig.logo.width}
             height={siteConfig.logo.height}
             priority
-            className="h-[36px] w-auto origin-left scale-110 brightness-125 saturate-110 lg:h-[46px] lg:scale-115"
+            className="h-[34px] sm:h-[38px] lg:h-[44px] w-auto origin-left"
           />
         </Link>
 
