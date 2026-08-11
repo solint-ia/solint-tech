@@ -1,5 +1,9 @@
+"use client";
+
+import { useRef, useState } from "react";
 import { ArrowUpRight, Layers, Sparkles } from "lucide-react";
-import { Button, Card, Reveal } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
+import { cn } from "@/lib/utils";
 import type { ProjectCard } from "@/types";
 
 interface ProjectGridProps {
@@ -12,21 +16,52 @@ interface ProjectGridProps {
 
 /**
  * Grade de projetos e cases de portfólio no padrão All-Dark Glassmorphic.
+ * - No Mobile: Carrossel horizontal suave com snap touch, bullets interativos e sem corte superior.
+ * - No Desktop: Grade responsiva de 2 a 3 colunas com hover glassmorphism.
  */
 export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.firstElementChild?.clientWidth || 320;
+    const index = Math.round(el.scrollLeft / (cardWidth + 18));
+    setActiveSlide(Math.max(0, Math.min(projects.length - 1, index)));
+  };
+
+  const scrollToSlide = (index: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cards = el.children;
+    if (cards[index]) {
+      (cards[index] as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+      setActiveSlide(index);
+    }
+  };
+
   return (
-    <div>
-      <div className="group/grid flex overflow-x-auto snap-x snap-mandatory pb-4 gap-4.5 -mx-6 px-6 no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:mx-0 md:px-0">
-        {projects.map((project, index) => (
-          <Reveal
+    <div className="relative">
+      {/* Contêiner de Cards: Scroll Horizontal no Mobile / Grade no Desktop */}
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="group/grid flex overflow-x-auto snap-x snap-mandatory pt-3 pb-5 gap-4.5 -mx-6 px-6 no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:mx-0 md:px-0 md:pt-0 md:pb-0"
+      >
+        {projects.map((project) => (
+          <div
             key={project.title}
-            delay={(index % 3) * 0.08}
             className="flex w-[85vw] max-w-[340px] shrink-0 snap-center md:w-auto md:max-w-none md:shrink md:snap-align-none"
           >
             <Card
               as="article"
               interactive
-              className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-accent/18 bg-panel/75 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 group-hover/grid:opacity-50 hover:!opacity-100 hover:-translate-y-1.5 hover:border-accent/45 hover:shadow-[0_16px_40px_rgb(22_140_255/0.16)]"
+              className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-accent/18 bg-panel/85 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 group-hover/grid:opacity-60 hover:!opacity-100 hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_16px_40px_rgb(22_140_255/0.16)]"
             >
               {/* Header visual com preview de software */}
               <div
@@ -122,13 +157,31 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
                 </div>
               </div>
             </Card>
-          </Reveal>
+          </div>
         ))}
       </div>
 
-      {/* Dica de Swipe no Mobile */}
-      <div className="flex md:hidden items-center justify-center gap-1.5 pt-1 text-[0.72rem] text-faint-2 font-mono">
-        <span>← Deslize para ver todos os cases →</span>
+      {/* Bullets de Navegação e Dica no Mobile */}
+      <div className="flex md:hidden flex-col items-center justify-center gap-2 pt-2">
+        <div className="flex items-center gap-2">
+          {projects.map((project, idx) => (
+            <button
+              key={project.title}
+              type="button"
+              aria-label={`Ir para case ${project.title}`}
+              onClick={() => scrollToSlide(idx)}
+              className={cn(
+                "h-1.5 rounded-full transition-all duration-300",
+                activeSlide === idx
+                  ? "w-6 bg-accent shadow-[0_0_8px_rgb(53_217_255/0.8)]"
+                  : "w-1.5 bg-accent/25 hover:bg-accent/50",
+              )}
+            />
+          ))}
+        </div>
+        <span className="text-[0.68rem] text-faint-2 font-mono">
+          ← Deslize para explorar os {projects.length} cases →
+        </span>
       </div>
     </div>
   );
