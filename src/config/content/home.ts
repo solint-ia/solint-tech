@@ -16,7 +16,7 @@ export const homeHero = {
   eyebrow: "/01 — início",
   titleLead: "Tecnologia inteligente para transformar ",
   /** Trecho digitado pelo efeito typewriter no H1. */
-  titleTyped: "possibilidades em resultados",
+  titleTyped: "oportunidades em resultados",
   titleTail: ".",
   description:
     "A Solint conecta estratégia, dados e inovação para criar soluções digitais mais eficientes, escaláveis e preparadas para o futuro.",
