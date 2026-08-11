@@ -43,16 +43,16 @@ export function SiteFooter() {
 
   return (
     <footer className="relative z-1 border-t border-accent/10 bg-[#040912]/70">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 px-6 pt-[clamp(48px,7vw,84px)]">
+      <div className="mx-auto grid max-w-[1240px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 px-6 pt-[clamp(40px,5vw,64px)]">
         <div className="sm:col-span-2 lg:col-span-2 min-w-0">
           <Image
             src={siteConfig.logoFooter.src}
             alt={siteConfig.name}
             width={siteConfig.logoFooter.width}
             height={siteConfig.logoFooter.height}
-            className="mb-5 block h-7 w-auto brightness-110"
+            className="mb-3.5 block h-[48px] sm:h-[54px] w-auto brightness-110 -ml-1"
           />
-          <p className="m-0 mb-6 max-w-[340px] text-pretty text-[0.93rem]/[1.7] font-light text-steel-2">
+          <p className="m-0 mb-4 max-w-[340px] text-pretty text-[0.91rem]/[1.65] font-light text-steel-2">
             {siteConfig.shortDescription}
           </p>
           <div className="flex gap-[18px]">
@@ -77,7 +77,7 @@ export function SiteFooter() {
         </FooterColumn>
       </div>
 
-      <div className="mx-auto mt-[clamp(36px,5vw,56px)] flex max-w-[1240px] flex-wrap items-center justify-between gap-x-6.5 gap-y-3 border-t border-accent/8 px-6 pt-7 pb-8.5">
+      <div className="mx-auto mt-[clamp(28px,3.8vw,44px)] flex max-w-[1240px] flex-wrap items-center justify-between gap-x-6.5 gap-y-3 border-t border-accent/8 px-6 pt-6 pb-7">
         <span className="text-[12.5px]/[1.4] font-normal text-faint">
           © {currentYear} {siteConfig.name}. Todos os direitos reservados.
         </span>
