@@ -10,7 +10,7 @@ import {
 import { siteConfig } from "@/config/site";
 
 const linkClass =
-  "text-[0.92rem]/[1.35] font-normal text-nav-2 transition-colors duration-200 hover:text-white";
+  "text-[0.92rem]/[1.4] font-normal text-nav-2 transition-colors duration-200 hover:text-white break-words";
 
 function FooterColumn({
   title,
@@ -22,11 +22,11 @@ function FooterColumn({
   children?: React.ReactNode;
 }) {
   return (
-    <div>
-      <span className="mb-5 block text-xs/none font-medium tracking-[0.14em] text-faint uppercase">
+    <div className="min-w-0">
+      <span className="mb-4 block text-xs/none font-medium tracking-[0.14em] text-faint uppercase">
         {title}
       </span>
-      <div className="flex flex-col gap-[13px]">
+      <div className="flex flex-col gap-3">
         {links?.map((link) => (
           <Link key={link.label} href={link.href} className={linkClass}>
             {link.label}
@@ -43,8 +43,8 @@ export function SiteFooter() {
 
   return (
     <footer className="relative z-1 border-t border-accent/10 bg-[#040912]/70">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-8 gap-y-11 px-6 pt-[clamp(56px,7vw,84px)]">
-        <div className="col-span-2 min-w-0">
+      <div className="mx-auto grid max-w-[1240px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 px-6 pt-[clamp(48px,7vw,84px)]">
+        <div className="sm:col-span-2 lg:col-span-2 min-w-0">
           <Image
             src={siteConfig.logo.src}
             alt={siteConfig.name}
@@ -77,7 +77,7 @@ export function SiteFooter() {
         </FooterColumn>
       </div>
 
-      <div className="mx-auto mt-[clamp(40px,5vw,60px)] flex max-w-[1240px] flex-wrap items-center justify-between gap-x-6.5 gap-y-3 border-t border-accent/8 px-6 pt-7 pb-8.5">
+      <div className="mx-auto mt-[clamp(36px,5vw,56px)] flex max-w-[1240px] flex-wrap items-center justify-between gap-x-6.5 gap-y-3 border-t border-accent/8 px-6 pt-7 pb-8.5">
         <span className="text-[12.5px]/[1.4] font-normal text-faint">
           © {currentYear} {siteConfig.name}. Todos os direitos reservados.
         </span>

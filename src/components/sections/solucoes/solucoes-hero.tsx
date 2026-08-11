@@ -22,22 +22,23 @@ function ProductMockup() {
       {/* Janela de Navegador / Mockup de Website */}
       <div className="relative overflow-hidden rounded-3xl border-2 border-accent/28 bg-[linear-gradient(160deg,rgb(14_22_36/0.98),rgb(8_12_20/0.95))] shadow-[0_30px_80px_rgb(2_8_18/0.8)] backdrop-blur-2xl">
         {/* Barra de Navegação do Browser */}
-        <div className="flex items-center justify-between border-b border-accent/15 bg-[#0A101C] px-4 py-3">
-          <div className="flex items-center gap-2">
-            <span className="size-2.5 rounded-full bg-rose-500/80" />
-            <span className="size-2.5 rounded-full bg-amber-400/80" />
-            <span className="size-2.5 rounded-full bg-emerald-400/80" />
+        {/* Barra superior de janela estilo navegador */}
+        <div className="flex items-center justify-between border-b border-accent/15 bg-[#0A101C] px-3 sm:px-4 py-2.5 sm:py-3 gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-none">
+            <span className="size-2 sm:size-2.5 rounded-full bg-rose-500/80" />
+            <span className="size-2 sm:size-2.5 rounded-full bg-amber-400/80" />
+            <span className="size-2 sm:size-2.5 rounded-full bg-emerald-400/80" />
           </div>
 
-          <div className="flex flex-1 max-w-[280px] mx-auto items-center justify-between gap-1.5 rounded-lg border border-accent/18 bg-ink/90 px-3 py-1 font-mono text-[0.7rem] text-steel">
-            <div className="flex items-center gap-1.5 overflow-hidden">
-              <Lock className="size-3 text-accent flex-none" />
-              <span className="truncate">solint.dev/plataforma-demo</span>
+          <div className="flex flex-1 max-w-[185px] sm:max-w-[280px] mx-1 sm:mx-3 items-center justify-between gap-1 rounded-lg border border-accent/18 bg-ink/90 px-2 sm:px-3 py-0.5 sm:py-1 font-mono text-[0.62rem] sm:text-[0.7rem] text-steel">
+            <div className="flex items-center gap-1 sm:gap-1.5 overflow-hidden">
+              <Lock className="size-2.5 sm:size-3 text-accent flex-none" />
+              <span className="truncate">solint.dev/plataforma</span>
             </div>
-            <RotateCw className="size-2.5 text-steel/60 flex-none" />
+            <RotateCw className="size-2.5 text-steel/60 flex-none hidden sm:block" />
           </div>
 
-          <span className="flex items-center gap-1.5 font-mono text-[0.66rem] font-medium text-emerald-400">
+          <span className="flex items-center gap-1.5 font-mono text-[0.62rem] sm:text-[0.66rem] font-medium text-emerald-400 flex-none">
             <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Live
           </span>

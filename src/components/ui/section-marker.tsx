@@ -22,8 +22,8 @@ export function SectionMarker({
     <span
       aria-hidden="true"
       className={cn(
-        "absolute right-7 z-2 font-mono text-[11px]/none tracking-[0.14em]",
-        position === "hero" ? "top-26" : "top-8",
+        "absolute right-6 sm:right-8 z-2 font-mono text-[10.5px] sm:text-[11px] tracking-[0.14em]",
+        position === "hero" ? "top-28 sm:top-32 lg:top-28" : "top-8 sm:top-10",
         tone === "light" ? "text-[#8A97A8]" : "text-marker",
         className,
       )}

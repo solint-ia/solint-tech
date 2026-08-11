@@ -56,10 +56,10 @@ function ServiceCard({ service }: { service: DevelopmentService }) {
           {service.description}
         </p>
 
-        {/* Detalhe revelado no hover */}
-        <p className="m-0 max-h-0 translate-y-1.5 overflow-hidden text-pretty text-[0.82rem]/[1.55] text-accent-soft opacity-0 transition-[max-height,opacity,transform] duration-420 ease-out-solint group-hover/card:mt-2 group-hover/card:max-h-40 group-hover/card:translate-y-0 group-hover/card:opacity-100">
-          {service.detail}
-        </p>
+        {/* Detalhe prático: visível em badge no mobile e com transição de hover no desktop */}
+        <div className="mt-3 block rounded-xl border border-accent/18 bg-accent/8 px-3 py-2 text-pretty text-[0.8rem]/[1.5] text-accent-soft font-light lg:mt-0 lg:max-h-0 lg:translate-y-1.5 lg:overflow-hidden lg:opacity-0 lg:border-none lg:bg-transparent lg:p-0 lg:transition-[max-height,opacity,transform] lg:duration-420 lg:ease-out-solint lg:group-hover/card:mt-2 lg:group-hover/card:max-h-40 lg:group-hover/card:translate-y-0 lg:group-hover/card:opacity-100">
+          <span className="font-medium text-white lg:text-accent-soft">{service.detail}</span>
+        </div>
       </div>
 
       {/* Tags de tecnologia e entregáveis */}
