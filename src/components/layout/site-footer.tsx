@@ -50,9 +50,9 @@ export function SiteFooter() {
             alt={siteConfig.name}
             width={siteConfig.logoFooter.width}
             height={siteConfig.logoFooter.height}
-            className="mb-3.5 block h-[48px] sm:h-[54px] w-auto brightness-110 -ml-1"
+            className="mb-3 block h-[64px] sm:h-[72px] lg:h-[76px] w-auto brightness-110 -ml-1"
           />
-          <p className="m-0 mb-4 max-w-[340px] text-pretty text-[0.91rem]/[1.65] font-light text-steel-2">
+          <p className="m-0 mb-3.5 max-w-[340px] text-pretty text-[0.91rem]/[1.65] font-light text-steel-2">
             {siteConfig.shortDescription}
           </p>
           <div className="flex gap-[18px]">
