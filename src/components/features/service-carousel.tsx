@@ -15,7 +15,7 @@ const DRAG_SENSITIVITY = 0.32;
 /** Peso da velocidade final do arraste ao escolher o card de destino. */
 const FLICK_WEIGHT = 90;
 /** Acima deste deslocamento o "clique" é tratado como arraste e não navega. */
-const CLICK_TOLERANCE_PX = 6;
+const CLICK_TOLERANCE_PX = 14;
 
 interface ServiceCarouselProps {
   areas: readonly ServiceArea[];
@@ -164,7 +164,6 @@ export function ServiceCarousel({ areas, hint }: ServiceCarouselProps) {
   const dragStartRef = useRef({ x: 0, rotation: 0, lastX: 0, lastTime: 0, velocity: 0 });
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    draggingRef.current = true;
     pausedRef.current = true;
     dragDistanceRef.current = 0;
     dragStartRef.current = {
@@ -174,15 +173,23 @@ export function ServiceCarousel({ areas, hint }: ServiceCarouselProps) {
       lastTime: performance.now(),
       velocity: 0,
     };
-    event.currentTarget.setPointerCapture?.(event.pointerId);
   };
 
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (!draggingRef.current) return;
-
     const drag = dragStartRef.current;
     const deltaX = event.clientX - drag.x;
-    dragDistanceRef.current = Math.max(dragDistanceRef.current, Math.abs(deltaX));
+    dragDistanceRef.current = Math.abs(deltaX);
+
+    if (!draggingRef.current && dragDistanceRef.current > 8) {
+      draggingRef.current = true;
+      try {
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+      } catch {
+        // Ignora caso pointer capture não seja suportado
+      }
+    }
+
+    if (!draggingRef.current) return;
 
     const now = performance.now();
     if (now > drag.lastTime) {
@@ -196,30 +203,42 @@ export function ServiceCarousel({ areas, hint }: ServiceCarouselProps) {
     applyFacing();
   };
 
-  const onPointerUp = () => {
-    if (!draggingRef.current) return;
-    draggingRef.current = false;
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    try {
+      if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+    } catch {
+      // Ignora falha de liberação de captura
+    }
 
-    const { velocity } = dragStartRef.current;
-    rotationRef.current =
-      Math.round((rotationRef.current + velocity * FLICK_WEIGHT) / stepDegrees) *
-      stepDegrees;
-    applyRing(true);
-    applyFacing();
+    if (draggingRef.current) {
+      draggingRef.current = false;
+      const { velocity } = dragStartRef.current;
+      rotationRef.current =
+        Math.round((rotationRef.current + velocity * FLICK_WEIGHT) / stepDegrees) *
+        stepDegrees;
+      applyRing(true);
+      applyFacing();
+    }
 
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = setTimeout(() => {
       pausedRef.current = false;
+      dragDistanceRef.current = 0;
     }, RESUME_DELAY_MS);
   };
 
   /** Um card fora do centro (ou o fim de um arraste) gira em vez de navegar. */
   const onCardClick = (index: number) => (event: React.MouseEvent) => {
-    if (index !== activeIndex || dragDistanceRef.current > CLICK_TOLERANCE_PX) {
+    if (index !== activeIndex) {
       event.preventDefault();
       goTo(index);
+      return;
     }
-    dragDistanceRef.current = 0;
+    if (dragDistanceRef.current > CLICK_TOLERANCE_PX) {
+      event.preventDefault();
+    }
   };
 
   return (
