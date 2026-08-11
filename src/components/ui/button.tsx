@@ -86,8 +86,12 @@ export function Button(props: ButtonProps) {
       );
     }
 
+    const isExternal = href.startsWith("http://") || href.startsWith("https://");
+    const target = rest.target ?? (isExternal ? "_blank" : undefined);
+    const rel = rest.rel ?? (isExternal ? "noopener noreferrer" : undefined);
+
     return (
-      <a href={href} className={classes} {...rest}>
+      <a href={href} target={target} rel={rel} className={classes} {...rest}>
         {children}
       </a>
     );

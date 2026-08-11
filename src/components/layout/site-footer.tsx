@@ -27,11 +27,27 @@ function FooterColumn({
         {title}
       </span>
       <div className="flex flex-col gap-3">
-        {links?.map((link) => (
-          <Link key={link.label} href={link.href} className={linkClass}>
-            {link.label}
-          </Link>
-        ))}
+        {links?.map((link) => {
+          const isExternal = link.href.startsWith("http://") || link.href.startsWith("https://");
+          if (isExternal || link.href.startsWith("mailto:")) {
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                className={linkClass}
+              >
+                {link.label}
+              </a>
+            );
+          }
+          return (
+            <Link key={link.label} href={link.href} className={linkClass}>
+              {link.label}
+            </Link>
+          );
+        })}
         {children}
       </div>
     </div>
@@ -60,6 +76,8 @@ export function SiteFooter() {
               <a
                 key={social.label}
                 href={social.href}
+                target={social.href.startsWith("http") ? "_blank" : undefined}
+                rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="text-[13px]/none font-normal text-steel-2 transition-colors duration-200 hover:text-accent"
               >
                 {social.label}

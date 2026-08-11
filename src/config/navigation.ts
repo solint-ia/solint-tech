@@ -21,7 +21,7 @@ export const footerNavLinks: readonly NavLink[] = [
 
 export const socialLinks: readonly SocialLink[] = [
   { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
+  { label: "Instagram", href: "https://instagram.com/solint.ia" },
 ] as const;
 
 export const contactLinks: readonly SocialLink[] = [
