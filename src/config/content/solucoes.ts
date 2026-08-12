@@ -225,9 +225,9 @@ export const portfolioSection = {
 export const portfolioProjects: readonly ProjectCard[] = [
   {
     title: "Aura Regenera",
-    category: "Landing Page B2B · Saúde & Estética Médica",
-    description: "Landing page B2B de alta conversão para clínicas, dermatologistas e cirurgiões comprarem a linha pbserum Plus (enzimas recombinantes) através da Aura Medical, distribuidora oficial no Brasil.",
-    badge: "Landing Page B2B",
+    category: "Portal Comercial B2B · Saúde & Estética Médica",
+    description: "Portal comercial B2B de alta conversão para clínicas, dermatologistas e cirurgiões comprarem a linha pbserum Plus (enzimas recombinantes) através da Aura Regenera, distribuidora oficial no Brasil.",
+    badge: "Portal B2B",
     image: "/media/logo-aura.png",
     imageObjectFit: "contain",
     href: "https://www.auraregenera.com/",
@@ -251,7 +251,7 @@ export const portfolioProjects: readonly ProjectCard[] = [
     image: "/media/EcoTechLogo.png",
     imageObjectFit: "contain",
     href: "https://www.projetoecotech.online/admin/dashboard",
-    ctaLabel: "Acessar dashboard",
+    ctaLabel: "Acessar site",
   },
 ] as const;
 

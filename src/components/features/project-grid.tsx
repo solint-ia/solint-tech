@@ -20,7 +20,7 @@ interface ProjectGridProps {
  * - No Mobile: Carrossel horizontal suave com snap touch, bullets interativos e sem corte superior.
  * - No Desktop: Grade responsiva de 2 a 3 colunas com hover glassmorphism.
  */
-export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
+export function ProjectGrid({ projects, imageHeight = 185 }: ProjectGridProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -74,8 +74,8 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
                 {project.image ? (
                   <>
                     {project.imageObjectFit === "contain" ? (
-                      <div className="absolute inset-0 flex items-center justify-center p-6 bg-[radial-gradient(ellipse_at_center,rgb(18_28_44/0.7),rgb(6_12_22/0.95))]">
-                        <div className="relative size-full max-h-24 max-w-[220px]">
+                      <div className="absolute inset-0 flex items-center justify-center p-3.5 sm:p-4 bg-[radial-gradient(ellipse_at_center,rgb(18_28_44/0.7),rgb(6_12_22/0.95))]">
+                        <div className="relative size-full max-h-[135px] max-w-[270px]">
                           <Image
                             src={project.image}
                             alt={project.title}
