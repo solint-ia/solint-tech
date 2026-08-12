@@ -13,7 +13,15 @@ export const siteConfig = {
     phone: "+55 79 9680-9911",
     phoneHref: "https://wa.me/557996809911",
     whatsappUrl: "https://wa.me/557996809911",
-    location: "Brasil",
+    location: "Rua Bosco Scaffs, 95, Inácio Barbosa, Aracaju - SE, CEP 49041-060",
+    address: {
+      street: "Rua Bosco Scaffs, 95",
+      neighborhood: "Inácio Barbosa",
+      city: "Aracaju",
+      state: "Sergipe",
+      zipCode: "49041-060",
+      full: "Rua Bosco Scaffs, 95, Inácio Barbosa, Aracaju - SE (CEP 49041-060)",
+    },
     responseTime: "Resposta imediata via WhatsApp. Sem compromisso.",
   },
   logo: {

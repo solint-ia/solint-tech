@@ -65,11 +65,18 @@ export interface AgentApplication {
   speed?: string;
 }
 
+export interface TechnologyItem {
+  name: string;
+  badge?: string;
+  iconKey?: string;
+  isHighlight?: boolean;
+}
+
 /** Grupo de tecnologias ligado ao hub central no diagrama de ecossistema. */
 export interface TechnologyGroup {
   label: string;
-  items: string[];
   category?: string;
+  items: readonly (string | TechnologyItem)[];
 }
 
 /** Serviço do bento grid de Soluções. `span` é a largura em colunas (de 12). */
@@ -114,8 +121,8 @@ export interface ProjectCard {
   tags?: readonly string[];
   metric?: string;
   badge?: string;
-  href: string;
-  ctaLabel: string;
+  href?: string;
+  ctaLabel?: string;
 }
 
 export interface StatusPill {

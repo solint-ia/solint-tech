@@ -146,17 +146,19 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
                   </div>
                 ) : null}
 
-                <div className="mt-auto pt-3.5 border-t border-accent/12 flex items-center justify-between">
-                  <Button
-                    href={project.href}
-                    variant="secondary"
-                    size="sm"
-                    className="group/btn flex items-center gap-1.5"
-                  >
-                    <span>{project.ctaLabel}</span>
-                    <ArrowUpRight className="size-3.5 text-accent transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </Button>
-                </div>
+                {project.ctaLabel && project.href ? (
+                  <div className="mt-auto pt-3.5 border-t border-accent/12 flex items-center justify-between">
+                    <Button
+                      href={project.href}
+                      variant="secondary"
+                      size="sm"
+                      className="group/btn flex items-center gap-1.5"
+                    >
+                      <span>{project.ctaLabel}</span>
+                      <ArrowUpRight className="size-3.5 text-accent transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </Button>
+                  </div>
+                ) : null}
               </div>
             </Card>
           </Reveal>

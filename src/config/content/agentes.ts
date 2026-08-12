@@ -147,29 +147,57 @@ export const agentApplications: readonly AgentApplication[] = [
 export const technologiesSection = {
   eyebrow: "Ecossistema de Integrações",
   title: "Uma estrutura conectada e orquestrada pela Solint.",
-  hubLabel: "Orquestração central de IA, automações e integrações",
+  hubLabel: "Orquestrador central de IA, conexões e automações em tempo real",
 } as const;
 
 export const technologyGroups: readonly TechnologyGroup[] = [
   {
-    label: "Automação Operacional",
-    category: "automation",
-    items: ["Fluxos Inteligentes", "Regras de Negócio", "Disparos Automáticos", "Auditoria de Processos"],
+    label: "Plataformas de Comunicação",
+    category: "communication",
+    items: [
+      { name: "WhatsApp", iconKey: "whatsapp", badge: "Oficial API" },
+      { name: "Instagram", iconKey: "instagram", badge: "Direct" },
+      { name: "Telegram", iconKey: "telegram" },
+      { name: "Webchat / Site", iconKey: "webchat", badge: "Portais" },
+      { name: "Mercado Livre", iconKey: "ecommerce", badge: "Marketplaces" },
+      { name: "E-mail", iconKey: "email", badge: "Omnichannel" },
+    ],
   },
   {
-    label: "Atendimento & Vendas",
-    category: "conversations",
-    items: ["WhatsApp Oficial", "Qualificação de Leads", "Suporte 24/7", "Agendamento Automático"],
+    label: "Sistemas do Cliente",
+    category: "client_systems",
+    items: [
+      { name: "CRMs", iconKey: "crm", badge: "HubSpot · RD · Salesforce · Pipedrive" },
+      { name: "ERPs", iconKey: "erp", badge: "SAP · Totvs · Omie · Bling · ContaAzul" },
+      { name: "Sistemas Próprios", iconKey: "internal", badge: "APIs & Webhooks" },
+      { name: "Meios de Pagamento", iconKey: "finance", badge: "Stripe · Asaas · Mercado Pago" },
+    ],
   },
   {
-    label: "Dados & Inteligência",
-    category: "data",
-    items: ["Painéis Executivos", "Métricas em Tempo Real", "Histórico Unificado", "Alertas Estratégicos"],
+    label: "LLMs",
+    category: "llms",
+    items: [
+      { name: "ChatGPT", iconKey: "chatgpt", badge: "OpenAI" },
+      { name: "Grok", iconKey: "grok", badge: "xAI" },
+      { name: "Gemini", iconKey: "gemini", badge: "Google" },
+      { name: "DeepSeek", iconKey: "deepseek", badge: "R1 & V3" },
+      { name: "Claude", iconKey: "claude", badge: "Anthropic" },
+      { name: "ElevenLabs", iconKey: "elevenlabs", badge: "Voz Neural" },
+    ],
   },
   {
-    label: "Conectividade Total",
-    category: "connectivity",
-    items: ["Integração de CRMs", "Conexão com ERPs", "Portais & Sistemas Legados", "Sincronização Segura"],
+    label: "Integrações",
+    category: "integrations",
+    items: [
+      { name: "Bancos SQL", iconKey: "sql" },
+      { name: "Google Calendar", iconKey: "calendar" },
+      { name: "Google Drive", iconKey: "gdrive" },
+      { name: "Excel & Sheets", iconKey: "excel" },
+      { name: "Trello & Notion", iconKey: "trello" },
+      { name: "PostgreSQL", iconKey: "postgres" },
+      { name: "Webhooks / Make / Zapier", iconKey: "workflow" },
+      { name: "e mais de 1000 integrações", iconKey: "more_1000", isHighlight: true },
+    ],
   },
 ] as const;
 
@@ -180,37 +208,31 @@ export const projectsSection = {
   imageLabel: "imagem do projeto",
 } as const;
 
-/** Cases reais de agentes de IA desenvolvidos pela Solint. */
+/** Cards de tipos de agente de IA. */
 export const agentProjects: readonly ProjectCard[] = [
   {
-    title: "Agente SDR & Qualificação Omnichannel",
-    category: "Vendas B2B · IA Conversacional",
-    description: "Agente inteligente integrado ao WhatsApp e CRM que qualifica leads inbound em menos de 15 segundos e agenda reuniões diretamente na agenda comercial.",
-    tags: ["WhatsApp Oficial", "Qualificação 24/7", "Agendamento Automático", "Integração CRM"],
-    metric: "⚡ 3.4x mais reuniões agendadas",
-    badge: "Agente Comercial",
-    href: CONTACT_ANCHOR,
-    ctaLabel: "Conhecer agente",
-  },
-  {
-    title: "Agente de Suporte & Resolução N1",
-    category: "Atendimento 24/7 · Helpdesk",
-    description: "Triagem, consulta a bases de conhecimento internas e resolução de chamados técnicos sem intervenção humana, com handoff suave para especialistas.",
-    tags: ["Base de Conhecimento", "Atendimento Omnichannel", "Triagem Inteligente", "Resolução Autônoma"],
+    title: "Atendimento e Suporte",
+    category: "IA Conversacional · Suporte 24/7",
+    description: "Triagem imediata, resolução autônoma de chamados e dúvidas frequentes com base em conhecimento da empresa, com handoff suave para a equipe.",
+    tags: ["Atendimento 24/7", "WhatsApp & Omnichannel", "Base de Conhecimento", "Triagem Automática"],
     metric: "🔥 78% resolução no 1º contato",
-    badge: "Agente de Suporte",
-    href: CONTACT_ANCHOR,
-    ctaLabel: "Conhecer agente",
+    badge: "Atendimento & Suporte",
   },
   {
-    title: "Agente de Conciliação & Auditoria Fiscal",
-    category: "Operações · Finanças & Backoffice",
-    description: "Processamento de notas fiscais, cruzamento de comprovantes bancários e disparo de alertas preventivos de inadimplência para o time financeiro.",
-    tags: ["Auditoria Fiscal", "Leitura de Comprovantes", "Prevenção de Inadimplência", "Conexão ERP"],
-    metric: "⚡ -92% tempo de conciliação",
-    badge: "Agente de Backoffice",
-    href: CONTACT_ANCHOR,
-    ctaLabel: "Conhecer agente",
+    title: "Vendas e Pós-vendas",
+    category: "Comercial & Retenção · Funil Inteligente",
+    description: "Qualificação instantânea de leads inbound, abordagem ativa, agendamento direto na agenda dos vendedores e cadências de retenção e pós-venda.",
+    tags: ["SDR Autônomo", "Qualificação em 15s", "Agendamento Automático", "Pós-Vendas & Retenção"],
+    metric: "⚡ 3.4x mais reuniões agendadas",
+    badge: "Vendas & Pós-Vendas",
+  },
+  {
+    title: "Agentes de IA",
+    category: "Operações · Automação de Processos",
+    description: "Agentes autônomos para rotinas operacionais, conciliação de dados, integração entre CRMs/ERPs e auditoria de processos de ponta a ponta.",
+    tags: ["Operações 24/7", "Conexão ERP/CRM", "Auditoria de Processos", "Automação de Backoffice"],
+    metric: "⚡ -92% tempo operacional",
+    badge: "Agentes de IA",
   },
 ] as const;
 

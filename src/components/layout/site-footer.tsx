@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MapPin } from "lucide-react";
 import type { SocialLink } from "@/types";
 import {
-  contactLinks,
+  EmailIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  SocialLinksBar,
+  WhatsAppIcon,
+} from "@/components/ui";
+import {
   footerNavLinks,
   legalLinks,
-  socialLinks,
 } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 
@@ -68,30 +74,76 @@ export function SiteFooter() {
             height={siteConfig.logoFooter.height}
             className="mb-3 block h-[64px] sm:h-[72px] lg:h-[76px] w-auto brightness-110 -ml-1"
           />
-          <p className="m-0 mb-3.5 max-w-[340px] text-pretty text-[0.91rem]/[1.65] font-light text-steel-2">
+          <p className="m-0 mb-4 max-w-[340px] text-pretty text-[0.91rem]/[1.65] font-light text-steel-2">
             {siteConfig.shortDescription}
           </p>
-          <div className="flex gap-[18px]">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith("http") ? "_blank" : undefined}
-                rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="text-[13px]/none font-normal text-steel-2 transition-colors duration-200 hover:text-accent"
-              >
-                {social.label}
-              </a>
-            ))}
+
+          {/* Símbolos oficiais das redes e canais com a paleta Solint */}
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[11px]/none font-semibold tracking-[0.14em] text-accent/80 uppercase">
+              Canais Oficiais
+            </span>
+            <SocialLinksBar size="md" />
           </div>
         </div>
 
         <FooterColumn title="Navegação" links={footerNavLinks} />
 
-        <FooterColumn title="Contato" links={contactLinks}>
-          <span className="text-[0.92rem]/[1.5] font-normal text-steel-2">
-            {siteConfig.contact.location}
-          </span>
+        <FooterColumn title="Contato">
+          <a
+            href={siteConfig.contact.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2.5 text-[0.92rem]/[1.4] text-nav-2 transition-colors hover:text-white"
+          >
+            <span className="flex size-7 items-center justify-center rounded-lg border border-accent/20 bg-panel-2/80 text-accent transition-all group-hover:border-accent/45 group-hover:bg-accent group-hover:text-ink">
+              <WhatsAppIcon size={14} />
+            </span>
+            <span>{siteConfig.contact.phone}</span>
+          </a>
+
+          <a
+            href={`mailto:${siteConfig.contact.email}`}
+            className="group flex items-center gap-2.5 text-[0.92rem]/[1.4] text-nav-2 transition-colors hover:text-white"
+          >
+            <span className="flex size-7 items-center justify-center rounded-lg border border-accent/20 bg-panel-2/80 text-accent transition-all group-hover:border-accent/45 group-hover:bg-accent group-hover:text-ink">
+              <EmailIcon size={14} />
+            </span>
+            <span>{siteConfig.contact.email}</span>
+          </a>
+
+          <a
+            href="https://instagram.com/solint.ia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2.5 text-[0.92rem]/[1.4] text-nav-2 transition-colors hover:text-white"
+          >
+            <span className="flex size-7 items-center justify-center rounded-lg border border-accent/20 bg-panel-2/80 text-accent transition-all group-hover:border-accent/45 group-hover:bg-accent group-hover:text-ink">
+              <InstagramIcon size={14} />
+            </span>
+            <span>@solint.ia</span>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/solint-ia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2.5 text-[0.92rem]/[1.4] text-nav-2 transition-colors hover:text-white"
+          >
+            <span className="flex size-7 items-center justify-center rounded-lg border border-accent/20 bg-panel-2/80 text-accent transition-all group-hover:border-accent/45 group-hover:bg-accent group-hover:text-ink">
+              <LinkedinIcon size={14} />
+            </span>
+            <span>LinkedIn Solint</span>
+          </a>
+
+          <div className="flex items-start gap-2.5 text-[0.88rem]/[1.5] text-steel-2 pt-1">
+            <span className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-accent/20 bg-panel-2/80 text-accent mt-0.5">
+              <MapPin size={14} />
+            </span>
+            <span className="break-words">
+              Rua Bosco Scaffs, 95, Bairro Inácio Barbosa, Aracaju – SE (CEP 49041-060)
+            </span>
+          </div>
         </FooterColumn>
       </div>
 

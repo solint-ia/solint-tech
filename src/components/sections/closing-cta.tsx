@@ -1,5 +1,5 @@
 import { Section } from "@/components/layout";
-import { Button, Reveal, SectionMarker } from "@/components/ui";
+import { Button, Reveal, SectionMarker, SocialLinksBar } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 interface ClosingCtaProps {
@@ -61,8 +61,16 @@ export function ClosingCta({
           {ctaLabel}
         </Button>
         {note ? (
-          <p className="mt-6.5 mb-0 text-[13.5px]/[1.5] font-normal text-marker-3">{note}</p>
+          <p className="mt-6 mb-0 text-[13.5px]/[1.5] font-normal text-marker-3">{note}</p>
         ) : null}
+
+        {/* Canais sociais com ícones oficiais na paleta do site */}
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <span className="font-mono text-[11px]/none font-semibold tracking-[0.16em] text-accent/80 uppercase">
+            Ou conecte-se pelos nossos canais
+          </span>
+          <SocialLinksBar variant="pills" className="justify-center" />
+        </div>
       </Reveal>
     </Section>
   );

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import { Button } from "@/components/ui";
+import { Button, SocialLinksBar } from "@/components/ui";
 import { CONTACT_ANCHOR, navLinks } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -103,7 +103,7 @@ export function SiteHeader() {
         id="menu-mobile"
         className={cn(
           "overflow-hidden bg-[#040912]/97 backdrop-blur-[18px] transition-[max-height,opacity] duration-350 ease-out-solint lg:hidden",
-          isMenuOpen ? "max-h-[440px] opacity-100" : "max-h-0 opacity-0",
+          isMenuOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0",
         )}
       >
         <div className="flex flex-col gap-0.5 border-t border-accent/10 px-6 pt-2.5 pb-5.5">
@@ -124,6 +124,14 @@ export function SiteHeader() {
           >
             Fale com a Solint
           </Button>
+
+          {/* Ícones oficiais das redes no drawer mobile */}
+          <div className="mt-4 flex flex-col items-center gap-2 border-t border-accent/10 pt-3.5">
+            <span className="font-mono text-[10.5px]/none font-semibold tracking-[0.14em] text-accent/70 uppercase">
+              Canais Oficiais
+            </span>
+            <SocialLinksBar size="sm" />
+          </div>
         </div>
       </div>
     </header>
