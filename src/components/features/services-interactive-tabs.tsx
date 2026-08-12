@@ -265,10 +265,22 @@ export function ServicesInteractiveTabs({
 
   return (
     <div className="relative">
-      {/* 1. SELETOR DE ABAS MINIMALISTA (TABS HORIZONTAIS) */}
+      {/* 1. SELETOR DE ABAS INTERATIVO (RESPONSIVO COM ALTA VISIBILIDADE) */}
       <Reveal direction="left" className="mb-8 sm:mb-10">
-        <div className="flex w-full items-center overflow-x-auto no-scrollbar snap-x snap-mandatory gap-2.5 rounded-2xl border border-accent/18 bg-panel-2/75 p-1.5 shadow-[0_4px_20px_rgb(2_8_18/0.3)] backdrop-blur-md">
-          {pillars.map((pillar) => {
+        {/* Dica para mobile: Deixar claro que são 3 soluções e que uma deve ser selecionada */}
+        <div className="mb-2.5 flex items-center justify-between px-1 md:hidden">
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent flex items-center gap-1.5">
+            <span className="size-1.5 rounded-full bg-accent animate-ping" />
+            3 Soluções Disponíveis
+          </span>
+          <span className="font-mono text-[10.5px] text-steel-2">
+            Toque para alternar
+          </span>
+        </div>
+
+        {/* Layout Mobile: 3 Colunas Segmentadas 100% Visíveis Sem Scroll */}
+        <div className="grid grid-cols-3 gap-1.5 rounded-2xl border border-accent/20 bg-panel-2/85 p-1.5 shadow-[0_4px_24px_rgb(2_8_18/0.4)] backdrop-blur-md md:hidden">
+          {pillars.map((pillar, idx) => {
             const isActive = pillar.id === activeId;
 
             return (
@@ -277,7 +289,55 @@ export function ServicesInteractiveTabs({
                 type="button"
                 onClick={() => setActiveId(pillar.id)}
                 className={cn(
-                  "group relative flex flex-1 min-w-[200px] sm:min-w-0 items-center justify-center gap-2.5 rounded-xl px-4 py-3 font-display text-sm font-semibold transition-all duration-300 snap-center",
+                  "group relative flex flex-col items-center justify-center gap-1 rounded-xl py-2.5 px-1 text-center transition-all duration-300",
+                  isActive
+                    ? "border border-accent/50 bg-[linear-gradient(145deg,#0F243E,#07101E)] text-white shadow-[0_0_18px_rgb(53_217_255/0.3)]"
+                    : "border border-transparent text-steel-2 hover:bg-panel/60 hover:text-white",
+                )}
+              >
+                <div className="flex items-center gap-1">
+                  <span
+                    className={cn(
+                      "font-mono text-[9.5px] font-bold px-1 py-0.5 rounded",
+                      isActive ? "bg-accent/25 text-accent" : "bg-ink/60 text-faint",
+                    )}
+                  >
+                    0{idx + 1}
+                  </span>
+                  <span
+                    className={cn(
+                      "size-4 flex items-center justify-center rounded",
+                      isActive ? "text-accent" : "text-steel-2",
+                    )}
+                  >
+                    <PillarTabIcon id={pillar.id} />
+                  </span>
+                </div>
+                <span className="font-display text-[11px]/tight font-bold">
+                  {pillar.shortLabel}
+                </span>
+                {isActive ? (
+                  <span className="size-1 rounded-full bg-accent shadow-[0_0_6px_rgb(53_217_255/0.8)]" />
+                ) : (
+                  <span className="size-1 rounded-full bg-transparent" />
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Layout Desktop (Tablet e Computador) */}
+        <div className="hidden md:flex w-full items-center gap-2.5 rounded-2xl border border-accent/18 bg-panel-2/75 p-1.5 shadow-[0_4px_20px_rgb(2_8_18/0.3)] backdrop-blur-md">
+          {pillars.map((pillar, idx) => {
+            const isActive = pillar.id === activeId;
+
+            return (
+              <button
+                key={pillar.id}
+                type="button"
+                onClick={() => setActiveId(pillar.id)}
+                className={cn(
+                  "group relative flex flex-1 items-center justify-center gap-3 rounded-xl px-4 py-3 font-display text-sm font-semibold transition-all duration-300",
                   isActive
                     ? "border border-accent/45 bg-[linear-gradient(135deg,#0E2038,#081120)] text-white shadow-[0_0_20px_rgb(53_217_255/0.25)]"
                     : "border border-transparent text-steel-2 hover:border-accent/20 hover:bg-panel/50 hover:text-white",
@@ -294,7 +354,12 @@ export function ServicesInteractiveTabs({
                   <PillarTabIcon id={pillar.id} />
                 </span>
                 <div className="flex flex-col text-left">
-                  <span className="text-[0.88rem] leading-tight">{pillar.label}</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-mono text-[10px] font-bold text-accent">
+                      0{idx + 1}
+                    </span>
+                    <span className="text-[0.88rem] leading-tight">{pillar.label}</span>
+                  </div>
                   <span className="font-mono text-[10px] text-faint font-normal">
                     {pillar.shortLabel}
                   </span>
@@ -384,24 +449,6 @@ export function ServicesInteractiveTabs({
         <Reveal key={`preview-${currentPillar.id}`} direction="left" delay={0.12}>
           <div className="sticky top-28 flex flex-col gap-4">
             <LivePreviewPanel pillarId={currentPillar.id} />
-
-            {/* Stack Tecnológica do Pilar */}
-            <div className="rounded-2xl border border-accent/14 bg-panel/60 p-4">
-              <span className="mb-2.5 block font-mono text-[10.5px] font-semibold uppercase tracking-wider text-accent">
-                Stack Tecnológica & Padrões
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {currentPillar.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center gap-1 rounded-lg border border-accent/15 bg-ink/75 px-2.5 py-1 font-mono text-[0.72rem] text-[#C7D8EE]"
-                  >
-                    <span className="size-1 rounded-full bg-accent" />
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </Reveal>
       </div>

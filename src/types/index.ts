@@ -100,7 +100,7 @@ export interface SolutionPillar {
   description: string;
   deliverables: readonly PillarDeliverable[];
   metrics: readonly PillarMetric[];
-  techStack: readonly string[];
+  techStack?: readonly string[];
 }
 
 /** Serviço do bento grid de Soluções. `span` é a largura em colunas (de 12). */
