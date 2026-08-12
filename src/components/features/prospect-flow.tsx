@@ -22,7 +22,7 @@ interface ProspectFlowProps {
   highlightContent?: React.ReactNode;
 }
 
-/** Ícones temáticos para cada uma das 6 etapas da esteira. */
+/** Ícones temáticos para cada uma das 6 etapas da esteira de pipeline. */
 function StepIcon({ index }: { index: number }) {
   const iconClass = "size-4 sm:size-4.5 text-accent shrink-0";
   switch (index) {
@@ -46,8 +46,8 @@ function StepIcon({ index }: { index: number }) {
 /**
  * Esteira de Pipeline Contínua (Opção 1) — Sem Cards fechados.
  *
- * As etapas fluem livremente integradas a uma espinha luminosa de dados contínua,
- * com nós de circuito, feixes de luz interconectados e tipografia fluida de alto contraste.
+ * Estrutura limpa, direta e tecnológica com espinha luminosa contínua,
+ * nós iluminados e tipografia de alto impacto integrada ao canvas escuro.
  */
 export function ProspectFlow({
   steps,
@@ -55,11 +55,11 @@ export function ProspectFlow({
   highlightContent,
 }: ProspectFlowProps) {
   return (
-    <div className="relative mx-auto max-w-[1040px] px-2 sm:px-4">
+    <div className="relative mx-auto max-w-[1040px] px-3 sm:px-6">
       {/* 1. Espinha luminosa contínua com pulso de fótons descendo */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-4 bottom-8 left-6 sm:left-8 w-px bg-[linear-gradient(180deg,rgb(53_217_255_/_0)_0%,rgb(53_217_255_/_0.55)_10%,rgb(22_140_255_/_0.55)_90%,rgb(53_217_255_/_0)_100%)] lg:left-1/2 lg:-translate-x-1/2"
+        className="pointer-events-none absolute top-4 bottom-8 left-6 sm:left-8 w-px bg-[linear-gradient(180deg,rgb(53_217_255_/_0)_0%,rgb(53_217_255_/_0.55)_7%,rgb(22_140_255_/_0.55)_93%,rgb(53_217_255_/_0)_100%)] lg:left-1/2 lg:-translate-x-1/2"
       >
         <span
           className="animate-travel-y absolute -left-[3px] size-[7px] rounded-full bg-accent shadow-[0_0_16px_5px_rgb(53_217_255_/_0.85)]"
@@ -164,7 +164,12 @@ export function ProspectFlow({
 
                 {/* Conteúdo Extra em Destaque (Perguntas da IA) */}
                 {isHighlighted && highlightContent ? (
-                  <div className="mt-4 w-full max-w-[460px]">
+                  <div
+                    className={cn(
+                      "mt-4 w-full max-w-[460px]",
+                      isLeft ? "lg:flex lg:justify-end" : "",
+                    )}
+                  >
                     {highlightContent}
                   </div>
                 ) : null}
