@@ -35,7 +35,7 @@ export function AgentesHero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1}>
+        <Reveal direction="left" delay={0.1}>
           <AgentFeed />
         </Reveal>
       </div>

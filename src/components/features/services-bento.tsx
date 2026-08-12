@@ -32,9 +32,18 @@ function CardMarker() {
   );
 }
 
-function ServiceCard({ service }: { service: DevelopmentService }) {
+function ServiceCard({
+  service,
+  delay = 0,
+}: {
+  service: DevelopmentService;
+  delay?: number;
+}) {
   return (
-    <article
+    <Reveal
+      as="article"
+      direction="left"
+      delay={delay}
       className={cn(
         "group/card relative col-span-full flex min-h-[175px] flex-col justify-between overflow-hidden rounded-2xl border border-accent/14 bg-[linear-gradient(180deg,rgb(14_19_28/0.78),rgb(9_13_18/0.65))] p-6",
         "transition-all duration-350 ease-out-solint",
@@ -75,17 +84,24 @@ function ServiceCard({ service }: { service: DevelopmentService }) {
           ))}
         </div>
       ) : null}
-    </article>
+    </Reveal>
   );
 }
 
 function HighlightCard({
   highlight,
+  delay = 0,
 }: {
   highlight: NonNullable<DevelopmentServiceGroup["highlight"]>;
+  delay?: number;
 }) {
   return (
-    <article className="group/card relative col-span-full flex flex-col justify-between gap-4 overflow-hidden rounded-3xl border-2 border-accent/35 bg-[linear-gradient(150deg,rgb(18_28_44/0.95),rgb(10_15_24/0.88))] p-[clamp(28px,3vw,38px)] shadow-[0_0_50px_rgb(22_140_255/0.16)] backdrop-blur-xl transition-all duration-350 ease-out-solint group-hover/grid:opacity-50 hover:!opacity-100 hover:-translate-y-1.5 hover:border-accent/60 lg:col-span-6 lg:row-span-2">
+    <Reveal
+      as="article"
+      direction="left"
+      delay={delay}
+      className="group/card relative col-span-full flex flex-col justify-between gap-4 overflow-hidden rounded-3xl border-2 border-accent/35 bg-[linear-gradient(150deg,rgb(18_28_44/0.95),rgb(10_15_24/0.88))] p-[clamp(28px,3vw,38px)] shadow-[0_0_50px_rgb(22_140_255/0.16)] backdrop-blur-xl transition-all duration-350 ease-out-solint group-hover/grid:opacity-50 hover:!opacity-100 hover:-translate-y-1.5 hover:border-accent/60 lg:col-span-6 lg:row-span-2"
+    >
       <CardEdge />
       <div
         aria-hidden="true"
@@ -130,7 +146,7 @@ function HighlightCard({
           </span>
         ))}
       </div>
-    </article>
+    </Reveal>
   );
 }
 
@@ -172,9 +188,15 @@ export function ServicesBento({ groups }: { groups: readonly DevelopmentServiceG
           </Reveal>
 
           <div className="group/grid grid grid-cols-1 gap-4 lg:grid-cols-12 lg:[grid-auto-rows:minmax(168px,auto)]">
-            {group.highlight ? <HighlightCard highlight={group.highlight} /> : null}
-            {group.services.map((service) => (
-              <ServiceCard key={service.title} service={service} />
+            {group.highlight ? (
+              <HighlightCard highlight={group.highlight} delay={0.06} />
+            ) : null}
+            {group.services.map((service, sIndex) => (
+              <ServiceCard
+                key={service.title}
+                service={service}
+                delay={0.06 + (group.highlight ? sIndex + 1 : sIndex) * 0.06}
+              />
             ))}
           </div>
         </div>

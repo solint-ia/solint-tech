@@ -2,6 +2,7 @@
 
 import { Fragment, useState } from "react";
 import { ChevronDown, ChevronRight, Sparkles } from "lucide-react";
+import { Reveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import type { AgentApplication } from "@/types";
 
@@ -12,18 +13,19 @@ interface ApplicationCardProps {
   onToggle: () => void;
 }
 
-function ApplicationCard({ app, isOpen, onToggle }: ApplicationCardProps) {
+function ApplicationCard({ app, index, isOpen, onToggle }: ApplicationCardProps) {
   const Icon = app.icon;
 
   return (
-    <div
-      className={cn(
-        "group relative overflow-hidden rounded-2xl border transition-all duration-300 backdrop-blur-xl",
-        isOpen
-          ? "border-accent/45 bg-[linear-gradient(150deg,rgb(14_26_44/0.95),rgb(8_14_22/0.92))] shadow-[0_0_35px_rgb(22_140_255/0.14)]"
-          : "border-accent/16 bg-panel/75 shadow-[0_4px_16px_rgb(2_8_18/0.3)] hover:border-accent/35 hover:bg-[#0D1E34]/80",
-      )}
-    >
+    <Reveal direction="left" delay={index * 0.07} className="w-full">
+      <div
+        className={cn(
+          "group relative overflow-hidden rounded-2xl border transition-all duration-300 backdrop-blur-xl",
+          isOpen
+            ? "border-accent/45 bg-[linear-gradient(150deg,rgb(14_26_44/0.95),rgb(8_14_22/0.92))] shadow-[0_0_35px_rgb(22_140_255/0.14)]"
+            : "border-accent/16 bg-panel/75 shadow-[0_4px_16px_rgb(2_8_18/0.3)] hover:border-accent/35 hover:bg-[#0D1E34]/80",
+        )}
+      >
       {/* Botão de Cabeçalho / Trigger */}
       <button
         type="button"
@@ -112,7 +114,8 @@ function ApplicationCard({ app, isOpen, onToggle }: ApplicationCardProps) {
           </div>
         </div>
       ) : null}
-    </div>
+      </div>
+    </Reveal>
   );
 }
 

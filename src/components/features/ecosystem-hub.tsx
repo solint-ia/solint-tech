@@ -9,9 +9,9 @@ import {
   Sparkles,
   Workflow,
 } from "lucide-react";
+import { Reveal } from "@/components/ui";
 import { HUB_NODE_ATTR, SPOKE_NODE_ATTR, useHubLines } from "@/hooks";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
 import type { TechnologyGroup } from "@/types";
 
 function CategoryBadgeIcon({ category }: { category?: string }) {
@@ -54,9 +54,11 @@ export function EcosystemHub({
 
       <div className="relative z-1 mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-4 sm:grid-cols-2 lg:grid-cols-[1.05fr_1.35fr_1.05fr] lg:gap-x-14 lg:gap-y-12">
         {/* HUB CENTRAL ORQUESTRADOR COM ANÉIS ORBITAIS */}
-        <div
-          {...{ [HUB_NODE_ATTR]: "" }}
+        <Reveal
+          direction="left"
+          delay={0.04}
           className="relative overflow-hidden rounded-3xl border-2 border-amber/40 bg-[linear-gradient(150deg,rgb(20_26_38/0.95),rgb(10_13_18/0.9))] p-6 text-center shadow-[0_0_60px_rgb(255_182_92/0.18)] backdrop-blur-xl sm:col-span-2 lg:col-span-1 lg:col-start-2 lg:row-start-2"
+          {...{ [HUB_NODE_ATTR]: "" }}
         >
           {/* Anéis concêntricos decorativos */}
           <div
@@ -85,7 +87,7 @@ export function EcosystemHub({
               {hubLabel}
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Barramento Conector Luminoso para Mobile (liga o Hub aos módulos) */}
         <div
@@ -98,39 +100,42 @@ export function EcosystemHub({
 
         {/* 4 SATÉLITES DE TECNOLOGIAS E INTEGRAÇÕES */}
         {groups.map((group, index) => (
-          <div
+          <Reveal
             key={group.label}
-            {...{ [SPOKE_NODE_ATTR]: "" }}
-            className={cn(
-              "group relative rounded-2xl border border-accent/18 bg-panel/75 p-5 shadow-[0_6px_20px_rgb(2_8_18/0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:bg-[#0E2038]/85 hover:shadow-[0_10px_30px_rgb(22_140_255/0.12)]",
-              spokePlacement[index],
-            )}
+            direction="left"
+            delay={0.08 + index * 0.08}
+            className={spokePlacement[index]}
           >
-            {/* Ponto conector luminoso no topo do card no mobile */}
-            <div className="absolute -top-1.5 left-1/2 size-2.5 -translate-x-1/2 rounded-full border border-ink bg-accent shadow-[0_0_8px_rgb(53_217_255/0.8)] lg:hidden" />
+            <div
+              {...{ [SPOKE_NODE_ATTR]: "" }}
+              className="group relative rounded-2xl border border-accent/18 bg-panel/75 p-5 shadow-[0_6px_20px_rgb(2_8_18/0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:bg-[#0E2038]/85 hover:shadow-[0_10px_30px_rgb(22_140_255/0.12)]"
+            >
+              {/* Ponto conector luminoso no topo do card no mobile */}
+              <div className="absolute -top-1.5 left-1/2 size-2.5 -translate-x-1/2 rounded-full border border-ink bg-accent shadow-[0_0_8px_rgb(53_217_255/0.8)] lg:hidden" />
 
-            <div className="mb-3.5 flex items-center justify-between gap-2 border-b border-accent/10 pb-2.5">
-              <div className="flex items-center gap-2">
-                <CategoryBadgeIcon category={group.category} />
-                <span className="font-display text-[0.88rem] font-semibold text-white">
-                  {group.label}
-                </span>
+              <div className="mb-3.5 flex items-center justify-between gap-2 border-b border-accent/10 pb-2.5">
+                <div className="flex items-center gap-2">
+                  <CategoryBadgeIcon category={group.category} />
+                  <span className="font-display text-[0.88rem] font-semibold text-white">
+                    {group.label}
+                  </span>
+                </div>
+                <span className="size-1.5 rounded-full bg-accent shadow-[0_0_8px_rgb(53_217_255/0.8)]" />
               </div>
-              <span className="size-1.5 rounded-full bg-accent shadow-[0_0_8px_rgb(53_217_255/0.8)]" />
-            </div>
 
-            <div className="flex flex-wrap gap-1.5">
-              {group.items.map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-accent/15 bg-ink/70 px-2.5 py-1 font-mono text-[0.72rem] text-steel-2 transition-colors hover:border-accent/35 hover:text-white"
-                >
-                  <span className="size-1 rounded-full bg-accent/60" />
-                  {item}
-                </span>
-              ))}
+              <div className="flex flex-wrap gap-1.5">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-accent/15 bg-ink/70 px-2.5 py-1 font-mono text-[0.72rem] text-steel-2 transition-colors hover:border-accent/35 hover:text-white"
+                  >
+                    <span className="size-1 rounded-full bg-accent/60" />
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </div>

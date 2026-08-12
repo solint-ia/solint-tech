@@ -35,7 +35,7 @@ export function ProspectHero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1}>
+        <Reveal direction="left" delay={0.1}>
           <HeroPipeline />
         </Reveal>
       </div>

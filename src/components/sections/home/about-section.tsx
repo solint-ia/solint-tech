@@ -62,29 +62,33 @@ export function AboutSection() {
             {aboutFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div
+                <Reveal
                   key={feature.title}
-                  className="group relative flex flex-col justify-between rounded-2xl border border-accent/18 bg-panel/80 p-5 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_14px_34px_rgb(22_140_255/0.14)]"
+                  direction="left"
+                  delay={0.08 + index * 0.12}
+                  className="h-full"
                 >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex size-9 items-center justify-center rounded-xl bg-accent/12 text-accent shadow-[0_0_12px_rgb(53_217_255/0.25)] transition-colors group-hover:bg-accent group-hover:text-ink">
-                        <Icon className="size-4.5" />
+                  <div className="group relative flex h-full flex-col justify-between rounded-2xl border border-accent/18 bg-panel/80 p-5 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_14px_34px_rgb(22_140_255/0.14)]">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex size-9 items-center justify-center rounded-xl bg-accent/12 text-accent shadow-[0_0_12px_rgb(53_217_255/0.25)] transition-colors group-hover:bg-accent group-hover:text-ink">
+                          <Icon className="size-4.5" />
+                        </div>
+                        <span className="font-mono text-[0.72rem] font-bold tracking-wider text-accent/80">
+                          {stepLabel(index)}
+                        </span>
                       </div>
-                      <span className="font-mono text-[0.72rem] font-bold tracking-wider text-accent/80">
-                        {stepLabel(index)}
-                      </span>
+
+                      <h3 className="mt-4 font-display text-[0.94rem]/[1.3] font-semibold text-white">
+                        {feature.title}
+                      </h3>
+
+                      <p className="mt-1.5 text-[0.8rem]/[1.55] font-light text-muted">
+                        {feature.description}
+                      </p>
                     </div>
-
-                    <h3 className="mt-4 font-display text-[0.94rem]/[1.3] font-semibold text-white">
-                      {feature.title}
-                    </h3>
-
-                    <p className="mt-1.5 text-[0.8rem]/[1.55] font-light text-muted">
-                      {feature.description}
-                    </p>
                   </div>
-                </div>
+                </Reveal>
               );
             })}
           </div>

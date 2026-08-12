@@ -233,7 +233,7 @@ export function SolucoesHero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1}>
+        <Reveal direction="left" delay={0.1}>
           <ProductMockup />
         </Reveal>
       </div>

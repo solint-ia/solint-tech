@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, FlowNode, IconBox } from "@/components/ui";
+import { Card, FlowNode, IconBox, Reveal } from "@/components/ui";
 import { FLOW_NODE_ATTR, useConnectorPath } from "@/hooks";
 import { cn, stepLabel } from "@/lib/utils";
 import type { ProcessStep } from "@/types";
@@ -105,35 +105,37 @@ export function ProcessTimeline({ steps }: { steps: readonly ProcessStep[] }) {
               {/* Nó desktop (acima do card na metade de cima) */}
               {nodeBelow ? null : node}
 
-              <Card
-                variant={isAmber ? "amber" : "clipped"}
-                interactive
-                className="w-full px-5.5 pt-6 pb-6.5 sm:px-6 sm:pt-6.5 sm:pb-7"
-              >
-                <div className="mb-3.5 flex items-center gap-3">
-                  {step.icon ? (
-                    <IconBox
-                      icon={step.icon}
-                      tone={isAmber ? "amber" : "cyan"}
-                      className="bg-panel-4/80"
-                    />
-                  ) : null}
-                  <span
-                    className={cn(
-                      "text-xs/none font-medium tracking-[0.14em]",
-                      isAmber ? "text-amber" : "text-faint-2",
-                    )}
-                  >
-                    {stepLabel(index)}
-                  </span>
-                </div>
-                <h3 className="m-0 mb-2 font-display text-[1.02rem]/[1.3] font-semibold tracking-[-0.02em] text-fg-bright sm:text-[1.06rem]">
-                  {step.title}
-                </h3>
-                <p className="m-0 text-pretty text-[0.88rem]/[1.65] font-light text-muted-2 sm:text-[0.9rem]">
-                  {step.description}
-                </p>
-              </Card>
+              <Reveal direction="left" delay={0.05} className="w-full">
+                <Card
+                  variant={isAmber ? "amber" : "clipped"}
+                  interactive
+                  className="w-full px-5.5 pt-6 pb-6.5 sm:px-6 sm:pt-6.5 sm:pb-7"
+                >
+                  <div className="mb-3.5 flex items-center gap-3">
+                    {step.icon ? (
+                      <IconBox
+                        icon={step.icon}
+                        tone={isAmber ? "amber" : "cyan"}
+                        className="bg-panel-4/80"
+                      />
+                    ) : null}
+                    <span
+                      className={cn(
+                        "text-xs/none font-medium tracking-[0.14em]",
+                        isAmber ? "text-amber" : "text-faint-2",
+                      )}
+                    >
+                      {stepLabel(index)}
+                    </span>
+                  </div>
+                  <h3 className="m-0 mb-2 font-display text-[1.02rem]/[1.3] font-semibold tracking-[-0.02em] text-fg-bright sm:text-[1.06rem]">
+                    {step.title}
+                  </h3>
+                  <p className="m-0 text-pretty text-[0.88rem]/[1.65] font-light text-muted-2 sm:text-[0.9rem]">
+                    {step.description}
+                  </p>
+                </Card>
+              </Reveal>
 
               {/* Nó desktop (abaixo do card na metade de baixo) */}
               {nodeBelow ? node : null}

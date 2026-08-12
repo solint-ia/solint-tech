@@ -44,6 +44,8 @@ export function ProspectFlow({
         return (
           <Reveal
             key={step.title}
+            direction="left"
+            delay={0.06}
             className="relative grid grid-cols-1 items-center gap-0 py-[clamp(12px,1.8vw,22px)] pl-10.5 lg:grid-cols-2 lg:gap-x-[clamp(40px,7vw,104px)] lg:pl-0"
           >
             {/* Arco ligando o card à espinha central */}

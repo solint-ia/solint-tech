@@ -145,6 +145,8 @@ export function DevelopmentSpiral({ steps, closing, offsets }: DevelopmentSpiral
               <div className="w-[clamp(20px,3vw,38px)] flex-none" />
 
               <Reveal
+                direction="left"
+                delay={0.06}
                 className={cn(
                   "max-w-[680px] flex-1 rounded-2xl border bg-[linear-gradient(180deg,rgb(16_22_34/0.9),rgb(9_13_20/0.8))] p-6.5 transition-all duration-400 backdrop-blur-md",
                   isActive
@@ -240,7 +242,11 @@ export function DevelopmentSpiral({ steps, closing, offsets }: DevelopmentSpiral
         </div>
         <div className="w-[clamp(20px,3vw,38px)] flex-none" />
 
-        <Reveal className="relative flex-1 overflow-hidden rounded-[20px] border border-accent/30 bg-[linear-gradient(140deg,rgb(16_24_38/0.88),rgb(9_12_17/0.72))] p-[clamp(28px,3.4vw,42px)]">
+        <Reveal
+          direction="left"
+          delay={0.06}
+          className="relative flex-1 overflow-hidden rounded-[20px] border border-accent/30 bg-[linear-gradient(140deg,rgb(16_24_38/0.88),rgb(9_12_17/0.72))] p-[clamp(28px,3.4vw,42px)]"
+        >
           <div
             aria-hidden="true"
             className="animate-glowpan pointer-events-none absolute inset-0 bg-[radial-gradient(640px_280px_at_14%_0%,rgb(53_217_255/0.16),transparent_72%)]"

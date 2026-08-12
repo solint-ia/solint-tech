@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ArrowUpRight, Layers, Sparkles } from "lucide-react";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, Reveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import type { ProjectCard } from "@/types";
 
@@ -53,9 +53,11 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
         onScroll={handleScroll}
         className="group/grid flex overflow-x-auto snap-x snap-mandatory pt-3 pb-5 gap-4.5 -mx-6 px-6 no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:mx-0 md:px-0 md:pt-0 md:pb-0"
       >
-        {projects.map((project) => (
-          <div
+        {projects.map((project, index) => (
+          <Reveal
             key={project.title}
+            direction="left"
+            delay={index * 0.08}
             className="flex w-[85vw] max-w-[340px] shrink-0 snap-center md:w-auto md:max-w-none md:shrink md:snap-align-none"
           >
             <Card
@@ -157,7 +159,7 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
                 </div>
               </div>
             </Card>
-          </div>
+          </Reveal>
         ))}
       </div>
 

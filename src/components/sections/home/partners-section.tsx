@@ -23,24 +23,28 @@ export function PartnersSection() {
       />
 
       {/* Grid de métricas de impacto */}
-      <Reveal className="mb-12 grid grid-cols-2 gap-3.5 lg:grid-cols-4">
-        {partnersSection.metrics.map((metric) => (
-          <div
+      <div className="mb-12 grid grid-cols-2 gap-3.5 lg:grid-cols-4">
+        {partnersSection.metrics.map((metric, index) => (
+          <Reveal
             key={metric.label}
-            className="group rounded-2xl border border-accent/18 bg-panel/75 p-5.5 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_32px_rgb(22_140_255/0.14)]"
+            direction="left"
+            delay={index * 0.08}
+            className="h-full"
           >
-            <span className="font-display text-[clamp(1.85rem,2.8vw,2.45rem)]/[1.1] font-bold tracking-tight bg-[linear-gradient(100deg,#168CFF,#35D9FF)] bg-clip-text text-transparent">
-              {metric.value}
-            </span>
-            <h3 className="mt-2.5 font-display text-[0.94rem]/[1.3] font-semibold text-white">
-              {metric.label}
-            </h3>
-            <p className="mt-1 text-[0.8rem]/[1.5] font-light text-muted">
-              {metric.detail}
-            </p>
-          </div>
+            <div className="group h-full rounded-2xl border border-accent/18 bg-panel/75 p-5.5 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_32px_rgb(22_140_255/0.14)]">
+              <span className="font-display text-[clamp(1.85rem,2.8vw,2.45rem)]/[1.1] font-bold tracking-tight bg-[linear-gradient(100deg,#168CFF,#35D9FF)] bg-clip-text text-transparent">
+                {metric.value}
+              </span>
+              <h3 className="mt-2.5 font-display text-[0.94rem]/[1.3] font-semibold text-white">
+                {metric.label}
+              </h3>
+              <p className="mt-1 text-[0.8rem]/[1.5] font-light text-muted">
+                {metric.detail}
+              </p>
+            </div>
+          </Reveal>
         ))}
-      </Reveal>
+      </div>
 
       {/* Esteira contínua de marcas parceiras com fade nas extremidades */}
       <Reveal delay={0.1} className="relative overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
