@@ -141,6 +141,7 @@ export interface ProjectCard {
   title: string;
   category?: string;
   description?: string;
+  image?: string;
   fields?: { label: string; value: string }[];
   tags?: readonly string[];
   metric?: string;

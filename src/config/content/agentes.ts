@@ -214,25 +214,22 @@ export const agentProjects: readonly ProjectCard[] = [
     title: "Atendimento e Suporte",
     category: "IA Conversacional · Suporte 24/7",
     description: "Triagem imediata, resolução autônoma de chamados e dúvidas frequentes com base em conhecimento da empresa, com handoff suave para a equipe.",
-    tags: ["Atendimento 24/7", "WhatsApp & Omnichannel", "Base de Conhecimento", "Triagem Automática"],
-    metric: "🔥 78% resolução no 1º contato",
     badge: "Atendimento & Suporte",
+    image: "/media/agente-suporte.png",
   },
   {
     title: "Vendas e Pós-vendas",
     category: "Comercial & Retenção · Funil Inteligente",
     description: "Qualificação instantânea de leads inbound, abordagem ativa, agendamento direto na agenda dos vendedores e cadências de retenção e pós-venda.",
-    tags: ["SDR Autônomo", "Qualificação em 15s", "Agendamento Automático", "Pós-Vendas & Retenção"],
-    metric: "⚡ 3.4x mais reuniões agendadas",
     badge: "Vendas & Pós-Vendas",
+    image: "/media/agente-vendas.png",
   },
   {
     title: "Agentes de IA",
     category: "Operações · Automação de Processos",
     description: "Agentes autônomos para rotinas operacionais, conciliação de dados, integração entre CRMs/ERPs e auditoria de processos de ponta a ponta.",
-    tags: ["Operações 24/7", "Conexão ERP/CRM", "Auditoria de Processos", "Automação de Backoffice"],
-    metric: "⚡ -92% tempo operacional",
     badge: "Agentes de IA",
+    image: "/media/agente-operacoes.png",
   },
 ] as const;
 

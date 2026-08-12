@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
-import { ArrowUpRight, Layers, Sparkles } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Button, Card, Reveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import type { ProjectCard } from "@/types";
@@ -65,46 +66,45 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
               interactive
               className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-accent/18 bg-panel/85 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 group-hover/grid:opacity-60 hover:!opacity-100 hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_16px_40px_rgb(22_140_255/0.16)]"
             >
-              {/* Header visual com preview de software */}
+              {/* Header visual com preview de software ou imagem */}
               <div
-                className="relative flex flex-col justify-between overflow-hidden bg-[linear-gradient(145deg,#070D18,#0F1F38)] p-4 text-white"
+                className="relative flex flex-col justify-between overflow-hidden bg-[#060C16] p-4 text-white"
                 style={{ height: imageHeight }}
               >
-                {/* Glow sutil */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-6 -top-6 size-32 rounded-full bg-accent/20 blur-2xl"
-                />
+                {project.image ? (
+                  <>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 ease-out-solint group-hover:scale-105"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-panel/95 via-transparent to-black/50" />
+                  </>
+                ) : (
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-6 -top-6 size-32 rounded-full bg-accent/20 blur-2xl"
+                  />
+                )}
 
-                <div className="relative flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="size-2 rounded-full bg-rose-500/70" />
-                    <span className="size-2 rounded-full bg-amber-400/70" />
-                    <span className="size-2 rounded-full bg-emerald-400/70" />
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 rounded-full bg-black/40 px-2 py-1 backdrop-blur-md">
+                    <span className="size-2 rounded-full bg-rose-500/80" />
+                    <span className="size-2 rounded-full bg-amber-400/80" />
+                    <span className="size-2 rounded-full bg-emerald-400/80" />
                   </div>
 
                   {project.badge ? (
-                    <span className="inline-flex items-center gap-1 rounded-full border border-accent/25 bg-ink/75 px-2.5 py-0.5 font-mono text-[0.66rem] font-semibold text-accent shadow-sm">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-black/60 px-2.5 py-0.5 font-mono text-[0.66rem] font-semibold text-accent shadow-sm backdrop-blur-md">
                       <Sparkles className="size-2.5" />
                       {project.badge}
                     </span>
                   ) : null}
                 </div>
 
-                {/* Mini mockup interior */}
-                <div className="relative rounded-xl border border-white/10 bg-white/6 p-3 backdrop-blur-md">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
-                      <div className="flex size-6 items-center justify-center rounded-lg bg-accent/20 text-accent">
-                        <Layers className="size-3.5" />
-                      </div>
-                      <span className="font-display text-[0.82rem] font-semibold text-white">
-                        {project.title}
-                      </span>
-                    </div>
-                    <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  </div>
-                </div>
+                <div className="relative z-10" />
               </div>
 
               {/* Conteúdo do Card */}
