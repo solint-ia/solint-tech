@@ -73,14 +73,28 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
               >
                 {project.image ? (
                   <>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 ease-out-solint group-hover:scale-105"
-                    />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-panel/95 via-transparent to-black/50" />
+                    {project.imageObjectFit === "contain" ? (
+                      <div className="absolute inset-0 flex items-center justify-center p-6 bg-[radial-gradient(ellipse_at_center,rgb(18_28_44/0.7),rgb(6_12_22/0.95))]">
+                        <div className="relative size-full max-h-24 max-w-[220px]">
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-contain transition-transform duration-700 ease-out-solint group-hover:scale-108"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 ease-out-solint group-hover:scale-105"
+                      />
+                    )}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-panel/95 via-transparent to-black/40" />
                   </>
                 ) : (
                   <div
@@ -150,6 +164,8 @@ export function ProjectGrid({ projects, imageHeight = 170 }: ProjectGridProps) {
                   <div className="mt-auto pt-3.5 border-t border-accent/12 flex items-center justify-between">
                     <Button
                       href={project.href}
+                      target={project.href.startsWith("http") ? "_blank" : undefined}
+                      rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       variant="secondary"
                       size="sm"
                       className="group/btn flex items-center gap-1.5"

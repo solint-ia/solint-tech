@@ -142,6 +142,7 @@ export interface ProjectCard {
   category?: string;
   description?: string;
   image?: string;
+  imageObjectFit?: "cover" | "contain";
   fields?: { label: string; value: string }[];
   tags?: readonly string[];
   metric?: string;
