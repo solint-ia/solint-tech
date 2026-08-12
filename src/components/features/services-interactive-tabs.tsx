@@ -14,7 +14,6 @@ import {
   Radio,
   Server,
   ShieldCheck,
-  Sparkles,
   Zap,
 } from "lucide-react";
 import { Button, Reveal } from "@/components/ui";
@@ -374,65 +373,43 @@ export function ServicesInteractiveTabs({
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-start">
         {/* COLUNA ESQUERDA: Proposta de Valor e Entregáveis Consolidados */}
         <Reveal key={`content-${currentPillar.id}`} direction="left" delay={0.05}>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
             {/* Header do Pilar */}
             <div>
-              <div className="mb-2 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-[0.7rem] font-semibold text-accent shadow-[0_0_12px_rgb(53_217_255/0.2)] uppercase tracking-wider">
-                  <Sparkles className="size-3" />
-                  {currentPillar.badge}
-                </span>
-                <span className="font-mono text-xs text-steel-2">— {currentPillar.shortLabel}</span>
-              </div>
-
-              <h3 className="m-0 font-display text-[clamp(1.4rem,2.4vw,1.85rem)]/[1.2] font-bold text-white tracking-[-0.02em]">
+              <h3 className="m-0 font-display text-[clamp(1.25rem,2.2vw,1.65rem)]/[1.22] font-bold text-white tracking-[-0.02em]">
                 {currentPillar.subtitle}
               </h3>
 
-              <p className="mt-3 text-pretty text-[0.94rem]/[1.65] font-light text-muted">
+              <p className="mt-2.5 text-pretty text-[0.92rem]/[1.6] font-light text-muted">
                 {currentPillar.description}
               </p>
             </div>
 
             {/* 3 Entregáveis Estratégicos Objetivos */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5">
               {currentPillar.deliverables.map((item, idx) => (
                 <div
                   key={item.title}
-                  className="group relative rounded-xl border border-accent/15 bg-panel/75 p-4 shadow-[0_4px_16px_rgb(2_8_18/0.3)] backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-[#0D192C]/85 hover:-translate-y-0.5"
+                  className="group relative rounded-xl border border-accent/15 bg-panel/75 p-3.5 shadow-[0_4px_16px_rgb(2_8_18/0.3)] backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-[#0D192C]/85 hover:-translate-y-0.5"
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="flex size-6 shrink-0 items-center justify-center rounded-lg bg-accent/15 font-mono text-[11px] font-bold text-accent">
+                    <span className="flex size-5.5 shrink-0 items-center justify-center rounded-md bg-accent/15 font-mono text-[10.5px] font-bold text-accent">
                       0{idx + 1}
                     </span>
-                    <h4 className="m-0 font-display text-[0.98rem] font-bold text-white group-hover:text-accent transition-colors">
+                    <h4 className="m-0 font-display text-[0.95rem] font-bold text-white group-hover:text-accent transition-colors">
                       {item.title}
                     </h4>
                   </div>
 
-                  <p className="mt-2 m-0 text-pretty text-[0.87rem]/[1.55] font-light text-muted">
+                  <p className="mt-1.5 m-0 text-pretty text-[0.85rem]/[1.5] font-light text-muted">
                     {item.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Métricas de Impacto em Linha */}
-            <div className="grid grid-cols-3 gap-2.5 rounded-2xl border border-accent/18 bg-panel-2/60 p-3.5">
-              {currentPillar.metrics.map((m) => (
-                <div key={m.label} className="text-center">
-                  <span className="block font-mono text-[10px] text-steel-2 uppercase">
-                    {m.label}
-                  </span>
-                  <span className="font-display text-sm sm:text-base font-bold text-white">
-                    {m.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-
             {/* Botão de Contato com Contexto */}
-            <div className="pt-2">
+            <div className="pt-1">
               <Button
                 href={`${CONTACT_ANCHOR}?text=${encodeURIComponent(`Olá! Gostaria de conversar sobre as soluções de ${currentPillar.label} da Solint.`)}`}
                 className="w-full sm:w-auto"
