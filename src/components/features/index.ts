@@ -10,5 +10,6 @@ export { ProjectGrid } from "./project-grid";
 export { ProspectFlow } from "./prospect-flow";
 export { ServiceCarousel } from "./service-carousel";
 export { ServicesBento } from "./services-bento";
+export { ServicesInteractiveTabs } from "./services-interactive-tabs";
 export { TerminalLine } from "./terminal-line";
 export { TypedHeading } from "./typed-heading";

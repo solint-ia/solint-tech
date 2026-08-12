@@ -1,19 +1,19 @@
 import { Section } from "@/components/layout";
-import { ServicesBento } from "@/components/features";
+import { ServicesInteractiveTabs } from "@/components/features";
 import { SectionHeading } from "@/components/ui";
-import { serviceGroups, servicesSection } from "@/config/content/solucoes";
+import { servicesSection, solutionPillars } from "@/config/content/solucoes";
 
-/** Seção "Serviços": bento grid assimétrico dos três grupos de entrega. */
+/** Seção de Soluções com abas interativas modernas, consolidação em 3 pilares e live preview. */
 export function ServicesSection() {
   return (
-    <Section>
+    <Section id="servicos">
       <SectionHeading
         eyebrow={servicesSection.eyebrow}
         title={servicesSection.title}
         description={servicesSection.description}
-        className="mb-[clamp(44px,6vw,68px)]"
+        className="mb-[clamp(36px,5vw,56px)]"
       />
-      <ServicesBento groups={serviceGroups} />
+      <ServicesInteractiveTabs pillars={solutionPillars} />
     </Section>
   );
 }

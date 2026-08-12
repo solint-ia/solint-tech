@@ -79,6 +79,30 @@ export interface TechnologyGroup {
   items: readonly (string | TechnologyItem)[];
 }
 
+export interface PillarDeliverable {
+  title: string;
+  description: string;
+  detail?: string;
+  tags: readonly string[];
+}
+
+export interface PillarMetric {
+  label: string;
+  value: string;
+}
+
+export interface SolutionPillar {
+  id: string;
+  label: string;
+  shortLabel: string;
+  badge: string;
+  subtitle: string;
+  description: string;
+  deliverables: readonly PillarDeliverable[];
+  metrics: readonly PillarMetric[];
+  techStack: readonly string[];
+}
+
 /** Serviço do bento grid de Soluções. `span` é a largura em colunas (de 12). */
 export interface DevelopmentService {
   title: string;

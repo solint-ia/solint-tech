@@ -4,6 +4,7 @@ import type {
   DevelopmentServiceGroup,
   ProcessStep,
   ProjectCard,
+  SolutionPillar,
 } from "@/types";
 
 export const solucoesHero = {
@@ -38,106 +39,121 @@ export const solucoesHero = {
 } as const;
 
 export const servicesSection = {
-  eyebrow: "Serviços",
-  title: "O que a Solint desenvolve.",
+  eyebrow: "Nossas Soluções",
+  title: "Engenharia de software com foco em resultado.",
   description:
-    "Do site institucional ao produto digital completo, com integrações e evolução contínua.",
+    "Do site de alta conversão a plataformas complexas e ecossistemas integrados de dados.",
 } as const;
 
-export const serviceGroups: readonly DevelopmentServiceGroup[] = [
+export const solutionPillars: readonly SolutionPillar[] = [
   {
-    label: "Experiências digitais",
-    hint: "presença e conversão",
-    services: [
+    id: "presenca",
+    label: "Presença & Conversão",
+    shortLabel: "Web & E-commerce",
+    badge: "✦ Alto Impacto",
+    subtitle: "Landing pages, sites institucionais e lojas virtuais de alta performance",
+    description:
+      "Construímos experiências digitais com design de autoridade, carregamento ultrarrápido e arquitetura orientada a conversão e geração de demanda qualificada.",
+    deliverables: [
       {
-        title: "Landing pages",
-        description: "Páginas de alta conversão, rápidas e focadas em uma única ação.",
-        detail: "Ex.: campanha de lançamento com formulário integrado ao CRM.",
-        tags: ["Alta Velocidade", "Design Exclusivo", "Métricas de Conversão"],
-        span: 5,
+        title: "Landing Pages de Alta Conversão",
+        description: "Páginas desenhadas para campanhas de tráfego pago com foco em captação máxima e carregamento < 1s.",
+        detail: "Formulários inteligentes integrados em tempo real ao CRM e WhatsApp.",
+        tags: ["PageSpeed 98+", "SEO Técnico", "Formulários Ágeis"],
       },
       {
-        title: "Sites institucionais",
-        description: "Presença digital consistente com a identidade da marca.",
-        detail: "Ex.: site com blog, páginas por serviço e área de vagas.",
-        tags: ["Design Exclusivo", "SEO Avançado", "Painel de Conteúdo"],
-        span: 4,
+        title: "Sites Institucionais de Autoridade",
+        description: "Posicionamento digital premium que transmite solidez e converte visitantes em oportunidades reais de negócio.",
+        detail: "Design system exclusivo, blog integrado e painel para gestão de conteúdo.",
+        tags: ["Design System", "CMS Headless", "Multi-dispositivo"],
       },
       {
-        title: "E-commerces",
-        description: "Lojas com catálogo, pagamento e integração com a operação.",
-        detail: "Ex.: loja com estoque sincronizado ao ERP.",
-        tags: ["Checkout Seguro", "Gateways", "Sincronia ERP"],
-        span: 3,
+        title: "E-commerces & Lojas Virtuais",
+        description: "Plataformas de venda com catálogo completo, checkout transparente e sincronização automática com a sua operação.",
+        detail: "Integração nativa com gateways de pagamento, cálculo de frete e ERP.",
+        tags: ["Checkout Seguro", "Gateways Pix/Cartão", "Sincronia de Estoque"],
       },
     ],
+    metrics: [
+      { label: "Velocidade de Carregamento", value: "< 1.2s" },
+      { label: "Média de Conversão", value: "+42%" },
+      { label: "Tempo de Deploy", value: "2 a 3 semanas" },
+    ],
+    techStack: ["Next.js 15", "TypeScript", "TailwindCSS", "SEO Avançado", "Stripe / Asaas", "Vercel Cloud"],
   },
   {
-    label: "Sistemas e produtos",
-    hint: "operação e escala",
-    highlight: {
-      title: "Produtos personalizados",
-      description:
-        "Soluções desenhadas para um processo que só existe na sua empresa, do modelo de dados à interface de uso diário.",
-      examples: [
-        "Ex.: gestão de contratos com aprovação em etapas",
-        "Ex.: operação logística com rastreio interno",
-        "Ex.: portal de parceiros com regras de comissão",
-      ],
-      tags: ["Escopo sob medida", "Integrado à operação", "Evolução contínua", "Alta Disponibilidade"],
-    },
-    services: [
+    id: "sistemas",
+    label: "Sistemas & Plataformas",
+    shortLabel: "SaaS & Portais",
+    badge: "⚡ Sob Medida",
+    subtitle: "Aplicações corporativas sob medida para processos que planilhas não resolvem",
+    description:
+      "Digitalizamos e automatizamos operações complexas com softwares web seguros, painéis administrativos e plataformas SaaS preparadas para escalar sem gargalos.",
+    deliverables: [
       {
-        title: "Sistemas web",
-        description: "Aplicações sob medida para processos que planilha não resolve.",
-        detail: "Ex.: controle de ordens de serviço com histórico e permissões.",
-        tags: ["Multi-permissão", "Histórico Auditável", "Workflows"],
-        span: 6,
+        title: "Sistemas Web Operacionais",
+        description: "Aplicações desenhadas para a regra de negócio exclusiva da sua empresa, do modelo de dados ao uso diário.",
+        detail: "Controle de ordens de serviço, esteiras de aprovação e workflows internos auditáveis.",
+        tags: ["Workflows Customizados", "Auditoria de Logs", "Módulos Flexíveis"],
       },
       {
-        title: "Plataformas SaaS",
-        description: "Produtos multiusuário com planos, permissões e escala.",
-        detail: "Ex.: assinatura recorrente com painel por cliente.",
-        tags: ["Gestão de Clientes", "Cobrança Recorrente", "Segurança Total"],
-        span: 3,
+        title: "Plataformas SaaS Multi-tenant",
+        description: "Produtos digitais escaláveis com múltiplos clientes, cobrança recorrente e painéis isolados por organização.",
+        detail: "Gestão de assinaturas, controle de limites por plano e segurança de dados de nível bancário.",
+        tags: ["Multi-tenant", "Planos & Assinaturas", "Isolamento de Dados"],
       },
       {
-        title: "Portais administrativos",
-        description: "Back-offices para gestão de dados, times e permissões.",
-        detail: "Ex.: painel interno com auditoria de alterações.",
-        tags: ["Controle de Acesso", "Exportação", "Filtros"],
-        span: 3,
+        title: "Portais Administrativos & Back-offices",
+        description: "Painéis de controle centrais para gestão de equipes, permissões granulares e governança corporativa.",
+        detail: "Filtros avançados, exportação em massa e relatórios operacionais instantâneos.",
+        tags: ["Controle RBAC", "Relatórios Customizados", "Alta Segurança"],
       },
     ],
+    metrics: [
+      { label: "Redução de Retrabalho", value: "-80%" },
+      { label: "Disponibilidade em Produção", value: "99.9% Uptime" },
+      { label: "Arquitetura Cloud", value: "Multi-tenant" },
+    ],
+    techStack: ["React", "Node.js", "PostgreSQL", "Docker", "APIs REST / GraphQL", "AWS / Cloud"],
   },
   {
-    label: "Dados e operação",
-    hint: "decisão e validação",
-    services: [
+    id: "integracoes",
+    label: "Dados & Integrações",
+    shortLabel: "APIs & Dashboards",
+    badge: "📊 Decisão em Tempo Real",
+    subtitle: "Conectividade de sistemas legados, fluxos de dados e dashboards para tomada de decisão",
+    description:
+      "Unificamos bases de dados fragmentadas e integramos seus sistemas em tempo real para eliminar tarefas manuais e fornecer visibilidade total da operação.",
+    deliverables: [
       {
-        title: "Integrações com APIs",
-        description: "Conexão com CRMs, ERPs, gateways e serviços externos.",
-        detail: "Ex.: sincronização de pedidos entre loja e ERP.",
-        tags: ["Conexão Segura", "Sincronização em Tempo Real", "Alta Confiabilidade"],
-        span: 5,
+        title: "Integração Contínua de APIs",
+        description: "Conexão bidirecional e segura entre CRMs, ERPs, sistemas legados, portais e serviços de terceiros.",
+        detail: "Sincronização instantânea com retentativas automáticas e monitoramento de falhas.",
+        tags: ["Webhooks Ativos", "Conexão Segura", "Zero Perda de Dados"],
       },
       {
-        title: "Dashboards",
-        description: "Indicadores em tempo real, prontos para decisão.",
-        detail: "Ex.: painel de vendas por região atualizado a cada minuto.",
-        tags: ["Tempo Real", "Painéis Executivos", "Dados Unificados"],
-        span: 4,
+        title: "Dashboards Executivos em Tempo Real",
+        description: "Painéis visuais dinâmicos para acompanhamento de KPIs financeiros, comerciais e operacionais.",
+        detail: "Métricas atualizadas minuto a minuto com gráficos interativos e exportação executiva.",
+        tags: ["Tempo Real", "Indicadores de Negócio", "Visão Consolidada"],
       },
       {
-        title: "MVPs",
-        description: "Primeira versão enxuta para validar a ideia com usuários reais.",
-        detail: "Ex.: piloto em 6 semanas com 50 usuários.",
-        tags: ["Ciclos Curtos", "Validação Rápida", "Feedback Loop"],
-        span: 3,
+        title: "Desenvolvimento Ágil de MVPs",
+        description: "Prototipagem funcional e lançamento de versões enxutas para validação rápida com usuários reais.",
+        detail: "Ciclos curtos de 4 a 6 semanas com foco em velocidade de aprendizado e tração.",
+        tags: ["Ciclos Curtos", "Validação Rápida", "Arquitetura Escalável"],
       },
     ],
+    metrics: [
+      { label: "Latência de Sincronia", value: "< 500ms" },
+      { label: "Atualização de KPIs", value: "Tempo Real" },
+      { label: "Deploy de MVP", value: "4 a 6 semanas" },
+    ],
+    techStack: ["PostgreSQL", "Redis", "Webhooks", "N8N / Make", "BI & Analytics", "Microserviços"],
   },
 ] as const;
+
+export const serviceGroups: readonly DevelopmentServiceGroup[] = [];
 
 export const developmentSection = {
   eyebrow: "Como a Solint desenvolve",
