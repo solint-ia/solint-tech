@@ -20,7 +20,7 @@ export function HomeHero() {
       <HeroParticles />
 
       <div className="relative mx-auto grid max-w-[1240px] grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] items-center gap-[clamp(28px,5vw,72px)]">
-        <div>
+        <div className="relative z-10">
           <Reveal>
             <TypedHeading
               lead={homeHero.titleLead}
@@ -62,7 +62,8 @@ export function HomeHero() {
           </Reveal>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[580px]">
+        {/* Núcleo 3D / Cérebro animado: plano de fundo translúcido no mobile e coluna lateral no desktop */}
+        <div className="pointer-events-none absolute left-1/2 top-[32%] sm:top-[36%] -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[460px] opacity-25 sm:opacity-35 z-0 select-none lg:pointer-events-auto lg:static lg:top-auto lg:left-auto lg:translate-x-0 lg:translate-y-0 lg:mx-auto lg:w-full lg:max-w-[580px] lg:opacity-100 lg:z-auto">
           <InteractiveCore />
         </div>
       </div>
