@@ -14,13 +14,13 @@ import { cn } from "@/lib/utils";
 /** Perguntas que a IA faz na etapa de pré-qualificação. */
 function QualificationQuestions() {
   return (
-    <div className="mt-4.5 flex flex-wrap gap-x-5 gap-y-2.5">
+    <div className="flex flex-wrap gap-2 pt-2">
       {qualificationQuestions.map((question) => (
         <span
           key={question}
-          className="inline-flex items-center gap-[7px] text-[0.84rem]/[1.3] font-normal text-steel"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-accent/22 bg-accent/8 px-2.5 py-1 font-mono text-[0.76rem] font-medium text-accent-soft shadow-[0_0_8px_rgb(53_217_255/0.1)] transition-colors hover:border-accent/40 hover:bg-accent/14"
         >
-          <span aria-hidden="true" className="size-1 flex-none rounded-full bg-accent" />
+          <span aria-hidden="true" className="size-1 rounded-full bg-accent" />
           {question}
         </span>
       ))}
