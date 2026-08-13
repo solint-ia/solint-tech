@@ -152,15 +152,31 @@ export function SiteFooter() {
           © {currentYear} {siteConfig.name}. Todos os direitos reservados.
         </span>
         <div className="flex flex-wrap gap-6.5">
-          {legalLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-[12.5px]/[1.4] font-normal text-faint transition-colors duration-200 hover:text-nav-2"
-            >
-              {link.label}
-            </a>
-          ))}
+          {legalLinks.map((link) => {
+            const isExternal = link.href.startsWith("http://") || link.href.startsWith("https://");
+            if (isExternal) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[12.5px]/[1.4] font-normal text-faint transition-colors duration-200 hover:text-nav-2"
+                >
+                  {link.label}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-[12.5px]/[1.4] font-normal text-faint transition-colors duration-200 hover:text-nav-2"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </footer>

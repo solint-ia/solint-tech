@@ -16,7 +16,7 @@ export const footerNavLinks: readonly NavLink[] = [
   { key: "home", label: "Home", href: "/" },
   { key: "agentes", label: "Agentes de IA", href: "/agentes-ia" },
   { key: "prospect", label: "Prospect", href: "/prospect" },
-  { key: "solucoes", label: "Desenvolvimento de softwares", href: "/solucoes" },
+  { key: "solucoes", label: "Soluções", href: "/solucoes" },
 ] as const;
 
 export const socialLinks: readonly SocialLink[] = [
@@ -30,6 +30,6 @@ export const contactLinks: readonly SocialLink[] = [
 ] as const;
 
 export const legalLinks: readonly SocialLink[] = [
-  { label: "Política de privacidade", href: "#" },
-  { label: "Termos de uso", href: "#" },
+  { label: "Política de privacidade", href: "/politica-de-privacidade" },
+  { label: "Termos de uso", href: "/termos-de-uso" },
 ] as const;

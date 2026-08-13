@@ -111,7 +111,7 @@ export const solutionPillars: readonly SolutionPillar[] = [
     deliverables: [
       {
         title: "Integração Contínua de APIs",
-        description: "Conexão contínua e segura entre CRMs, ERPs, sistemas legados e serviços externos.",
+        description: "Conexão contínua e segura entre CRMs, ERPs, sistemas internos e serviços externos.",
         tags: [],
       },
       {

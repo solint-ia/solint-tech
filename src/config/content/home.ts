@@ -79,7 +79,7 @@ export const serviceAreasSection = {
   eyebrow: "Áreas de atuação",
   title: "Três frentes, um mesmo objetivo: operação mais inteligente.",
   description:
-    "Cada frente opera de forma independente para atender à necessidade específica do seu negócio, podendo também se integrar para formar um ecossistema digital completo, medido e pronto para crescer.",
+    "Trabalhamos com 3 frentes para alavancar o negócio do nosso cliente. Cada frente opera de forma independente para atender à necessidade específica do seu negócio.",
   hint: "Arraste para girar ou use as setas do teclado.",
 } as const;
 
