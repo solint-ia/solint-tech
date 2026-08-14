@@ -50,8 +50,12 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={siteConfig.locale} className={`${inter.variable} ${sora.variable}`}>
-      <body>{children}</body>
+    <html
+      lang={siteConfig.locale}
+      className={`${inter.variable} ${sora.variable}`}
+      suppressHydrationWarning
+    >
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

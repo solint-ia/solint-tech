@@ -131,7 +131,7 @@ export const planRecommendation = {
   creditsOverride:
     "Sua demanda de {creditos} créditos/mês supera o {preferido}, então o {recomendado} passa a ser o plano indicado.",
   creditsBeyondPlans:
-    "Sua demanda de {creditos} créditos/mês supera nossos planos padrão — montamos um plano sob medida para você.",
+    "Sua demanda de {creditos} créditos/mês supera nossos planos padrão: montamos um plano sob medida para você.",
 } as const;
 
 /** Valores iniciais dos campos — mesmo cenário de exemplo da referência. */

@@ -141,7 +141,7 @@ export function SiteFooter() {
               <MapPin size={14} />
             </span>
             <span className="break-words">
-              Rua Bosco Scaffs, 95, Bairro Inácio Barbosa, Aracaju – SE (CEP 49041-060)
+              Rua Bosco Scaffs, 95, Bairro Inácio Barbosa, Aracaju - SE (CEP 49041-060)
             </span>
           </div>
         </FooterColumn>

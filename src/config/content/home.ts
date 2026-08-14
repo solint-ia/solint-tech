@@ -81,12 +81,6 @@ export const partnersSection = {
   eyebrow: "/03 — parceiros",
   title: "Empresas que aceleram com a Solint",
   description: "Da automação de processos comerciais ao desenvolvimento de produtos digitais robustos.",
-  metrics: [
-    { value: "B2B", label: "Foco Estratégico", detail: "soluções desenhadas para regras de negócio reais" },
-    { value: "24/7", label: "Operação Contínua", detail: "agentes inteligentes e automações sempre ativos" },
-    { value: "Ágil", label: "Eficiência Operacional", detail: "eliminação de retrabalhos e gargalos manuais" },
-    { value: "Cloud", label: "Alta Disponibilidade", detail: "arquitetura escalável, segura e integrada" },
-  ],
   brands: [
     { name: "Nexora Tech", category: "SaaS & Cloud" },
     { name: "Vanguard Capital", category: "Fintech" },

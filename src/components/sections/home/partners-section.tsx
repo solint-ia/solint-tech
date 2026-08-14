@@ -4,7 +4,7 @@ import { Reveal, SectionHeading, SectionMarker } from "@/components/ui";
 import { partnersSection } from "@/config/content/home";
 
 /**
- * Faixa de parceiros e métricas — Dark Glassmorphic com indicadores de impacto e marquee.
+ * Faixa de parceiros — Dark Glassmorphic com esteira contínua e cards destacados.
  */
 export function PartnersSection() {
   const doubledBrands = [...partnersSection.brands, ...partnersSection.brands];
@@ -22,46 +22,22 @@ export function PartnersSection() {
         className="mb-[clamp(36px,4vw,52px)]"
       />
 
-      {/* Grid de métricas de impacto */}
-      <div className="mb-12 grid grid-cols-2 gap-3.5 lg:grid-cols-4">
-        {partnersSection.metrics.map((metric, index) => (
-          <Reveal
-            key={metric.label}
-            direction="left"
-            delay={index * 0.08}
-            className="h-full"
-          >
-            <div className="group h-full rounded-2xl border border-accent/18 bg-panel/75 p-5.5 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_32px_rgb(22_140_255/0.14)]">
-              <span className="font-display text-[clamp(1.85rem,2.8vw,2.45rem)]/[1.1] font-bold tracking-tight bg-[linear-gradient(100deg,#168CFF,#35D9FF)] bg-clip-text text-transparent">
-                {metric.value}
-              </span>
-              <h3 className="mt-2.5 font-display text-[0.94rem]/[1.3] font-semibold text-white">
-                {metric.label}
-              </h3>
-              <p className="mt-1 text-[0.8rem]/[1.5] font-light text-muted">
-                {metric.detail}
-              </p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
       {/* Esteira contínua de marcas parceiras com fade nas extremidades */}
-      <Reveal delay={0.1} className="relative overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex w-max gap-4 animate-marquee hover:[animation-play-state:paused]">
+      <Reveal delay={0.1} className="relative overflow-hidden py-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex w-max gap-5 sm:gap-6 animate-marquee hover:[animation-play-state:paused]">
           {doubledBrands.map((brand, index) => (
             <div
               key={`${brand.name}-${index}`}
-              className="flex items-center gap-3.5 rounded-xl border border-accent/16 bg-panel/70 px-6 py-4 shadow-[0_4px_16px_rgb(2_8_18/0.3)] backdrop-blur-md transition-all duration-300 hover:border-accent/45 hover:bg-[#0E2038]/85 hover:shadow-[0_8px_24px_rgb(22_140_255/0.12)]"
+              className="flex min-w-[240px] sm:min-w-[280px] items-center gap-4.5 rounded-2xl border border-accent/20 bg-panel/85 px-7 py-5 sm:px-8 sm:py-5.5 shadow-[0_8px_24px_rgb(2_8_18/0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-[#0E2038]/90 hover:shadow-[0_12px_32px_rgb(22_140_255/0.18)]"
             >
-              <div className="flex size-9 items-center justify-center rounded-lg bg-accent/12 text-accent shadow-[0_0_10px_rgb(53_217_255/0.2)]">
-                <Building2 className="size-4.5" />
+              <div className="flex size-11 sm:size-12 shrink-0 items-center justify-center rounded-xl border border-accent/25 bg-accent/12 text-accent shadow-[0_0_14px_rgb(53_217_255/0.25)]">
+                <Building2 className="size-5 sm:size-6" />
               </div>
-              <div>
-                <span className="block font-display text-[0.92rem]/none font-semibold text-white">
+              <div className="flex flex-col min-w-0">
+                <span className="truncate font-display text-[1.02rem] sm:text-[1.12rem] font-semibold text-white">
                   {brand.name}
                 </span>
-                <span className="mt-1 block font-mono text-[0.68rem]/none text-steel">
+                <span className="mt-1 font-mono text-[0.72rem] sm:text-[0.78rem] tracking-wide text-steel-2">
                   {brand.category}
                 </span>
               </div>

@@ -822,7 +822,7 @@ export function LeadCalculator({
                   ? ` + equipe atual mantida (${formatBRL(teamCost)})`
                   : ""}
                 {!investment.hasCurrentCosts
-                  ? " — preencha seus custos atuais acima para ver a economia."
+                  ? ": preencha seus custos atuais acima para ver a economia."
                   : ""}
               </p>
             </div>
@@ -986,7 +986,7 @@ export function LeadCalculator({
               {!planCoversGoal ? (
                 <p className="mt-3 m-0 text-[0.79rem]/[1.5] text-amber">
                   {recommendation?.isEnough
-                    ? `Essa meta exige ${formatNumber(volume.prospectLeads)} créditos/mês — o plano ${recommendation.plan.name} cobre esse volume.`
+                    ? `Essa meta exige ${formatNumber(volume.prospectLeads)} créditos/mês: o plano ${recommendation.plan.name} cobre esse volume.`
                     : `Essa meta exige ${formatNumber(volume.prospectLeads)} créditos/mês e supera nossos planos padrão. Montamos um plano sob medida para você.`}
                 </p>
               ) : null}
@@ -1134,7 +1134,7 @@ export function LeadCalculator({
             </Button>
           ) : (
             <span className="text-[0.76rem]/[1.45] text-faint sm:max-w-[46%] sm:text-right">
-              Etapa {stepLabel(step)} de {stepLabel(steps.length - 1)} — seus dados ficam só no seu
+              Etapa {stepLabel(step)} de {stepLabel(steps.length - 1)} · seus dados ficam só no seu
               navegador.
             </span>
           )}

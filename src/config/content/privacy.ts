@@ -199,7 +199,7 @@ export const privacyPolicyContent: LegalDocument = {
       trailingParagraphs: [
         "Alguns dados poderão continuar armazenados mesmo após uma solicitação de exclusão quando sua manutenção for necessária ou permitida pela legislação.",
       ],
-      highlightTag: "Garantias ao Titular — Art. 18 LGPD",
+      highlightTag: "Garantias ao Titular (Art. 18 LGPD)",
     },
     {
       id: "comunicacoes-e-marketing",

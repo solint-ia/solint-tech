@@ -11,7 +11,6 @@ export function PortfolioSection() {
         eyebrow={portfolioSection.eyebrow}
         title={portfolioSection.title}
         description={portfolioSection.note}
-        descriptionAsNote
         className="mb-[clamp(40px,5vw,60px)]"
       />
       <ProjectGrid projects={portfolioProjects} imageLabel={portfolioSection.imageLabel} />

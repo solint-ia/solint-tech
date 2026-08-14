@@ -182,7 +182,7 @@ export const spiralOffsets: readonly number[] = [0, 1, 1, 0, 0] as const;
 export const portfolioSection = {
   eyebrow: "Portfólio & Aplicações",
   title: "Produtos digitais e sistemas em produção.",
-  note: "Estes são apenas alguns exemplos públicos de projetos entregues. Nossas soluções não se limitam a websites: desenvolvemos desde plataformas completas, sistemas web e SaaS até portais internos, dashboards e ecossistemas integrados sob medida para o seu negócio.",
+  note: "Projetos reais desenvolvidos pela Solint: de plataformas web e sistemas a portais e aplicações sob medida.",
   imageLabel: "mockup do projeto",
 } as const;
 
@@ -190,9 +190,8 @@ export const portfolioSection = {
 export const portfolioProjects: readonly ProjectCard[] = [
   {
     title: "Aura Regenera",
-    category: "Portal Comercial B2B · Saúde & Estética Médica",
-    description: "Portal comercial B2B de alta conversão para clínicas, dermatologistas e cirurgiões comprarem a linha pbserum Plus (enzimas recombinantes) através da Aura Regenera, distribuidora oficial no Brasil.",
-    badge: "Portal B2B",
+    category: "Portal Comercial · Saúde & Estética Médica",
+    description: "Portal comercial de alta conversão para clínicas, dermatologistas e cirurgiões comprarem a linha pbserum Plus (enzimas recombinantes) através da Aura Regenera, distribuidora oficial no Brasil.",
     image: "/media/logo-aura.png",
     imageObjectFit: "contain",
     href: "https://www.auraregenera.com/",
@@ -202,7 +201,6 @@ export const portfolioProjects: readonly ProjectCard[] = [
     title: "Mulheres Poderosas",
     category: "Landing Page · Eventos & Empreendedorismo",
     description: "Landing page de alta conversão para o evento Dia das Mulheres Poderosas, focada em captação de inscrições, networking e fortalecimento do empreendedorismo feminino.",
-    badge: "Landing Page",
     image: "/media/logo-mulheres.png",
     imageObjectFit: "contain",
     href: "https://mulherespoderosas.vercel.app/",
@@ -212,7 +210,6 @@ export const portfolioProjects: readonly ProjectCard[] = [
     title: "EcoTech",
     category: "Plataforma Web · Educação Ambiental",
     description: "Plataforma educativa com o objetivo de promover o conhecimento ambiental, catalogação de trilhas e pontos educativos, com geração de relatórios em PDF e QR Codes para uso offline.",
-    badge: "Plataforma & Admin",
     image: "/media/EcoTechLogo.png",
     imageObjectFit: "contain",
     href: "https://www.projetoecotech.online/admin/dashboard",
