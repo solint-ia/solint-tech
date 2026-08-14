@@ -23,7 +23,7 @@ export const heroPipeline = {
       title: "Pesquisa de empresas",
       description: "Varredura automática por critérios B2B",
       tags: ["CNAE: Tecnologia", "UF: SP · RJ · PR"],
-      metric: "+4.280 empresas",
+      metric: "Segmentação ativa",
       type: "search",
     },
     {
@@ -38,14 +38,14 @@ export const heroPipeline = {
     title: "IA qualifica e encaminha",
     description: "Abordagem contextual e análise de fit em tempo real",
     badge: "✦ Motor de IA Ativo",
-    score: "Score 98% · Alta Intenção",
-    sampleInteraction: "Interesse confirmado após 3 perguntas",
+    score: "Alta Intenção de Compra",
+    sampleInteraction: "Interesse e fit confirmados",
   },
   destination: {
     title: "Time comercial acionado",
     description: "Oportunidade entregue ao SDR no CRM",
-    status: "Lead Quente Pronto",
-    speed: "Handoff em 3s",
+    status: "Lead Pronto p/ Contato",
+    speed: "Handoff automático",
   },
 } as const;
 
@@ -111,52 +111,34 @@ export const leadStatuses: readonly StatusPill[] = [
 ] as const;
 
 export const platformSection = {
-  eyebrow: "Plataforma",
-  title: "Automatize todo esse processo em uma única plataforma",
+  eyebrow: "Diferenciais Tecnológicos",
+  title: "Uma estrutura robusta para abastecer seu time com oportunidades reais",
   description:
-    "Do primeiro filtro de busca até a passagem do lead para o vendedor, tudo acontece em um só lugar, com histórico e controle.",
-  ctaLabel: "Começar agora",
+    "Combinamos inteligência de dados públicos B2B e IA contextual para eliminar o trabalho braçal de busca e abordagem manual.",
+  ctaLabel: "Começar com o Prospect",
   ctaHref: CONTACT_ANCHOR,
   highlights: [
-    "Redução de até 80% do trabalho operacional",
+    "Redução expressiva do trabalho operacional",
     "Sincronização instantânea com seu CRM",
   ],
   capabilities: [
     {
-      title: "Pesquisa de empresas",
-      description: "Filtros inteligentes por CNAE, UF, porte e capital social em segundos.",
-      badge: "Base Atualizada",
-      iconKey: "search",
-    },
-    {
-      title: "Extração de contatos",
-      description: "Identificação direta de sócios, diretores e telefones/e-mails corporativos.",
-      badge: "Contatos Válidos",
+      title: "Varredura & Enriquecimento B2B",
+      description: "Localização precisa de empresas e decisores (sócios, diretores e C-levels) com dados e contatos válidos.",
+      badge: "Inteligência de Dados",
       iconKey: "database",
     },
     {
-      title: "Organização de leads",
-      description: "Estruturação automática em listas e pipelines prontos para abordagem.",
-      badge: "Kanban & Listas",
-      iconKey: "users",
-    },
-    {
-      title: "Campanhas de mensagens",
-      description: "Disparos multicanais personalizados com cadência e horários otimizados.",
-      badge: "Multicanal",
-      iconKey: "send",
-    },
-    {
-      title: "Pré-qualificação com IA",
-      description: "Agente inteligente que faz o primeiro contato e filtra o interesse real.",
+      title: "Motor de IA Pré-Qualificador",
+      description: "Abordagem automatizada e humanizada que compreende o momento de compra antes de acionar seu vendedor.",
       badge: "✦ IA Nativa",
       iconKey: "bot",
       isHighlight: true,
     },
     {
-      title: "Encaminhamento ao time",
-      description: "Passagem de bastão instantânea para o vendedor quando o lead está pronto.",
-      badge: "Handoff Ágil",
+      title: "Handoff Instantâneo ao CRM",
+      description: "Passagem de bastão automática com histórico consolidado e notificações em tempo real para o time comercial.",
+      badge: "Integração Contínua",
       iconKey: "userCheck",
     },
   ],

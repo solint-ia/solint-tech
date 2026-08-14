@@ -10,7 +10,7 @@ import {
 import { solucoesCta } from "@/config/content/solucoes";
 
 export const metadata: Metadata = {
-  title: "Desenvolvimento de softwares",
+  title: "Soluções",
   description:
     "Landing pages, sites, e-commerces, sistemas web, dashboards e plataformas personalizadas, desenvolvidos sob medida pela Solint.",
 };

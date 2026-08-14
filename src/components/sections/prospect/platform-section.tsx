@@ -72,7 +72,7 @@ export function PlatformSection() {
           className="pointer-events-none absolute -inset-6 rounded-3xl bg-blue-deep/20 blur-3xl"
         />
 
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="relative flex flex-col gap-3.5">
           {platformSection.capabilities.map((capability, index) => {
             const Icon = iconMap[capability.iconKey] ?? Sparkles;
             const isHighlight = "isHighlight" in capability && capability.isHighlight;

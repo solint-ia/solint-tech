@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageGlow } from "@/components/layout";
 import {
+  CalculatorSection,
   ClosingCta,
   FlowSection,
   PlatformSection,
@@ -20,6 +21,7 @@ export default function ProspectPage() {
       <PageGlow preset="prospect" />
       <ProspectHero />
       <FlowSection />
+      <CalculatorSection />
       <PlatformSection />
       <ClosingCta
         title={prospectCta.title}

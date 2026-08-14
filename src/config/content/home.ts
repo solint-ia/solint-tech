@@ -1,16 +1,5 @@
-import {
-  Activity,
-  BarChart3,
-  Bot,
-  Code2,
-  RefreshCw,
-  ScanSearch,
-  Search,
-  SlidersHorizontal,
-  Target,
-  TrendingUp,
-} from "lucide-react";
-import type { Feature, ProcessStep, ServiceArea } from "@/types";
+import { Bot, Code2, ScanSearch } from "lucide-react";
+import type { ServiceArea } from "@/types";
 
 export const homeHero = {
   eyebrow: "/01 — início",
@@ -20,7 +9,7 @@ export const homeHero = {
   titleTail: ".",
   description:
     "A Solint conecta estratégia, dados e inovação para criar soluções digitais mais eficientes, escaláveis e preparadas para o futuro.",
-  primaryCta: { label: "Conheça nossas soluções", href: "#atuacao" },
+  primaryCta: { label: "Explorar ecossistema", href: "#atuacao" },
   secondaryCta: { label: "Fale com um especialista", href: "https://wa.me/557996809911" },
   /** Linhas rotacionadas no terminal simulado abaixo dos CTAs. */
   terminalLines: [
@@ -32,132 +21,71 @@ export const homeHero = {
   keywords: ["Agentes de IA", "Prospecção", "Software", "Integrações"],
 } as const;
 
-export const aboutSection = {
-  eyebrow: "Sobre a Solint",
-  titleLead: "A Solint conecta ",
-  titleHighlight1: "estratégia, dados e inteligência artificial",
-  titleMid: " a ",
-  titleHighlight2: "desenvolvimento de software escalável",
-  titleTail: " para transformar desafios em soluções digitais eficazes e voltadas para o futuro.",
-  image: {
-    src: "/media/about-stack.png",
-    alt: "Arquitetura em camadas 3D de software, inteligência artificial e infraestrutura da Solint",
-  },
-  badges: {
-    top: {
-      title: "Solint Core v2",
-      subtitle: "IA & Automação Ativa",
-      tag: "✦ 24/7",
-    },
-    bottom: {
-      title: "Alta Disponibilidade",
-      subtitle: "Arquitetura Cloud Native",
-      tag: "⚡ 99.9%",
-    },
-  },
-} as const;
-
-export const aboutFeatures: readonly Feature[] = [
-  {
-    icon: Target,
-    title: "Alinhamento estratégico",
-    description: "Alinhamos tecnologia diretamente às metas reais da sua empresa.",
-  },
-  {
-    icon: BarChart3,
-    title: "Tecnologia com propósito",
-    description: "Aplicamos soluções voltadas para resultados e KPIs mensuráveis.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Soluções escaláveis",
-    description: "Crescimento contínuo sustentado por inovação e alta eficiência.",
-  },
-] as const;
-
 export const serviceAreasSection = {
-  eyebrow: "Áreas de atuação",
+  eyebrow: "/02 — ecossistema solint",
   title: "Três frentes, um mesmo objetivo: operação mais inteligente.",
   description:
-    "Trabalhamos com 3 frentes para alavancar o negócio do nosso cliente. Cada frente opera de forma independente para atender à necessidade específica do seu negócio.",
-  hint: "Arraste para girar ou use as setas do teclado.",
+    "Trabalhamos com 3 frentes para alavancar o seu negócio. Cada frente opera de forma modular e independente para atender à sua necessidade específica.",
+  hint: "Arraste para girar ou use as setas do teclado para explorar.",
 } as const;
 
 export const serviceAreas: readonly ServiceArea[] = [
   {
     icon: Bot,
+    number: "01",
+    tag: "Automação & Atendimento 24/7",
     title: "Agentes de IA",
     description:
-      "Automação de processos operacionais, atendimento inteligente 24/7 e integração total entre sistemas, canais de vendas e CRMs.",
+      "Automatize conversas, qualificações e rotinas operacionais sem perder contexto, controle ou personalidade.",
+    highlights: [
+      "Atendimento instantâneo multicanal",
+      "Qualificação e direcionamento de leads",
+      "Integração com CRMs, ERPs e bancos",
+    ],
     href: "/agentes-ia",
-    ctaLabel: "Ver a página",
+    ctaLabel: "Explorar Agentes de IA",
   },
   {
     icon: ScanSearch,
+    number: "02",
+    tag: "Motor de Vendas B2B",
     title: "Prospect",
     description:
-      "Prospecção automatizada: encontra empresas, extrai contatos, organiza leads, dispara campanhas e pré-qualifica com IA.",
+      "Encontre empresas no seu perfil de cliente ideal, descubra contatos de decisores e pré-qualifique oportunidades com IA.",
+    highlights: [
+      "Segmentação avançada por CNAE e região",
+      "Extração de sócios e contatos verificados",
+      "Campanhas e pré-qualificação inteligente",
+    ],
     href: "/prospect",
-    ctaLabel: "Ver a página",
+    ctaLabel: "Conhecer o Prospect",
   },
   {
     icon: Code2,
-    title: "Desenvolvimento de softwares",
+    number: "03",
+    tag: "Engenharia de Software",
+    title: "Soluções",
     description:
-      "Landing pages, sites, e-commerces, sistemas web, dashboards, plataformas personalizadas e integrações entre sistemas.",
+      "Desenvolvimento de plataformas web, sistemas corporativos, SaaS escaláveis e integrações profundas de APIs sob medida.",
+    highlights: [
+      "Sistemas web e portais administrativos",
+      "Plataformas SaaS e arquiteturas cloud",
+      "Conexão de APIs e dashboards em tempo real",
+    ],
     href: "/solucoes",
-    ctaLabel: "Ver a página",
-  },
-] as const;
-
-export const processSection = {
-  eyebrow: "Como a Solint trabalha",
-  title: "Um método curto, transparente e mensurável.",
-} as const;
-
-export const processSteps: readonly ProcessStep[] = [
-  {
-    icon: Search,
-    title: "Entendimento do negócio",
-    description: "Contexto, objetivos e como a operação funciona hoje.",
-  },
-  {
-    icon: Activity,
-    title: "Diagnóstico dos problemas",
-    description: "Onde estão os gargalos, retrabalhos e perdas de informação.",
-  },
-  {
-    icon: SlidersHorizontal,
-    title: "Planejamento da solução",
-    description: "Escopo, arquitetura, prioridades e critérios de sucesso.",
-  },
-  {
-    icon: Code2,
-    title: "Desenvolvimento e integração",
-    description: "Construção do produto e conexão com os sistemas existentes.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Automação e inteligência",
-    description: "Fluxos automáticos e agentes de IA onde há ganho real.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Acompanhamento e evolução",
-    description: "Medição de resultado e melhoria contínua da solução.",
-    accent: "amber",
+    ctaLabel: "Ver Soluções Digitais",
   },
 ] as const;
 
 export const partnersSection = {
-  eyebrow: "/05 — parceiros",
+  eyebrow: "/03 — parceiros",
   title: "Empresas que aceleram com a Solint",
   description: "Da automação de processos comerciais ao desenvolvimento de produtos digitais robustos.",
   metrics: [
-    { value: "+50", label: "Empresas atendidas", detail: "em múltiplos setores B2B" },
-    { value: "+1.2M", label: "Interações processadas", detail: "conversas e automações ativas" },
-    { value: "85%", label: "Redução de tempo", detail: "em tarefas manuais repetitivas" },
-    { value: "99.9%", label: "Disponibilidade", detail: "operação contínua e estável" },
+    { value: "B2B", label: "Foco Estratégico", detail: "soluções desenhadas para regras de negócio reais" },
+    { value: "24/7", label: "Operação Contínua", detail: "agentes inteligentes e automações sempre ativos" },
+    { value: "Ágil", label: "Eficiência Operacional", detail: "eliminação de retrabalhos e gargalos manuais" },
+    { value: "Cloud", label: "Alta Disponibilidade", detail: "arquitetura escalável, segura e integrada" },
   ],
   brands: [
     { name: "Nexora Tech", category: "SaaS & Cloud" },
@@ -172,7 +100,7 @@ export const partnersSection = {
 } as const;
 
 export const contactSection = {
-  eyebrow: "/06 — contato",
+  eyebrow: "/04 — contato",
   title:
     "Vamos construir uma solução mais inteligente, conectada e preparada para o futuro.",
   description: "Conte o que está travando a sua operação. A gente desenha o caminho.",

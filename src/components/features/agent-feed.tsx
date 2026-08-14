@@ -37,7 +37,7 @@ export function AgentFeed() {
 
           <div className="flex items-center gap-3">
             <span className="font-mono text-[0.68rem] text-faint-2">
-              Latência: {agentFeed.metrics.latency}
+              {agentFeed.modeLabel}
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/10 px-2 py-0.5 font-mono text-[0.68rem] font-semibold text-accent shadow-[0_0_8px_rgb(53_217_255/0.2)]">
               <span className="animate-node size-1.5 rounded-full bg-accent" />
@@ -57,7 +57,7 @@ export function AgentFeed() {
             <div className="animate-flow absolute top-0 left-0 h-16 w-full bg-[linear-gradient(to_bottom,transparent,#FFFFFF,transparent)]" />
           </div>
 
-          {/* EVENTO 1: Lead Identificado (Trigger / Input) */}
+          {/* EVENTO 1: Solicitação Recebida (Trigger / Input) */}
           <div className="animate-rowpulse relative z-10 flex items-start gap-3.5" style={{ animationDelay: "0s" }}>
             <div className="flex size-9 flex-none items-center justify-center rounded-xl border border-accent/25 bg-[#09111E] text-accent shadow-[0_0_12px_rgb(53_217_255/0.3)]">
               <MessageSquare className="size-4.5" />
@@ -79,7 +79,7 @@ export function AgentFeed() {
             </div>
           </div>
 
-          {/* EVENTO 2: Intenção Reconhecida (AI Reasoning & Semantic Analysis) */}
+          {/* EVENTO 2: Intenção Identificada (AI Reasoning & Semantic Analysis) */}
           <div className="animate-rowpulse relative z-10 flex items-start gap-3.5" style={{ animationDelay: "2s" }}>
             <div className="flex size-9 flex-none items-center justify-center rounded-xl border border-accent/25 bg-[#09111E] text-accent shadow-[0_0_12px_rgb(53_217_255/0.3)]">
               <BrainCircuit className="size-4.5" />
@@ -90,7 +90,7 @@ export function AgentFeed() {
                   {event2.title}
                 </span>
                 <span className="font-mono text-[0.65rem] text-accent">
-                  {event2.confidence}
+                  {event2.tag}
                 </span>
               </div>
               <p className="mt-1 text-[0.78rem]/[1.5] font-light text-muted">
@@ -99,7 +99,7 @@ export function AgentFeed() {
             </div>
           </div>
 
-          {/* EVENTO 3: Resposta Enviada (Autonomous Action) */}
+          {/* EVENTO 3: Execução Autônoma (Autonomous Action) */}
           <div className="animate-rowpulse relative z-10 flex items-start gap-3.5" style={{ animationDelay: "4s" }}>
             <div className="flex size-9 flex-none items-center justify-center rounded-xl border border-accent/25 bg-[#09111E] text-accent shadow-[0_0_12px_rgb(53_217_255/0.3)]">
               <Zap className="size-4.5" />
@@ -111,7 +111,7 @@ export function AgentFeed() {
                 </span>
                 <span className="inline-flex items-center gap-1 font-mono text-[0.65rem] text-accent">
                   <CheckCheck className="size-3.5" />
-                  {event3.speed}
+                  {event3.status}
                 </span>
               </div>
               <p className="mt-1 text-[0.78rem]/[1.5] font-light text-muted">
@@ -120,7 +120,7 @@ export function AgentFeed() {
             </div>
           </div>
 
-          {/* EVENTO 4: Handoff Comercial (Destino com destaque âmbar) */}
+          {/* EVENTO 4: Operação Sincronizada (Destino com destaque âmbar) */}
           <div
             className="animate-rowpulse relative z-10 flex items-start gap-3.5 rounded-xl border border-amber/35 bg-[linear-gradient(145deg,rgb(22_20_16/0.9),rgb(12_14_22/0.88))] p-3.5 shadow-[0_0_24px_rgb(255_182_92/0.14)]"
             style={{ animationDelay: "6s" }}

@@ -5,13 +5,12 @@ export { ApplicationsSection } from "./agentes/applications-section";
 export { ProjectsSection } from "./agentes/projects-section";
 export { TechnologiesSection } from "./agentes/technologies-section";
 
-export { AboutSection } from "./home/about-section";
 export { ContactSection } from "./home/contact-section";
 export { HomeHero } from "./home/home-hero";
 export { PartnersSection } from "./home/partners-section";
-export { ProcessSection } from "./home/process-section";
 export { ServiceAreasSection } from "./home/service-areas-section";
 
+export { CalculatorSection } from "./prospect/calculator-section";
 export { FlowSection } from "./prospect/flow-section";
 export { PlatformSection } from "./prospect/platform-section";
 export { ProspectHero } from "./prospect/prospect-hero";

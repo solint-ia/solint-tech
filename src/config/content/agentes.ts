@@ -26,40 +26,35 @@ export const agentesHero = {
 export const agentFeed = {
   title: "agente-solint",
   statusLabel: "ao vivo",
-  metrics: {
-    latency: "380ms",
-    mode: "100% Autônomo",
-    successRate: "99.4%",
-  },
+  modeLabel: "Modo Autônomo",
   events: [
     {
-      title: "Lead identificado",
-      quote: '"Preciso de atendimento para minha equipe comercial."',
-      tag: "WhatsApp Oficial",
+      title: "Solicitação recebida",
+      quote: '"Olá! Gostaria de entender como automatizar processos e integrar nossa operação."',
+      tag: "Canal Omnichannel",
       timestamp: "10:42:01",
       type: "incoming",
     },
     {
-      title: "Intenção reconhecida",
-      detail: "Classificado como interesse comercial em automação de vendas",
-      confidence: "Confiança: 99.4%",
-      tag: "Análise Semântica",
+      title: "Intenção identificada",
+      detail: "Compreensão da demanda e mapeamento automático do fluxo operacional correspondente",
+      tag: "Análise Contextual",
       type: "ai",
     },
     {
-      title: "Resposta enviada",
-      detail: "Abordagem personalizada contextualizando o perfil da empresa",
-      speed: "Disparado em 1.8s",
-      tag: "Ação Autônoma",
+      title: "Execução autônoma",
+      detail: "Retorno personalizado enviado e acionamento dos fluxos internos configurados",
+      status: "Ação Concluída",
+      tag: "Execução Autônoma",
       type: "action",
     },
   ],
   handoff: {
-    title: "Equipe comercial acionada",
-    detail: "Lead qualificado encaminhado ao vendedor responsável",
-    status: "Lead Pronto p/ Fechar",
-    tag: "Handoff CRM",
-    destination: "CRM · Notificação Slack/WhatsApp",
+    title: "Operação sincronizada",
+    detail: "Registro atualizado nos sistemas internos e equipe notificada com contexto completo",
+    status: "Fluxo Concluído",
+    tag: "Sincronização",
+    destination: "CRM / ERP · Notificações de Equipe",
   },
 } as const;
 
@@ -74,10 +69,8 @@ export const agentApplications: readonly AgentApplication[] = [
     icon: Headset,
     title: "Atendimento automatizado",
     description: "Primeiro contato imediato com inteligência contextual e encaminhamento correto.",
-    flow: ["Mensagem recebida 💬", "Intenção identificada 🧠", "Resposta personalizada ⚡"],
+    flow: ["Mensagem recebida", "Intenção identificada", "Resposta personalizada"],
     impact: "Resposta instantânea em segundos, 24 horas por dia, 365 dias ao ano.",
-    badge: "✦ 24/7 Ativo",
-    speed: "2.1s de resposta",
   },
   {
     icon: Target,
@@ -85,8 +78,6 @@ export const agentApplications: readonly AgentApplication[] = [
     description: "Perguntas estratégicas na hora certa para seu time focar só em quem tem real intenção de compra.",
     flow: ["Lead capturado", "Perfil avaliado", "Score calculado"],
     impact: "Seu time comercial falando apenas com oportunidades prontas para fechar.",
-    badge: "🎯 Filtro de Fit",
-    speed: "Score em tempo real",
   },
   {
     icon: Clock,
@@ -94,8 +85,6 @@ export const agentApplications: readonly AgentApplication[] = [
     description: "Retomadas inteligentes e programadas, sem depender da memória ou agenda de ninguém.",
     flow: ["Sem resposta em 24h", "Lembrete contextual", "Conversa reativada"],
     impact: "Zero oportunidades esquecidas no funil comercial.",
-    badge: "⚡ Cadência Ágil",
-    speed: "Cadência 100% pontual",
   },
   {
     icon: Link2,
@@ -103,8 +92,6 @@ export const agentApplications: readonly AgentApplication[] = [
     description: "CRM, ERPs, planilhas e plataformas falando a mesma língua em tempo real.",
     flow: ["Evento disparado", "Sistema identificado", "Registro sincronizado"],
     impact: "Dados unificados e sincronizados sem retrabalho manual.",
-    badge: "🔗 Integração Contínua",
-    speed: "Sincronização < 1s",
   },
   {
     icon: Database,
@@ -112,8 +99,6 @@ export const agentApplications: readonly AgentApplication[] = [
     description: "Leitura, estruturação, validação e enriquecimento de bases em alta escala.",
     flow: ["Dado bruto recebido", "Estrutura validada", "Enriquecimento aplicado"],
     impact: "Bases prontas para tomada de decisão imediata.",
-    badge: "📊 Alta Escala",
-    speed: "+10k registros/min",
   },
   {
     icon: Megaphone,
@@ -121,8 +106,6 @@ export const agentApplications: readonly AgentApplication[] = [
     description: "Distribuição justa de oportunidades, cadências de abordagem e registro automático no CRM.",
     flow: ["Oportunidade criada", "SDR atribuído", "Cadência iniciada"],
     impact: "Velocidade máxima no primeiro contato com o prospect.",
-    badge: "🚀 Handoff Instantâneo",
-    speed: "Atribuição em 3s",
   },
   {
     icon: Users,
@@ -130,8 +113,6 @@ export const agentApplications: readonly AgentApplication[] = [
     description: "Assistentes para consulta de procedimentos, bases de conhecimento e histórico da empresa.",
     flow: ["Pergunta interna", "Base de dados consultada", "Resposta precisa"],
     impact: "Menos tempo procurando informações, mais tempo executando.",
-    badge: "👥 Base Interna",
-    speed: "Acesso imediato",
   },
   {
     icon: Activity,
@@ -139,8 +120,6 @@ export const agentApplications: readonly AgentApplication[] = [
     description: "Auditoria contínua e alertas imediatos quando qualquer métrica ou fila sai do padrão.",
     flow: ["Métrica observada", "Desvio detectado", "Alerta disparado"],
     impact: "Problemas identificados e corrigidos antes de virarem crise.",
-    badge: "🚨 Alertas 24/7",
-    speed: "Detecção instantânea",
   },
 ] as const;
 
@@ -202,33 +181,33 @@ export const technologyGroups: readonly TechnologyGroup[] = [
 ] as const;
 
 export const projectsSection = {
-  eyebrow: "Projetos em Produção",
+  eyebrow: "Aplicações Práticas",
   title: "Automação e IA aplicada a resultados reais.",
-  note: "Cases de agentes autônomos gerando impacto mensurável em vendas, atendimento e operações.",
+  note: "Soluções inteligentes desenhadas para atender clientes, qualificar oportunidades e acompanhar todo o ciclo de vendas e pós-vendas.",
   imageLabel: "imagem do projeto",
 } as const;
 
-/** Cards de tipos de agente de IA. */
+/** Cards de soluções por área de negócio. */
 export const agentProjects: readonly ProjectCard[] = [
   {
     title: "Atendimento e Suporte",
-    category: "IA Conversacional · Suporte 24/7",
-    description: "Triagem imediata, resolução autônoma de chamados e dúvidas frequentes com base em conhecimento da empresa, com handoff suave para a equipe.",
-    badge: "Atendimento & Suporte",
+    category: "Atendimento 24/7 · Resolução de Dúvidas",
+    description: "Respostas imediatas a dúvidas frequentes, triagem inteligente de chamados, suporte contínuo 24/7 e transição fluida para atendentes humanos quando necessário.",
+    badge: "Atendimento e Suporte",
     image: "/media/agente-suporte.png",
   },
   {
-    title: "Vendas e Pós-vendas",
-    category: "Comercial & Retenção · Funil Inteligente",
-    description: "Qualificação instantânea de leads inbound, abordagem ativa, agendamento direto na agenda dos vendedores e cadências de retenção e pós-venda.",
-    badge: "Vendas & Pós-Vendas",
+    title: "Qualificação de Leads",
+    category: "Triagem Inteligente · Filtro de Fit",
+    description: "Abordagem ágil de novos contatos, identificação do perfil de cliente ideal, perguntas estratégicas de maturidade e direcionamento de leads prontos para o comercial.",
+    badge: "Qualificação de Leads",
     image: "/media/agente-vendas.png",
   },
   {
-    title: "Agentes de IA",
-    category: "Operações · Automação de Processos",
-    description: "Agentes autônomos para rotinas operacionais, conciliação de dados, integração entre CRMs/ERPs e auditoria de processos de ponta a ponta.",
-    badge: "Agentes de IA",
+    title: "Vendas e Pós-Vendas",
+    category: "Comercial & Retenção · Ciclo Completo",
+    description: "Apresentação de propostas, agendamentos automáticos, follow-ups comerciais, suporte pós-compra e rotinas contínuas de satisfação e fidelização.",
+    badge: "Vendas e Pós-Vendas",
     image: "/media/agente-operacoes.png",
   },
 ] as const;

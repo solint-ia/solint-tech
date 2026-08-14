@@ -5,6 +5,7 @@ export { EcosystemHub } from "./ecosystem-hub";
 export { HeroParticles } from "./hero-particles";
 export { HeroPipeline } from "./hero-pipeline";
 export { InteractiveCore } from "./interactive-core";
+export { LeadCalculator, type LeadCalculatorProps } from "./lead-calculator";
 export { ProcessTimeline } from "./process-timeline";
 export { ProjectGrid } from "./project-grid";
 export { ProspectFlow } from "./prospect-flow";

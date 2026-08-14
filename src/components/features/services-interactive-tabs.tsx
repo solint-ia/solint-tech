@@ -54,7 +54,7 @@ function PresencaPreview() {
           </span>
         </div>
         <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-400">
-          ● 99.9% Uptime
+          ● Operacional
         </span>
       </div>
 
@@ -71,10 +71,10 @@ function PresencaPreview() {
         </h4>
         <div className="mt-2.5 flex flex-wrap gap-2">
           <div className="rounded-lg bg-ink/75 px-2.5 py-1 font-mono text-[10px] text-accent border border-accent/20">
-            ⚡ Carregamento: 0.8s
+            Carregamento Otimizado
           </div>
           <div className="rounded-lg bg-ink/75 px-2.5 py-1 font-mono text-[10px] text-amber border border-amber/20">
-            🎯 Taxa de Conversão: +42%
+            Foco em Conversão
           </div>
         </div>
       </div>
@@ -89,14 +89,14 @@ function PresencaPreview() {
             <CheckCircle2 className="size-3.5 text-emerald-400 shrink-0" />
             <span>Lead qualificado capturado via Landing Page</span>
           </div>
-          <span className="font-mono text-[10px] text-accent">Há 4s</span>
+          <span className="font-mono text-[10px] text-accent">Agora</span>
         </div>
         <div className="flex items-center justify-between text-[11.5px] text-muted font-light">
           <div className="flex items-center gap-1.5 text-fg-strong">
             <CheckCircle2 className="size-3.5 text-accent shrink-0" />
-            <span>Pedido #4892 sincronizado com ERP</span>
+            <span>Pedido sincronizado com ERP</span>
           </div>
-          <span className="font-mono text-[10px] text-accent">Há 12s</span>
+          <span className="font-mono text-[10px] text-accent">Recente</span>
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ function SistemasPreview() {
           </span>
         </div>
         <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-accent">
-          RBAC · Nível Bancário
+          RBAC · Nível Corporativo
         </span>
       </div>
 
@@ -123,15 +123,15 @@ function SistemasPreview() {
       <div className="grid grid-cols-3 gap-2">
         <div className="rounded-xl border border-accent/15 bg-ink/75 p-2.5 text-center">
           <span className="block font-mono text-[9px] text-steel-2 uppercase">Workspaces</span>
-          <span className="font-display text-sm sm:text-base font-bold text-white">128 ativas</span>
+          <span className="font-display text-sm sm:text-base font-bold text-white">Multi-tenant</span>
         </div>
         <div className="rounded-xl border border-accent/15 bg-ink/75 p-2.5 text-center">
-          <span className="block font-mono text-[9px] text-steel-2 uppercase">Retrabalho</span>
-          <span className="font-display text-sm sm:text-base font-bold text-emerald-400">-80%</span>
+          <span className="block font-mono text-[9px] text-steel-2 uppercase">Processos</span>
+          <span className="font-display text-sm sm:text-base font-bold text-emerald-400">Automatizados</span>
         </div>
         <div className="rounded-xl border border-accent/15 bg-ink/75 p-2.5 text-center">
           <span className="block font-mono text-[9px] text-steel-2 uppercase">SLA Cloud</span>
-          <span className="font-display text-sm sm:text-base font-bold text-accent">99.99%</span>
+          <span className="font-display text-sm sm:text-base font-bold text-accent">Alta Disp.</span>
         </div>
       </div>
 
@@ -143,7 +143,7 @@ function SistemasPreview() {
         <div className="flex items-center justify-between text-[11.5px] text-fg-strong">
           <div className="flex items-center gap-1.5">
             <Lock className="size-3.5 text-accent shrink-0" />
-            <span>Aprovação de Contrato #104 (Diretoria)</span>
+            <span>Aprovação de Contrato (Diretoria)</span>
           </div>
           <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[9px] font-bold text-emerald-400">
             Aprovado
@@ -175,7 +175,7 @@ function IntegracoesPreview() {
           </span>
         </div>
         <span className="rounded-full border border-amber/30 bg-amber/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-amber">
-          ⚡ Sincronia &lt; 350ms
+          Sincronia em Tempo Real
         </span>
       </div>
 
@@ -210,14 +210,14 @@ function IntegracoesPreview() {
             <span className="size-1.5 rounded-full bg-emerald-400" />
             <span>POST /webhooks/hubspot</span>
           </div>
-          <span className="text-emerald-400">200 OK · 140ms</span>
+          <span className="text-emerald-400 font-semibold">200 OK · Sincronizado</span>
         </div>
         <div className="flex items-center justify-between text-[11px] font-mono text-fg-strong">
           <div className="flex items-center gap-1.5">
             <span className="size-1.5 rounded-full bg-emerald-400" />
             <span>POST /webhooks/sap-totvs</span>
           </div>
-          <span className="text-emerald-400">200 OK · 210ms</span>
+          <span className="text-emerald-400 font-semibold">200 OK · Ativo</span>
         </div>
       </div>
     </div>

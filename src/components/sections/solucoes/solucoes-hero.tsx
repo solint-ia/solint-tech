@@ -75,7 +75,7 @@ function ProductMockup() {
                 Painel de Controle em Tempo Real
               </span>
               <span className="font-mono text-[0.64rem] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">
-                ⚡ 99.98% SLA
+                SLA Ativo
               </span>
             </div>
             <h4 className="font-display text-[1rem]/[1.3] font-bold text-white">
@@ -87,22 +87,22 @@ function ProductMockup() {
           <div className="grid grid-cols-3 gap-2.5 mb-4">
             <div className="rounded-xl border border-accent/14 bg-panel/65 p-2.5">
               <span className="block text-[0.64rem] text-steel font-medium">
-                Volume Mensal
+                Disponibilidade
               </span>
               <span className="mt-1 block font-display text-[0.92rem] font-bold text-white">
-                R$ 480k
+                Cloud Native
               </span>
-              <span className="font-mono text-[0.62rem] font-semibold text-accent">
-                +24% mês
+              <span className="font-mono text-[0.62rem] font-semibold text-emerald-400">
+                Estável
               </span>
             </div>
 
             <div className="rounded-xl border border-accent/14 bg-panel/65 p-2.5">
               <span className="block text-[0.64rem] text-steel font-medium">
-                Requisições / s
+                Throughput
               </span>
               <span className="mt-1 block font-display text-[0.92rem] font-bold text-white">
-                18.4k
+                Alta Escala
               </span>
               <span className="font-mono text-[0.62rem] font-semibold text-emerald-400">
                 Otimizado
@@ -111,13 +111,13 @@ function ProductMockup() {
 
             <div className="rounded-xl border border-accent/14 bg-panel/65 p-2.5">
               <span className="block text-[0.64rem] text-steel font-medium">
-                Latência
+                Tempo de Resposta
               </span>
               <span className="mt-1 block font-display text-[0.92rem] font-bold text-white">
-                32ms
+                Instantâneo
               </span>
               <span className="font-mono text-[0.62rem] font-semibold text-accent">
-                Ultra-rápido
+                Baixa Latência
               </span>
             </div>
           </div>
@@ -171,11 +171,11 @@ function ProductMockup() {
               </div>
               <div className="flex items-center justify-between rounded-xl border border-accent/12 bg-panel/60 px-3 py-1.5 text-[0.72rem]">
                 <span className="font-medium text-white">Agentes de Automação</span>
-                <span className="font-mono text-[0.62rem] text-accent font-semibold">⚡ Ativo</span>
+                <span className="font-mono text-[0.62rem] text-accent font-semibold">Ativo</span>
               </div>
               <div className="flex items-center justify-between rounded-xl border border-accent/12 bg-panel/60 px-3 py-1.5 text-[0.72rem]">
                 <span className="font-medium text-white">Banco de Dados Unificado</span>
-                <span className="font-mono text-[0.62rem] text-emerald-400 font-semibold">● 100% Sinc</span>
+                <span className="font-mono text-[0.62rem] text-emerald-400 font-semibold">● Sincronizado</span>
               </div>
             </div>
           </div>

@@ -41,13 +41,16 @@ export interface ProcessStep {
   badge?: string;
 }
 
-/** Cartão de área de atuação exibido no carrossel 3D da home. */
+/** Cartão de produto/área de atuação exibido na vitrine da home. */
 export interface ServiceArea {
   icon: LucideIcon;
   title: string;
   description: string;
   href: string;
   ctaLabel: string;
+  tag?: string;
+  number?: string;
+  highlights?: readonly string[];
 }
 
 /** Aplicação de agentes de IA exibida na constelação. */
@@ -154,4 +157,73 @@ export interface ProjectCard {
 export interface StatusPill {
   label: string;
   accent: Accent;
+}
+
+/* ==========================================================================
+   Calculadora de resultados (Prospect)
+   ========================================================================== */
+
+/** Números que o visitante informa sobre a operação comercial dele hoje. */
+export interface CurrentMetrics {
+  leads: number;
+  meetings: number;
+  sales: number;
+}
+
+/** Taxas do funil atual, sempre entre 0 e 1. */
+export interface ConversionRates {
+  leadToMeeting: number;
+  meetingToSale: number;
+}
+
+/** Volume necessário para bater a meta de vendas. */
+export interface RequiredVolume {
+  meetings: number;
+  validLeads: number;
+  /** Leads que a plataforma precisa gerar — equivale aos créditos consumidos. */
+  prospectLeads: number;
+}
+
+/** Custos mensais da operação atual. */
+export interface CostInputs {
+  agency: number;
+  traffic: number;
+  team: number;
+  /** Quando verdadeiro, o custo de equipe entra no investimento com o Prospect. */
+  keepTeam: boolean;
+}
+
+/** Plano comercial do Prospect exibido na calculadora. */
+export interface CalculatorPlan {
+  id: string;
+  name: string;
+  /** Mensalidade em reais. */
+  price: number;
+  /** Créditos inclusos por mês (1 crédito = 1 lead gerado). */
+  credits: number;
+  description?: string;
+  badge?: string;
+}
+
+/** Comparativo entre a operação atual e o investimento com o Prospect. */
+export interface InvestmentSummary {
+  currentTotal: number;
+  currentYearlyTotal: number;
+  prospectTotal: number;
+  planPrice: number;
+  /** Custo de equipe mantido dentro do investimento (0 quando não mantido). */
+  teamKept: number;
+  monthlySavings: number;
+  yearlySavings: number;
+  yearlyProspectTotal: number;
+  /** Economia relativa ao custo atual, entre 0 e 1. */
+  savingsRate: number;
+  hasCurrentCosts: boolean;
+}
+
+/** Plano sugerido para a demanda de créditos calculada. */
+export interface PlanRecommendation {
+  plan: CalculatorPlan;
+  isEnough: boolean;
+  missingCredits: number;
 }

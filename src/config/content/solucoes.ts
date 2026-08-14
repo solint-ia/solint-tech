@@ -22,18 +22,18 @@ export const solucoesHero = {
     url: "app.solint.com/analytics",
     status: "Produção Ativa",
     kpis: [
-      { label: "Usuários Ativos", value: "+14.2k", change: "+28%" },
-      { label: "Taxa Conversão", value: "4.85%", change: "+1.2%" },
-      { label: "Latência Média", value: "38ms", change: "Otimizado" },
+      { label: "Disponibilidade", value: "Cloud Native", change: "Estável" },
+      { label: "Performance", value: "Otimizada", change: "Alta Escala" },
+      { label: "Tempo de Resposta", value: "Tempo Real", change: "Contínuo" },
     ],
     activities: [
-      { name: "Sincronização ERP", tag: "Automação", status: "Concluído", time: "Há 2s" },
-      { name: "Pipeline CI/CD", tag: "Deploy", status: "Sucesso", time: "Há 1m" },
-      { name: "Agente de IA", tag: "Qualificação", status: "Ativo", time: "Agora" },
+      { name: "Sincronização ERP", tag: "Automação", status: "Concluído", time: "Recente" },
+      { name: "Pipeline CI/CD", tag: "Deploy", status: "Sucesso", time: "Ativo" },
+      { name: "Agente de IA", tag: "Automação", status: "Ativo", time: "Agora" },
     ],
     badges: {
       top: { title: "Arquitetura Escalável", tag: "✦ Alta Performance" },
-      bottom: { title: "Alta Escala Cloud", tag: "⚡ 99.9% Uptime" },
+      bottom: { title: "Infraestrutura Cloud", tag: "Alta Disponibilidade" },
     },
   },
 } as const;
@@ -136,64 +136,53 @@ export const developmentSection = {
   title: "Do problema ao produto no ar, em etapas claras.",
 } as const;
 
-/** Etapas 01–05 da espiral vertical. A 06 é o painel de encerramento. */
+/** Etapas da espiral de desenvolvimento e entrega. */
 export const developmentSteps: readonly ProcessStep[] = [
   {
-    title: "Descoberta e estratégia",
-    description: "Mapeamento profundo do objetivo do produto, público-alvo e critérios de sucesso mensuráveis.",
-    tags: ["Mapeamento de KPIs", "Matriz de Escopo", "Entrevistas de Usuário"],
+    title: "Estratégia & Escopo",
+    description: "Mapeamento dos objetivos de negócio, requisitos técnicos e critérios mensuráveis de sucesso.",
+    tags: ["Mapeamento de KPIs", "Matriz de Escopo"],
     badge: "Etapa 01",
   },
   {
-    title: "Arquitetura da solução",
-    description: "Estruturação técnica de dados, infraestrutura em nuvem, segurança e APIs necessárias.",
-    tags: ["Modelagem de Dados", "Infraestrutura Cloud", "Segurança & Governança"],
+    title: "Arquitetura & Design",
+    description: "Modelagem de dados, infraestrutura em nuvem, segurança e protótipos de alta fidelidade.",
+    tags: ["Infraestrutura Cloud", "Design System"],
     badge: "Etapa 02",
   },
   {
-    title: "UX/UI e prototipação",
-    description: "Design system completo e protótipos de alta fidelidade validados antes de escrever código.",
-    tags: ["Design System Exclusivo", "Protótipo Navegável", "Testes de Usabilidade"],
+    title: "Desenvolvimento Ágil",
+    description: "Sprints com código limpo, arquitetura modular e validações frequentes com o cliente.",
+    tags: ["Sprints Semanais", "Código Limpo & Modular"],
     badge: "Etapa 03",
   },
   {
-    title: "Desenvolvimento ágil",
-    description: "Ciclos curtos de entrega com código limpo, arquitetura modular e acompanhamento contínuo.",
-    tags: ["Sprints Semanais", "Entrega Contínua", "Código Limpo & Testável"],
+    title: "Testes & Publicação",
+    description: "Auditoria rigorosa de desempenho, segurança, testes de carga e deploy sem downtime.",
+    tags: ["Alta Performance", "Segurança Cloud"],
     badge: "Etapa 04",
-  },
-  {
-    title: "Testes e otimização",
-    description: "Auditoria rigorosa de desempenho, segurança, acessibilidade e testes de carga antes de publicar.",
-    tags: ["Desempenho Máximo", "Testes de Carga", "Acessibilidade & Segurança"],
-    badge: "Etapa 05",
   },
 ] as const;
 
 export const developmentClosing: ClosingStep = {
-  eyebrow: "Etapa 06 · encerramento do fluxo",
-  title: "Publicação e evolução contínua",
+  eyebrow: "Evolução Contínua",
+  title: "Publicação e monitoramento ativo",
   description:
-    "No ar, monitorado e melhorado com base em uso real. O produto entra em ciclo de melhorias, com telemetria e evolução contínua.",
+    "No ar, monitorado e evoluído com base em uso real. O produto entra em ciclo de melhorias contínuas e telemetria ativa.",
   indicators: [
-    "Produto publicado em produção",
+    "Deploy em produção",
     "Monitoramento ativo 24/7",
-    "Melhorias contínuas e sprints",
-    "Novas versões sem downtime",
-    "Telemetria e dados reais",
+    "Sprints de evolução",
+    "Alta disponibilidade cloud",
   ],
 };
 
-/**
- * Recuo lateral (em unidades de passo) de cada etapa da espiral, incluindo o
- * painel de encerramento. Define o zigue-zague: 0 → 1 → 2 → 2 → 1 → 0.
- */
-export const spiralOffsets: readonly number[] = [0, 1, 2, 2, 1, 0] as const;
+export const spiralOffsets: readonly number[] = [0, 1, 1, 0, 0] as const;
 
 export const portfolioSection = {
-  eyebrow: "Portfólio",
-  title: "Produtos digitais em produção.",
-  note: "Projetos de alta performance construídos para resolver problemas operacionais e comerciais reais.",
+  eyebrow: "Portfólio & Aplicações",
+  title: "Produtos digitais e sistemas em produção.",
+  note: "Estes são apenas alguns exemplos públicos de projetos entregues. Nossas soluções não se limitam a websites: desenvolvemos desde plataformas completas, sistemas web e SaaS até portais internos, dashboards e ecossistemas integrados sob medida para o seu negócio.",
   imageLabel: "mockup do projeto",
 } as const;
 
