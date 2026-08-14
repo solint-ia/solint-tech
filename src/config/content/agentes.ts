@@ -1,10 +1,8 @@
 import {
-  Activity,
   Clock,
   Database,
   Headset,
   Link2,
-  Megaphone,
   Target,
   Users,
 } from "lucide-react";
@@ -101,25 +99,11 @@ export const agentApplications: readonly AgentApplication[] = [
     impact: "Bases prontas para tomada de decisão imediata.",
   },
   {
-    icon: Megaphone,
-    title: "Automação comercial",
-    description: "Distribuição justa de oportunidades, cadências de abordagem e registro automático no CRM.",
-    flow: ["Oportunidade criada", "SDR atribuído", "Cadência iniciada"],
-    impact: "Velocidade máxima no primeiro contato com o prospect.",
-  },
-  {
     icon: Users,
     title: "Agentes internos",
     description: "Assistentes para consulta de procedimentos, bases de conhecimento e histórico da empresa.",
     flow: ["Pergunta interna", "Base de dados consultada", "Resposta precisa"],
     impact: "Menos tempo procurando informações, mais tempo executando.",
-  },
-  {
-    icon: Activity,
-    title: "Monitoramento de operações",
-    description: "Auditoria contínua e alertas imediatos quando qualquer métrica ou fila sai do padrão.",
-    flow: ["Métrica observada", "Desvio detectado", "Alerta disparado"],
-    impact: "Problemas identificados e corrigidos antes de virarem crise.",
   },
 ] as const;
 
@@ -193,22 +177,19 @@ export const agentProjects: readonly ProjectCard[] = [
     title: "Atendimento e Suporte",
     category: "Atendimento 24/7 · Resolução de Dúvidas",
     description: "Respostas imediatas a dúvidas frequentes, triagem inteligente de chamados, suporte contínuo 24/7 e transição fluida para atendentes humanos quando necessário.",
-    badge: "Atendimento e Suporte",
     image: "/media/agente-suporte.png",
   },
   {
     title: "Qualificação de Leads",
     category: "Triagem Inteligente · Filtro de Fit",
     description: "Abordagem ágil de novos contatos, identificação do perfil de cliente ideal, perguntas estratégicas de maturidade e direcionamento de leads prontos para o comercial.",
-    badge: "Qualificação de Leads",
-    image: "/media/agente-vendas.png",
+    image: "/media/agente-operacoes.png",
   },
   {
     title: "Vendas e Pós-Vendas",
     category: "Comercial & Retenção · Ciclo Completo",
     description: "Apresentação de propostas, agendamentos automáticos, follow-ups comerciais, suporte pós-compra e rotinas contínuas de satisfação e fidelização.",
-    badge: "Vendas e Pós-Vendas",
-    image: "/media/agente-operacoes.png",
+    image: "/media/agente-vendas.png",
   },
 ] as const;
 

@@ -11,7 +11,6 @@ export function ProjectsSection() {
         eyebrow={projectsSection.eyebrow}
         title={projectsSection.title}
         description={projectsSection.note}
-        descriptionAsNote
         className="mb-[clamp(40px,5vw,60px)]"
       />
       <ProjectGrid
