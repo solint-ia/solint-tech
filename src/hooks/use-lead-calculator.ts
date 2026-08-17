@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import {
+  calculateCreditAddons,
   getBaselineProspectLeads,
   getConversionRates,
   getCostPerSale,
@@ -162,6 +163,13 @@ export function useLeadCalculator({
     [plans, planId],
   );
 
+  /** Pacote adicional de créditos necessário para cobrir a meta na Etapa 4. */
+  const addon = useMemo(
+    () => calculateCreditAddons(volume.prospectLeads, selectedPlan?.credits ?? 0),
+    [volume.prospectLeads, selectedPlan],
+  );
+
+  /** Comparativo da Etapa 2: investimento no plano base. */
   const investment = useMemo(
     () =>
       getInvestment(
@@ -172,8 +180,25 @@ export function useLeadCalculator({
           keepTeam,
         },
         selectedPlan,
+        0,
       ),
     [costs, keepTeam, selectedPlan],
+  );
+
+  /** Comparativo da Etapa 4: investimento no plano base + adicionais de créditos da meta. */
+  const goalInvestment = useMemo(
+    () =>
+      getInvestment(
+        {
+          agency: toNumber(costs.agency),
+          traffic: toNumber(costs.traffic),
+          team: toNumber(costs.team),
+          keepTeam,
+        },
+        selectedPlan,
+        addon.addonPrice,
+      ),
+    [costs, keepTeam, selectedPlan, addon.addonPrice],
   );
 
   const costPerSale = useMemo(
@@ -186,34 +211,34 @@ export function useLeadCalculator({
     [numericMetrics.leads],
   );
 
-  /**
-   * Créditos que o plano precisa cobrir: o maior entre repor o volume atual de
-   * leads e alimentar a meta de vendas.
-   */
-  const requiredCredits = Math.max(baselineLeads, volume.prospectLeads);
+  /** Recomendação de plano para cobrir o volume atual (Etapa 2). */
+  const baselineRecommendation = useMemo(
+    () => recommendPlan(baselineLeads, plans),
+    [baselineLeads, plans],
+  );
 
-  const recommendation = useMemo(
-    () => recommendPlan(requiredCredits, plans),
-    [requiredCredits, plans],
+  /** Recomendação de plano para cobrir a meta de vendas (Etapa 4). */
+  const goalRecommendation = useMemo(
+    () => recommendPlan(volume.prospectLeads, plans),
+    [volume.prospectLeads, plans],
   );
 
   /**
-   * Plano recomendado: o preferido pelo cenário de equipe, desde que cubra a
-   * demanda de créditos. Créditos são restrição dura — quando o preferido não
-   * atende, sobe para o menor plano que atende.
+   * Plano recomendado na Etapa 2: o preferido pelo cenário de equipe, desde que
+   * cubra a demanda da operação atual (baselineLeads).
    */
   const preferredPlanId = planIdFor(keepTeam);
   const preferredPlan = plans.find((plan) => plan.id === preferredPlanId) ?? plans[0];
-  const preferredCoversCredits = (preferredPlan?.credits ?? 0) >= requiredCredits;
+  const preferredCoversBaseline = (preferredPlan?.credits ?? 0) >= baselineLeads;
 
-  const recommendedPlan = preferredCoversCredits
+  const recommendedPlan = preferredCoversBaseline
     ? preferredPlan
-    : (recommendation?.plan ?? preferredPlan);
+    : (baselineRecommendation?.plan ?? preferredPlan);
 
-  /** Por que este plano foi indicado: o cenário de equipe ou o volume de créditos. */
-  const recommendationReason: "team" | "credits" | "beyondPlans" = preferredCoversCredits
+  /** Por que este plano foi indicado: o cenário de equipe ou o volume de créditos atual. */
+  const recommendationReason: "team" | "credits" | "beyondPlans" = preferredCoversBaseline
     ? "team"
-    : recommendation?.isEnough
+    : baselineRecommendation?.isEnough
       ? "credits"
       : "beyondPlans";
 
@@ -223,12 +248,12 @@ export function useLeadCalculator({
       setKeepTeamState(value);
 
       const preferred = plans.find((plan) => plan.id === planIdFor(value));
-      const covers = (preferred?.credits ?? 0) >= requiredCredits;
-      const target = covers ? preferred : (recommendPlan(requiredCredits, plans)?.plan ?? preferred);
+      const covers = (preferred?.credits ?? 0) >= baselineLeads;
+      const target = covers ? preferred : (recommendPlan(baselineLeads, plans)?.plan ?? preferred);
 
       if (target) setPlanId(target.id);
     },
-    [planIdFor, plans, requiredCredits],
+    [planIdFor, plans, baselineLeads],
   );
 
   const hasMetrics =
@@ -255,12 +280,12 @@ export function useLeadCalculator({
     setKeepTeam,
     planId,
     setPlanId,
-    /** Plano indicado: cenário de equipe, limitado pela demanda de créditos. */
+    /** Plano indicado: cenário de equipe, limitado pela demanda de créditos atual. */
     recommendedPlanId: recommendedPlan?.id ?? "",
     recommendedPlan,
     recommendationReason,
     preferredPlan,
-    requiredCredits,
+    requiredCredits: baselineLeads,
     goal: goalValue,
     setGoal,
 
@@ -273,12 +298,17 @@ export function useLeadCalculator({
     baselineLeads,
     selectedPlan,
     investment,
+    goalInvestment,
+    addon,
     costPerSale,
-    recommendation,
+    baselineRecommendation,
+    goalRecommendation,
+    recommendation: goalRecommendation,
     hasMetrics,
-    /** O plano escolhido cobre a demanda de créditos da meta? */
+    /** O plano escolhido cobre a demanda de créditos da meta sem adicionais? */
     planCoversGoal: (selectedPlan?.credits ?? 0) >= volume.prospectLeads,
     /** O plano escolhido cobre o volume equivalente ao que o visitante já recebe? */
     planCoversBaseline: (selectedPlan?.credits ?? 0) >= baselineLeads,
   };
 }
+

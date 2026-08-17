@@ -10,11 +10,11 @@ import type {
 export const solucoesHero = {
   eyebrow: "/01 — soluções",
   titleLead: "Produtos digitais feitos para ",
-  titleTyped: "rodar e crescer",
+  titleTyped: "gerar resultados",
   titleTail: ".",
   paragraphs: [
-    "A Solint desenvolve experiências digitais modernas, rápidas, responsivas e alinhadas aos objetivos do negócio.",
-    "Da landing page que precisa converter ao sistema que sustenta a operação inteira.",
+    "Desenvolvemos landing pages de alta conversão, portais web, sistemas operacionais e plataformas personalizadas.",
+    "Da presença digital que atrai clientes ao sistema que sustenta e escala toda a sua operação.",
   ],
   primaryCta: { label: "Falar sobre meu projeto", href: CONTACT_ANCHOR },
   secondaryCta: { label: "Ver portfólio", href: "#portfolio" },
@@ -57,17 +57,17 @@ export const solutionPillars: readonly SolutionPillar[] = [
     deliverables: [
       {
         title: "Landing Pages de Alta Conversão",
-        description: "Páginas desenhadas para tráfego pago com foco em captação máxima e formulários ágeis.",
+        description: "Páginas desenhadas para tráfego pago com foco em transformar visitantes em leads e clientes.",
         tags: [],
       },
       {
         title: "Sites Institucionais",
-        description: "Posicionamento digital premium que transmite solidez e converte visitantes em oportunidades reais.",
+        description: "Posicionamento digital de alto padrão que transmite credibilidade e autoridade para sua marca.",
         tags: [],
       },
       {
         title: "E-commerces & Lojas Virtuais",
-        description: "Plataformas de venda com catálogo completo, checkout transparente e sincronização operacional.",
+        description: "Plataformas de venda completas com checkout seguro, catálogo organizado e facilidade de compra.",
         tags: [],
       },
     ],
@@ -84,17 +84,17 @@ export const solutionPillars: readonly SolutionPillar[] = [
     deliverables: [
       {
         title: "Sistemas Web Sob Medida",
-        description: "Aplicações desenhadas para a regra de negócio exclusiva da sua empresa com esteiras de aprovação.",
+        description: "Automatize processos internos com sistemas desenvolvidos exclusivamente para a rotina da sua empresa.",
         tags: [],
       },
       {
-        title: "Plataformas SaaS Multi-tenant",
-        description: "Produtos digitais com múltiplos clientes, assinaturas recorrentes e workspaces isolados.",
+        title: "Plataformas e Produtos Digitais",
+        description: "Desenvolvimento de plataformas completas para assinaturas, gestão de clientes e serviços digitais.",
         tags: [],
       },
       {
-        title: "Portais & Back-offices",
-        description: "Painéis de controle centrais para gestão de equipes, permissões granulares e governança.",
+        title: "Portais & Painéis Administrativos",
+        description: "Centralize a gestão da sua equipe, permissões de acesso e relatórios em um só lugar.",
         tags: [],
       },
     ],
@@ -110,18 +110,18 @@ export const solutionPillars: readonly SolutionPillar[] = [
       "Unificamos seus sistemas em tempo real para eliminar retrabalho manual e fornecer dados claros para decisão.",
     deliverables: [
       {
-        title: "Integração Contínua de APIs",
-        description: "Conexão contínua e segura entre CRMs, ERPs, sistemas internos e serviços externos.",
+        title: "Integração entre Ferramentas",
+        description: "Conexão direta e segura entre seus sistemas, CRM, ERPs e plataformas de pagamento.",
         tags: [],
       },
       {
-        title: "Dashboards em Tempo Real",
-        description: "Painéis visuais com indicadores comerciais e operacionais atualizados minuto a minuto.",
+        title: "Dashboards de Indicadores",
+        description: "Painéis visuais claros com as métricas de vendas e operação atualizadas em tempo real.",
         tags: [],
       },
       {
-        title: "Desenvolvimento de MVPs",
-        description: "Prototipagem funcional e ciclos rápidos de validação para novas ideias de negócio.",
+        title: "Prototipagem & MVPs",
+        description: "Desenvolvimento ágil de versões funcionais para validar novos produtos no mercado com rapidez.",
         tags: [],
       },
     ],
@@ -140,26 +140,26 @@ export const developmentSection = {
 export const developmentSteps: readonly ProcessStep[] = [
   {
     title: "Estratégia & Escopo",
-    description: "Mapeamento dos objetivos de negócio, requisitos técnicos e critérios mensuráveis de sucesso.",
-    tags: ["Mapeamento de KPIs", "Matriz de Escopo"],
+    description: "Entendimento da sua necessidade, definição dos requisitos e planejamento detalhado das entregas.",
+    tags: ["Planejamento", "Definição de Escopo"],
     badge: "Etapa 01",
   },
   {
     title: "Arquitetura & Design",
-    description: "Modelagem de dados, infraestrutura em nuvem, segurança e protótipos de alta fidelidade.",
-    tags: ["Infraestrutura Cloud", "Design System"],
+    description: "Criação do visual das telas, fluxo de navegação e estrutura de segurança e banco de dados.",
+    tags: ["Protótipos de Telas", "Estrutura Segura"],
     badge: "Etapa 02",
   },
   {
     title: "Desenvolvimento Ágil",
-    description: "Sprints com código limpo, arquitetura modular e validações frequentes com o cliente.",
-    tags: ["Sprints Semanais", "Código Limpo & Modular"],
+    description: "Construção do sistema com entregas contínuas e acompanhamento próximo da sua equipe.",
+    tags: ["Entregas Frequentes", "Código Modular"],
     badge: "Etapa 03",
   },
   {
     title: "Testes & Publicação",
-    description: "Auditoria rigorosa de desempenho, segurança, testes de carga e deploy sem downtime.",
-    tags: ["Alta Performance", "Segurança Cloud"],
+    description: "Validação rigorosa de desempenho, segurança e colocação do sistema no ar pronto para uso.",
+    tags: ["Alta Performance", "Deploy Seguro"],
     badge: "Etapa 04",
   },
 ] as const;
@@ -218,9 +218,9 @@ export const portfolioProjects: readonly ProjectCard[] = [
 ] as const;
 
 export const solucoesCta = {
-  title: "Tem um produto para tirar do papel?",
+  title: "Tem um projeto ou sistema para tirar do papel?",
   description:
-    "Conte a ideia e o prazo. Devolvemos escopo, arquitetura e caminho de entrega.",
+    "Compartilhe sua ideia com a Solint. Apresentamos a arquitetura ideal e o melhor caminho de desenvolvimento.",
   ctaLabel: "Falar com a Solint",
   ctaHref: CONTACT_ANCHOR,
 } as const;

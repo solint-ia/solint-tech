@@ -21,6 +21,7 @@ import {
 import { Button, Reveal } from "@/components/ui";
 import { useLeadCalculator, type CostKey, type MetricKey } from "@/hooks";
 import {
+  formatAddonSummary,
   formatBRL,
   formatNumber,
   formatRate,
@@ -236,7 +237,7 @@ function SummaryRow({
 }: {
   label: string;
   value: string;
-  tone?: "default" | "strong" | "amber";
+  tone?: "default" | "strong" | "amber" | "accent";
 }) {
   return (
     <div className="flex items-center justify-between gap-3 border-b border-accent/10 py-2 last:border-0">
@@ -245,6 +246,7 @@ function SummaryRow({
         className={cn(
           "font-display text-[0.9rem] font-semibold whitespace-nowrap",
           tone === "amber" && "text-amber",
+          tone === "accent" && "text-accent",
           tone === "strong" && "text-white",
           tone === "default" && "text-fg-strong",
         )}
@@ -474,10 +476,11 @@ export function LeadCalculator({
     baselineLeads,
     selectedPlan,
     investment,
+    goalInvestment,
+    addon,
     costPerSale,
-    recommendation,
     hasMetrics,
-    planCoversGoal,
+    planCoversBaseline,
   } = useLeadCalculator({ plans, defaults, planByTeam });
 
   const currentStep = steps[step];
@@ -485,7 +488,6 @@ export function LeadCalculator({
   const teamCost = investment.teamKept;
   const currentTeamCost = Number.parseInt(costs.team, 10) || 0;
   const isSaving = investment.monthlySavings > 0;
-  const planCoversRequired = (selectedPlan?.credits ?? 0) >= requiredCredits;
 
   /** Justificativa do plano indicado: cenário de equipe ou demanda de créditos. */
   const recommendationText =
@@ -845,10 +847,6 @@ export function LeadCalculator({
                 value={`${formatNumber(baselineLeads)} leads/mês`}
               />
               <SummaryRow
-                label={`Créditos para a meta de ${formatNumber(salesGoal)} vendas/mês`}
-                value={`${formatNumber(volume.prospectLeads)} créditos`}
-              />
-              <SummaryRow
                 label={`Créditos do plano ${selectedPlan?.name ?? "—"}`}
                 value={`${formatNumber(selectedPlan?.credits ?? 0)} créditos`}
               />
@@ -856,13 +854,13 @@ export function LeadCalculator({
               <p
                 className={cn(
                   "mt-2.5 m-0 flex items-center gap-1.5 text-[0.79rem]/[1.45] font-medium",
-                  planCoversRequired ? "text-emerald-400" : "text-amber",
+                  planCoversBaseline ? "text-emerald-400" : "text-amber",
                 )}
               >
                 <CheckCircle2 className="size-3.5 shrink-0" />
-                {planCoversRequired
-                  ? `O plano ${selectedPlan?.name} cobre os ${formatNumber(requiredCredits)} créditos/mês necessários.`
-                  : `O plano ${selectedPlan?.name} não cobre os ${formatNumber(requiredCredits)} créditos/mês necessários.`}
+                {planCoversBaseline
+                  ? `O plano ${selectedPlan?.name} atende sua demanda!`
+                  : `O plano ${selectedPlan?.name} não cobre os ${formatNumber(baselineLeads)} créditos/mês necessários.`}
               </p>
             </div>
           </div>
@@ -971,25 +969,44 @@ export function LeadCalculator({
                   <div className="flex flex-col">
                     <span className="font-display text-[0.95rem] font-bold text-white">
                       Plano {selectedPlan?.name}
+                      {addon.hasAddon ? " + Pacote Adicional" : ""}
                     </span>
                     <span className="font-mono text-[0.73rem] text-steel-2">
-                      {formatNumber(selectedPlan?.credits ?? 0)} créditos/mês inclusos
+                      {addon.hasAddon
+                        ? `${formatNumber(selectedPlan?.credits ?? 0)} (plano) + ${formatNumber(addon.addonCredits)} (adicional) = ${formatNumber(addon.totalCredits)} créditos/mês`
+                        : `${formatNumber(selectedPlan?.credits ?? 0)} créditos/mês inclusos`}
                     </span>
                   </div>
                 </div>
-                <span className="font-display text-[1.05rem] font-bold text-accent">
-                  {formatBRL(investment.planPrice)}
-                  <span className="font-sans text-[0.76rem] font-normal text-faint">/mês</span>
-                </span>
+
+                <div className="text-right">
+                  <span className="font-display text-[1.05rem] font-bold text-accent">
+                    {formatBRL(goalInvestment.planPrice + goalInvestment.addonPrice)}
+                    <span className="font-sans text-[0.76rem] font-normal text-faint">/mês</span>
+                  </span>
+                  {addon.hasAddon ? (
+                    <div className="font-mono text-[0.7rem] text-steel-2">
+                      {formatBRL(goalInvestment.planPrice)} + {formatBRL(goalInvestment.addonPrice)}
+                    </div>
+                  ) : null}
+                </div>
               </div>
 
-              {!planCoversGoal ? (
-                <p className="mt-3 m-0 text-[0.79rem]/[1.5] text-amber">
-                  {recommendation?.isEnough
-                    ? `Essa meta exige ${formatNumber(volume.prospectLeads)} créditos/mês: o plano ${recommendation.plan.name} cobre esse volume.`
-                    : `Essa meta exige ${formatNumber(volume.prospectLeads)} créditos/mês e supera nossos planos padrão. Montamos um plano sob medida para você.`}
+              {addon.hasAddon ? (
+                <div className="mt-3 rounded-xl border border-accent/20 bg-ink/60 p-3 text-[0.79rem]/[1.5]">
+                  <p className="m-0 font-medium text-fg-strong">
+                    📦 <strong className="text-accent">Pacote adicional necessário:</strong>{" "}
+                    {formatAddonSummary(addon)} (+{formatBRL(addon.addonPrice)}/mês).
+                  </p>
+                  <p className="mt-1 m-0 text-emerald-400">
+                    ✓ Com o total de <strong>{formatNumber(addon.totalCredits)} créditos/mês</strong>, sua meta de <strong>{formatNumber(salesGoal)} vendas/mês</strong> ({formatNumber(volume.prospectLeads)} créditos) fica 100% coberta.
+                  </p>
+                </div>
+              ) : (
+                <p className="mt-3 m-0 text-[0.79rem]/[1.5] text-emerald-400">
+                  ✓ O plano {selectedPlan?.name} com {formatNumber(selectedPlan?.credits ?? 0)} créditos/mês cobre os {formatNumber(volume.prospectLeads)} créditos necessários para sua meta.
                 </p>
-              ) : null}
+              )}
             </div>
 
             {/* Comparativo de investimento */}
@@ -1004,19 +1021,26 @@ export function LeadCalculator({
 
                 <SummaryRow
                   label={`Plano ${selectedPlan?.name ?? "—"}`}
-                  value={formatBRL(investment.planPrice)}
+                  value={formatBRL(goalInvestment.planPrice)}
                 />
+                {addon.hasAddon ? (
+                  <SummaryRow
+                    label={`Créditos adicionais (+${formatNumber(addon.addonCredits)} créditos)`}
+                    value={formatBRL(goalInvestment.addonPrice)}
+                    tone="accent"
+                  />
+                ) : null}
                 {keepTeam && teamCost > 0 ? (
                   <SummaryRow label="Equipe atual mantida" value={formatBRL(teamCost)} />
                 ) : null}
                 <SummaryRow
                   label="Investimento mensal total"
-                  value={formatBRL(investment.prospectTotal)}
+                  value={formatBRL(goalInvestment.prospectTotal)}
                   tone="strong"
                 />
                 <SummaryRow
                   label="Investimento anual"
-                  value={formatBRL(investment.yearlyProspectTotal)}
+                  value={formatBRL(goalInvestment.yearlyProspectTotal)}
                 />
               </div>
 
@@ -1024,32 +1048,32 @@ export function LeadCalculator({
                 <div className="mb-2 flex items-center gap-2">
                   <TrendingUp className="size-4 text-amber" />
                   <span className="font-display text-[0.9rem] font-semibold text-white">
-                    {investment.hasCurrentCosts ? "Sua operação atual" : "Comparativo"}
+                    {goalInvestment.hasCurrentCosts ? "Sua operação atual" : "Comparativo"}
                   </span>
                 </div>
 
-                {investment.hasCurrentCosts ? (
+                {goalInvestment.hasCurrentCosts ? (
                   <>
                     <SummaryRow
                       label="Custo mensal atual"
-                      value={formatBRL(investment.currentTotal)}
+                      value={formatBRL(goalInvestment.currentTotal)}
                     />
                     <SummaryRow
                       label={
-                        investment.monthlySavings >= 0
+                        goalInvestment.monthlySavings >= 0
                           ? "Economia mensal"
                           : "Investimento adicional mensal"
                       }
-                      value={formatBRL(Math.abs(investment.monthlySavings))}
+                      value={formatBRL(Math.abs(goalInvestment.monthlySavings))}
                       tone="amber"
                     />
                     <SummaryRow
                       label={
-                        investment.yearlySavings >= 0
+                        goalInvestment.yearlySavings >= 0
                           ? "Economia anual"
                           : "Investimento adicional anual"
                       }
-                      value={formatBRL(Math.abs(investment.yearlySavings))}
+                      value={formatBRL(Math.abs(goalInvestment.yearlySavings))}
                       tone="amber"
                     />
                   </>
@@ -1087,9 +1111,21 @@ export function LeadCalculator({
                 label={`Créditos do plano ${selectedPlan?.name ?? "—"}`}
                 value={`${formatNumber(selectedPlan?.credits ?? 0)} créditos/mês`}
               />
+              {addon.hasAddon ? (
+                <SummaryRow
+                  label="Créditos adicionais contratados"
+                  value={`+${formatNumber(addon.addonCredits)} créditos/mês (${formatBRL(addon.addonPrice)}/mês)`}
+                  tone="accent"
+                />
+              ) : null}
+              <SummaryRow
+                label="Total de créditos disponíveis"
+                value={`${formatNumber(addon.totalCredits)} créditos/mês`}
+                tone="strong"
+              />
               <SummaryRow
                 label="Meta de vendas"
-                value={`${formatNumber(salesGoal)} vendas/mês`}
+                value={`${formatNumber(salesGoal)} vendas/mês (${formatNumber(volume.prospectLeads)} créditos necessários)`}
               />
             </div>
           </div>

@@ -11,13 +11,13 @@ import type { AgentApplication, ProjectCard, TechnologyGroup } from "@/types";
 
 export const agentesHero = {
   eyebrow: "/01 — agentes de ia",
-  titleLead: "Agentes que trabalham enquanto sua equipe pensa ",
-  titleTyped: "no próximo passo",
+  titleLead: "Agentes que trabalham enquanto sua equipe foca ",
+  titleTyped: "no fechamento",
   titleTail: ".",
   description:
-    "Automatize conversas, decisões e tarefas operacionais sem perder contexto, controle ou personalidade.",
+    "Automatize conversas, triagem de oportunidades e rotinas operacionais sem perder contexto, controle ou personalidade.",
   primaryCta: { label: "Explorar aplicações", href: "#ajuda" },
-  secondaryCta: { label: "Ver como funciona", href: "#tecnologias" },
+  secondaryCta: { label: "Ver integrações", href: "#tecnologias" },
 } as const;
 
 /** Eventos do feed "ao vivo" do agente, exibido ao lado do H1. */
@@ -28,116 +28,116 @@ export const agentFeed = {
   events: [
     {
       title: "Solicitação recebida",
-      quote: '"Olá! Gostaria de entender como automatizar processos e integrar nossa operação."',
-      tag: "Canal Omnichannel",
+      quote: '"Olá! Gostaria de entender como funciona o serviço para minha empresa."',
+      tag: "WhatsApp / Site",
       timestamp: "10:42:01",
       type: "incoming",
     },
     {
       title: "Intenção identificada",
-      detail: "Compreensão da demanda e mapeamento automático do fluxo operacional correspondente",
-      tag: "Análise Contextual",
+      detail: "Compreensão da necessidade e qualificação inicial com base nas regras do negócio",
+      tag: "Análise com IA",
       type: "ai",
     },
     {
-      title: "Execução autônoma",
-      detail: "Retorno personalizado enviado e acionamento dos fluxos internos configurados",
+      title: "Resposta imediata",
+      detail: "Envio de orientações personalizadas e agendamento direto com o time comercial",
       status: "Ação Concluída",
-      tag: "Execução Autônoma",
+      tag: "Execução Direta",
       type: "action",
     },
   ],
   handoff: {
     title: "Operação sincronizada",
-    detail: "Registro atualizado nos sistemas internos e equipe notificada com contexto completo",
+    detail: "Lead registrado no CRM com histórico completo e vendedor notificado na hora",
     status: "Fluxo Concluído",
     tag: "Sincronização",
-    destination: "CRM / ERP · Notificações de Equipe",
+    destination: "CRM / WhatsApp do Vendedor",
   },
 } as const;
 
 export const applicationsSection = {
   eyebrow: "Como podemos ajudar",
   title: "Onde a automação entra na sua operação.",
-  description: "Escolha uma aplicação para ver como ela funciona na prática.",
+  description: "Aplicações práticas para eliminar gargalos e acelerar o atendimento.",
 } as const;
 
 export const agentApplications: readonly AgentApplication[] = [
   {
     icon: Headset,
-    title: "Atendimento automatizado",
-    description: "Primeiro contato imediato com inteligência contextual e encaminhamento correto.",
+    title: "Atendimento imediato 24/7",
+    description: "Respostas instantâneas e personalizadas para clientes a qualquer hora, sem filas de espera.",
     flow: ["Mensagem recebida", "Intenção identificada", "Resposta personalizada"],
-    impact: "Resposta instantânea em segundos, 24 horas por dia, 365 dias ao ano.",
+    impact: "Seus clientes atendidos em segundos, a qualquer dia ou horário.",
   },
   {
     icon: Target,
-    title: "Qualificação de leads",
-    description: "Perguntas estratégicas na hora certa para seu time focar só em quem tem real intenção de compra.",
-    flow: ["Lead capturado", "Perfil avaliado", "Score calculado"],
-    impact: "Seu time comercial falando apenas com oportunidades prontas para fechar.",
+    title: "Filtro e qualificação de leads",
+    description: "Perguntas pontuais para filtrar curiosos e enviar ao comercial apenas quem tem real intenção de compra.",
+    flow: ["Contato iniciado", "Perfil avaliado", "Interesse confirmado"],
+    impact: "Seu time comercial falando apenas com oportunidades prontas para avançar.",
   },
   {
     icon: Clock,
-    title: "Follow-up automático",
-    description: "Retomadas inteligentes e programadas, sem depender da memória ou agenda de ninguém.",
-    flow: ["Sem resposta em 24h", "Lembrete contextual", "Conversa reativada"],
-    impact: "Zero oportunidades esquecidas no funil comercial.",
+    title: "Follow-up e reativação",
+    description: "Retomadas automáticas e humanizadas para não deixar propostas esfriarem ou contatos sem retorno.",
+    flow: ["Sem resposta recente", "Lembrete inteligente", "Conversa reativada"],
+    impact: "Zero oportunidades esquecidas ou perdidas no funil de vendas.",
   },
   {
     icon: Link2,
-    title: "Integração entre sistemas",
-    description: "CRM, ERPs, planilhas e plataformas falando a mesma língua em tempo real.",
-    flow: ["Evento disparado", "Sistema identificado", "Registro sincronizado"],
-    impact: "Dados unificados e sincronizados sem retrabalho manual.",
+    title: "Integração entre ferramentas",
+    description: "WhatsApp, CRM, ERPs e planilhas conectados para sincronizar informações sem digitação manual.",
+    flow: ["Ação realizada", "Sistemas atualizados", "Dados sincronizados"],
+    impact: "Dados sempre corretos e sem retrabalho da equipe.",
   },
   {
     icon: Database,
-    title: "Processamento de dados",
-    description: "Leitura, estruturação, validação e enriquecimento de bases em alta escala.",
-    flow: ["Dado bruto recebido", "Estrutura validada", "Enriquecimento aplicado"],
-    impact: "Bases prontas para tomada de decisão imediata.",
+    title: "Organização de informações",
+    description: "Leitura de comprovantes, pedidos e documentos para atualizar cadastros e sistemas automaticamente.",
+    flow: ["Arquivo recebido", "Dados extraídos", "Registro efetuado"],
+    impact: "Processamento de rotinas operacionais em segundos.",
   },
   {
     icon: Users,
-    title: "Agentes internos",
-    description: "Assistentes para consulta de procedimentos, bases de conhecimento e histórico da empresa.",
-    flow: ["Pergunta interna", "Base de dados consultada", "Resposta precisa"],
+    title: "Assistentes para sua equipe",
+    description: "IA treinada no catálogo, regras e histórico da empresa para orientar colaboradores com rapidez.",
+    flow: ["Dúvida interna", "Base consultada", "Orientação precisa"],
     impact: "Menos tempo procurando informações, mais tempo executando.",
   },
 ] as const;
 
 export const technologiesSection = {
   eyebrow: "Ecossistema de Integrações",
-  title: "Uma estrutura conectada e orquestrada pela Solint.",
+  title: "Conectamos com as ferramentas que sua empresa já usa.",
   hubLabel: "Orquestrador central de IA, conexões e automações em tempo real",
 } as const;
 
 export const technologyGroups: readonly TechnologyGroup[] = [
   {
-    label: "Plataformas de Comunicação",
+    label: "Canais de Atendimento",
     category: "communication",
     items: [
       { name: "WhatsApp", iconKey: "whatsapp", badge: "Oficial API" },
       { name: "Instagram", iconKey: "instagram", badge: "Direct" },
       { name: "Telegram", iconKey: "telegram" },
-      { name: "Webchat / Site", iconKey: "webchat", badge: "Portais" },
-      { name: "Mercado Livre", iconKey: "ecommerce", badge: "Marketplaces" },
+      { name: "Chat no Site", iconKey: "webchat", badge: "Portais" },
+      { name: "Marketplaces", iconKey: "ecommerce", badge: "Mercado Livre" },
       { name: "E-mail", iconKey: "email", badge: "Omnichannel" },
     ],
   },
   {
-    label: "Sistemas do Cliente",
+    label: "Sistemas & CRMs",
     category: "client_systems",
     items: [
       { name: "CRMs", iconKey: "crm", badge: "HubSpot · RD · Salesforce · Pipedrive" },
-      { name: "ERPs", iconKey: "erp", badge: "SAP · Totvs · Omie · Bling · ContaAzul" },
+      { name: "ERPs", iconKey: "erp", badge: "Totvs · SAP · Omie · Bling · ContaAzul" },
       { name: "Sistemas Próprios", iconKey: "internal", badge: "APIs & Webhooks" },
       { name: "Meios de Pagamento", iconKey: "finance", badge: "Stripe · Asaas · Mercado Pago" },
     ],
   },
   {
-    label: "LLMs",
+    label: "Modelos de Inteligência",
     category: "llms",
     items: [
       { name: "ChatGPT", iconKey: "chatgpt", badge: "OpenAI" },
@@ -149,7 +149,7 @@ export const technologyGroups: readonly TechnologyGroup[] = [
     ],
   },
   {
-    label: "Integrações",
+    label: "Automação & Banco de Dados",
     category: "integrations",
     items: [
       { name: "Bancos SQL", iconKey: "sql" },
@@ -158,7 +158,7 @@ export const technologyGroups: readonly TechnologyGroup[] = [
       { name: "Excel & Sheets", iconKey: "excel" },
       { name: "Trello & Notion", iconKey: "trello" },
       { name: "PostgreSQL", iconKey: "postgres" },
-      { name: "Webhooks / Make / Zapier", iconKey: "workflow" },
+      { name: "Webhooks & Automações", iconKey: "workflow" },
       { name: "e mais de 1000 integrações", iconKey: "more_1000", isHighlight: true },
     ],
   },
@@ -194,9 +194,10 @@ export const agentProjects: readonly ProjectCard[] = [
 ] as const;
 
 export const agentesCta = {
-  title: "Qual processo você repetiria menos amanhã?",
+  title: "Quer ver a automação rodando no cenário da sua empresa?",
   description:
-    "Conte como funciona hoje. A gente mapeia o fluxo e mostra onde a automação compensa.",
+    "Conte-nos como funciona seu fluxo atual. Desenhamos a estrutura de agentes ideal para sua operação.",
   ctaLabel: "Falar com a Solint",
   ctaHref: CONTACT_ANCHOR,
 } as const;
+

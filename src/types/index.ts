@@ -205,12 +205,34 @@ export interface CalculatorPlan {
   badge?: string;
 }
 
+/** Pacote avulso de créditos adicionais. */
+export interface CreditAddonPackage {
+  credits: number;
+  price: number;
+}
+
+export interface CreditAddonItem {
+  package: CreditAddonPackage;
+  count: number;
+  subtotal: number;
+}
+
+export interface CreditAddonResult {
+  neededCredits: number;
+  addonCredits: number;
+  totalCredits: number;
+  addonPrice: number;
+  items: readonly CreditAddonItem[];
+  hasAddon: boolean;
+}
+
 /** Comparativo entre a operação atual e o investimento com o Prospect. */
 export interface InvestmentSummary {
   currentTotal: number;
   currentYearlyTotal: number;
   prospectTotal: number;
   planPrice: number;
+  addonPrice: number;
   /** Custo de equipe mantido dentro do investimento (0 quando não mantido). */
   teamKept: number;
   monthlySavings: number;
@@ -227,3 +249,4 @@ export interface PlanRecommendation {
   isEnough: boolean;
   missingCredits: number;
 }
+

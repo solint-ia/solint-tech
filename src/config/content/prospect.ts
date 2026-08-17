@@ -7,7 +7,7 @@ export const prospectHero = {
   titleTyped: "oportunidades reais",
   titleTail: ".",
   description:
-    "Encontre as empresas certas, automatize seus contatos e deixe a inteligência artificial preparar seus leads para o momento da venda.",
+    "Encontre as empresas certas, descubra contatos de decisores e deixe a inteligência artificial qualificar seus leads antes da reunião de vendas.",
   primaryCta: { label: "Começar agora", href: CONTACT_ANCHOR },
   secondaryCta: { label: "Ver como funciona", href: "#como-funciona" },
 } as const;
@@ -21,31 +21,31 @@ export const heroPipeline = {
   nodes: [
     {
       title: "Pesquisa de empresas",
-      description: "Varredura automática por critérios B2B",
-      tags: ["CNAE: Tecnologia", "UF: SP · RJ · PR"],
+      description: "Filtro automático por segmento e região",
+      tags: ["CNAE: Segmento", "Região & Porte"],
       metric: "Segmentação ativa",
       type: "search",
     },
     {
-      title: "Lista de leads qualificados",
-      description: "Extração e enriquecimento de decisores",
-      tags: ["Sócios & C-Level", "WhatsApp & E-mail"],
+      title: "Lista de decisores",
+      description: "Localização de sócios e diretores",
+      tags: ["Sócios & Diretores", "WhatsApp & E-mail"],
       metric: "Contatos verificados",
       type: "leads",
     },
   ],
   highlight: {
     title: "IA qualifica e encaminha",
-    description: "Abordagem contextual e análise de fit em tempo real",
+    description: "Abordagem contextual e avaliação de interesse em tempo real",
     badge: "✦ Motor de IA Ativo",
     score: "Alta Intenção de Compra",
-    sampleInteraction: "Interesse e fit confirmados",
+    sampleInteraction: "Interesse e perfil confirmados",
   },
   destination: {
-    title: "Time comercial acionado",
-    description: "Oportunidade entregue ao SDR no CRM",
+    title: "Vendedor acionado",
+    description: "Oportunidade entregue ao comercial no CRM",
     status: "Lead Pronto p/ Contato",
-    speed: "Handoff automático",
+    speed: "Transferência automática",
   },
 } as const;
 
@@ -57,31 +57,31 @@ export const flowSection = {
 /** As 6 etapas do fluxo em S. A etapa 5 concentra o destaque com as perguntas da IA. */
 export const prospectSteps: readonly ProcessStep[] = [
   {
-    title: "Cria uma pesquisa",
+    title: "Pesquisa segmentada",
     description:
-      "Seleciona CNAEs, estados e capital social para encontrar empresas específicas.",
+      "Selecione segmento de atuação, localização e porte para encontrar seu público-alvo ideal.",
   },
   {
-    title: "Extrai os leads",
-    description: "Cria uma lista automática com os sócios das empresas encontradas.",
+    title: "Extração de decisores",
+    description: "A plataforma localiza automaticamente os sócios e diretores das empresas encontradas.",
   },
   {
-    title: "Exporta para o CRM",
-    description: "Leva esses contatos dos sócios diretamente para o CRM completo.",
+    title: "Organização no CRM",
+    description: "Os contatos verificados são organizados diretamente no CRM com dados completos.",
   },
   {
-    title: "Cria campanhas",
-    description: "Define campanhas de envio de mensagens com data e horário programados.",
+    title: "Programação de campanhas",
+    description: "Configure envios de mensagens automáticas com horários estratégicos de abordagem.",
   },
   {
-    title: "IA faz a pré-qualificação",
+    title: "IA pré-qualifica o lead",
     description:
-      "Inteligência artificial faz o primeiro contato e qualifica os leads automaticamente.",
+      "A inteligência artificial inicia o diálogo, tira dúvidas e avalia o interesse do contato.",
   },
   {
-    title: "IA transfere para seu time",
+    title: "Encaminhamento ao time",
     description:
-      "Leads qualificados são automaticamente encaminhados para sua equipe de vendas.",
+      "Leads com interesse confirmado são entregues na hora para seus vendedores fecharem a venda.",
   },
 ] as const;
 
@@ -112,32 +112,32 @@ export const leadStatuses: readonly StatusPill[] = [
 
 export const platformSection = {
   eyebrow: "Diferenciais Tecnológicos",
-  title: "Uma estrutura robusta para abastecer seu time com oportunidades reais",
+  title: "Tecnologia de ponta para abastecer seu time com oportunidades prontas",
   description:
-    "Combinamos inteligência de dados públicos B2B e IA contextual para eliminar o trabalho braçal de busca e abordagem manual.",
+    "Unimos inteligência de dados B2B e IA contextual para eliminar o trabalho manual de busca e abordagem fria.",
   ctaLabel: "Começar com o Prospect",
   ctaHref: CONTACT_ANCHOR,
   highlights: [
-    "Redução expressiva do trabalho operacional",
+    "Eliminação do trabalho braçal de busca",
     "Sincronização instantânea com seu CRM",
   ],
   capabilities: [
     {
-      title: "Varredura & Enriquecimento B2B",
-      description: "Localização precisa de empresas e decisores (sócios, diretores e C-levels) com dados e contatos válidos.",
+      title: "Busca de Empresas & Decisores",
+      description: "Localização precisa de empresas e contatos diretos de sócios e diretores com dados verificados.",
       badge: "Inteligência de Dados",
       iconKey: "database",
     },
     {
       title: "Motor de IA Pré-Qualificador",
-      description: "Abordagem automatizada e humanizada que compreende o momento de compra antes de acionar seu vendedor.",
+      description: "Abordagem humanizada que compreende a necessidade do cliente antes de acionar seu vendedor.",
       badge: "✦ IA Nativa",
       iconKey: "bot",
       isHighlight: true,
     },
     {
-      title: "Handoff Instantâneo ao CRM",
-      description: "Passagem de bastão automática com histórico consolidado e notificações em tempo real para o time comercial.",
+      title: "Envio Automático para o CRM",
+      description: "O lead qualificado entra direto no seu sistema com o histórico completo da conversa e aviso em tempo real para sua equipe de vendas.",
       badge: "Integração Contínua",
       iconKey: "userCheck",
     },
@@ -145,8 +145,8 @@ export const platformSection = {
 } as const;
 
 export const prospectCta = {
-  title: "Seu time falando só com quem está pronto para comprar.",
-  description: "Mostramos o Prospect rodando com o seu perfil de cliente ideal.",
+  title: "Seu time comercial falando apenas com quem quer comprar.",
+  description: "Veja o Prospect funcionando na prática com o perfil de cliente ideal da sua empresa.",
   ctaLabel: "Falar com a Solint",
   ctaHref: CONTACT_ANCHOR,
 } as const;

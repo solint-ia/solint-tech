@@ -56,13 +56,23 @@ function OrbitDot({
   );
 }
 
+export interface InteractiveCoreProps {
+  src?: string;
+  alt?: string;
+  priority?: boolean;
+}
+
 /**
- * Núcleo 3D animado do hero da home: anéis orbitais, treliça giratória e um
+ * Núcleo 3D animado do hero: anéis orbitais, treliça giratória e um
  * centro pulsante, com tilt sutil ligado ao cursor e ao scroll.
  *
  * Puramente decorativo (`aria-hidden`) e sem interação por ponteiro.
  */
-export function InteractiveCore() {
+export function InteractiveCore({
+  src = "/media/brain-core.png",
+  alt = "Solint 3D Holographic Core",
+  priority = true,
+}: InteractiveCoreProps = {}) {
   const tiltRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -184,20 +194,20 @@ export function InteractiveCore() {
           </g>
         </svg>
 
-        {/* Núcleo de IA: Cérebro Neural Holográfico 3D */}
-        <div className="absolute top-1/2 left-1/2 size-[68%] -translate-1/2 [transform-style:preserve-3d] flex items-center justify-center pointer-events-none z-10">
+        {/* Núcleo 3D: Imagem Holográfica */}
+        <div className="absolute top-1/2 left-1/2 size-[74%] -translate-1/2 [transform-style:preserve-3d] flex items-center justify-center pointer-events-none z-10">
           {/* Halo volumétrico central de energia */}
           <div className="animate-breathe absolute size-[72%] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgb(53_217_255/0.35)_0%,rgb(22_140_255/0.18)_45%,transparent_70%)] blur-xl" />
 
-          {/* Imagem do Cérebro Neural 3D */}
+          {/* Imagem 3D animada */}
           <div className="relative size-full animate-float">
             <Image
-              src="/media/brain-core.png"
-              alt="Solint AI Neural Brain"
+              src={src}
+              alt={alt}
               fill
               sizes="(max-width: 900px) 100vw, 450px"
               className="object-contain drop-shadow-[0_0_30px_rgb(53_217_255/0.7)]"
-              priority
+              priority={priority}
             />
           </div>
         </div>

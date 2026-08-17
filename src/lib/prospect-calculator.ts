@@ -2,6 +2,9 @@ import type {
   CalculatorPlan,
   ConversionRates,
   CostInputs,
+  CreditAddonItem,
+  CreditAddonPackage,
+  CreditAddonResult,
   CurrentMetrics,
   InvestmentSummary,
   PlanRecommendation,
@@ -19,6 +22,111 @@ export const LEAD_VALIDATION_RATE = 0.4;
 
 /** Meses considerados na projeção anual do comparativo de investimento. */
 const MONTHS_PER_YEAR = 12;
+
+/**
+ * Tabela de pacotes adicionais de créditos:
+ * - 500 créditos: R$ 500 (R$ 1,00/crédito)
+ * - 1.000 créditos: R$ 720 (R$ 0,72/crédito)
+ * - 3.000 créditos: R$ 1.050 (R$ 0,35/crédito)
+ */
+export const CREDIT_ADDON_TIERS: readonly CreditAddonPackage[] = [
+  { credits: 500, price: 500 },
+  { credits: 1000, price: 720 },
+  { credits: 3000, price: 1050 },
+] as const;
+
+/**
+ * Calcula a combinação mais econômica de pacotes de créditos adicionais
+ * para cobrir a quantidade de créditos faltantes da meta.
+ */
+export function calculateCreditAddons(
+  neededCredits: number,
+  basePlanCredits: number = 0,
+  tiers: readonly CreditAddonPackage[] = CREDIT_ADDON_TIERS,
+): CreditAddonResult {
+  const missing = Math.max(0, neededCredits - basePlanCredits);
+  if (missing <= 0 || tiers.length === 0) {
+    return {
+      neededCredits: 0,
+      addonCredits: 0,
+      totalCredits: basePlanCredits,
+      addonPrice: 0,
+      items: [],
+      hasAddon: false,
+    };
+  }
+
+  const sorted = [...tiers].sort((a, b) => a.credits - b.credits);
+  const pkg500: CreditAddonPackage =
+    sorted.find((p) => p.credits === 500) ?? sorted[0] ?? { credits: 500, price: 500 };
+  const pkg1000: CreditAddonPackage =
+    sorted.find((p) => p.credits === 1000) ?? sorted[1] ?? pkg500;
+  const pkg3000: CreditAddonPackage =
+    sorted.find((p) => p.credits === 3000) ?? sorted[2] ?? pkg1000;
+
+  const max3000 = Math.ceil(missing / pkg3000.credits) + 1;
+  let bestCost = Number.POSITIVE_INFINITY;
+  let bestCombo: { pkg: CreditAddonPackage; count: number }[] = [];
+  let bestCredits = 0;
+
+  for (let c = 0; c <= max3000; c++) {
+    const costC = c * pkg3000.price;
+    const credC = c * pkg3000.credits;
+    if (costC > bestCost) break;
+
+    for (let b = 0; b <= 3; b++) {
+      const costB = costC + b * pkg1000.price;
+      const credB = credC + b * pkg1000.credits;
+      if (costB > bestCost) break;
+
+      for (let a = 0; a <= 2; a++) {
+        const totalCred = credB + a * pkg500.credits;
+        const totalCost = costB + a * pkg500.price;
+
+        if (totalCred >= missing) {
+          if (
+            totalCost < bestCost ||
+            (totalCost === bestCost && totalCred > bestCredits)
+          ) {
+            bestCost = totalCost;
+            bestCredits = totalCred;
+            bestCombo = [
+              { pkg: pkg3000, count: c },
+              { pkg: pkg1000, count: b },
+              { pkg: pkg500, count: a },
+            ].filter((item) => item.count > 0);
+          }
+          break;
+        }
+      }
+    }
+  }
+
+  const items: CreditAddonItem[] = bestCombo.map(({ pkg, count }) => ({
+    package: pkg,
+    count,
+    subtotal: count * pkg.price,
+  }));
+
+  return {
+    neededCredits: missing,
+    addonCredits: bestCredits,
+    totalCredits: basePlanCredits + bestCredits,
+    addonPrice: Number.isFinite(bestCost) ? bestCost : 0,
+    items,
+    hasAddon: items.length > 0 && bestCost > 0,
+  };
+}
+
+export function formatAddonSummary(addon: CreditAddonResult): string {
+  if (!addon.hasAddon || addon.items.length === 0) return "";
+  return addon.items
+    .map((item) => {
+      const pkgLabel = item.count === 1 ? "pacote" : "pacotes";
+      return `${item.count}x ${pkgLabel} de ${formatNumber(item.package.credits)} créditos`;
+    })
+    .join(" + ");
+}
 
 function clampRate(value: number): number {
   if (!Number.isFinite(value) || value <= 0) return 0;
@@ -72,10 +180,11 @@ export function getBaselineProspectLeads(currentLeads: number): number {
 export function getInvestment(
   { agency, traffic, team, keepTeam }: CostInputs,
   plan: CalculatorPlan | undefined,
+  addonPrice: number = 0,
 ): InvestmentSummary {
   const planPrice = plan?.price ?? 0;
   const currentTotal = agency + traffic + team;
-  const prospectTotal = planPrice + (keepTeam ? team : 0);
+  const prospectTotal = planPrice + addonPrice + (keepTeam ? team : 0);
   const monthlySavings = currentTotal - prospectTotal;
 
   return {
@@ -83,6 +192,7 @@ export function getInvestment(
     currentYearlyTotal: currentTotal * MONTHS_PER_YEAR,
     prospectTotal,
     planPrice,
+    addonPrice,
     teamKept: keepTeam ? team : 0,
     monthlySavings,
     yearlySavings: monthlySavings * MONTHS_PER_YEAR,

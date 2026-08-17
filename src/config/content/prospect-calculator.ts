@@ -101,7 +101,7 @@ export const calculatorPlans: readonly CalculatorPlan[] = [
     id: "growth",
     name: "Growth",
     price: 2000,
-    credits: 2000,
+    credits: 800,
     badge: "Popular",
     description: "Inclui a IA de pré-qualificação, que assume o trabalho de abordagem e triagem.",
   },

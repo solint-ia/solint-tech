@@ -8,24 +8,24 @@ export const homeHero = {
   titleTyped: "oportunidades em resultados",
   titleTail: ".",
   description:
-    "A Solint conecta estratégia, dados e inovação para criar soluções digitais mais eficientes, escaláveis e preparadas para o futuro.",
-  primaryCta: { label: "Explorar ecossistema", href: "#atuacao" },
-  secondaryCta: { label: "Fale com um especialista", href: "https://wa.me/557996809911" },
+    "Desenvolvemos inteligência artificial, automações e sistemas sob medida para empresas que precisam escalar vendas e simplificar processos operacionais.",
+  primaryCta: { label: "Explorar soluções", href: "#atuacao" },
+  secondaryCta: { label: "Falar com especialista", href: "https://wa.me/557996809911" },
   /** Linhas rotacionadas no terminal simulado abaixo dos CTAs. */
   terminalLines: [
-    "conectando estratégia, dados e execução… ok",
     "mapeando processos da operação… ok",
-    "treinando agentes no seu contexto… ok",
-    "integrando sistemas em um só fluxo… ok",
+    "ativando agentes de atendimento e vendas… ok",
+    "integrando WhatsApp, CRM e sistemas… ok",
+    "eliminando tarefas manuais repetitivas… ok",
   ],
-  keywords: ["Agentes de IA", "Prospecção", "Software", "Integrações"],
+  keywords: ["Agentes de IA", "Prospecção B2B", "Sistemas Web", "Integrações"],
 } as const;
 
 export const serviceAreasSection = {
   eyebrow: "/02 — ecossistema solint",
-  title: "Três frentes, um mesmo objetivo: operação mais inteligente.",
+  title: "Três frentes, um objetivo: sua empresa operando com máxima eficiência.",
   description:
-    "Trabalhamos com 3 frentes para alavancar o seu negócio. Cada frente opera de forma modular e independente para atender à sua necessidade específica.",
+    "Soluções modulares que atuam no atendimento, na prospecção de clientes e no desenvolvimento de ferramentas exclusivas para o seu negócio.",
   hint: "Arraste para girar ou use as setas do teclado para explorar.",
 } as const;
 
@@ -33,14 +33,14 @@ export const serviceAreas: readonly ServiceArea[] = [
   {
     icon: Bot,
     number: "01",
-    tag: "Automação & Atendimento 24/7",
+    tag: "Atendimento & Automação 24/7",
     title: "Agentes de IA",
     description:
-      "Automatize conversas, qualificações e rotinas operacionais sem perder contexto, controle ou personalidade.",
+      "Atenda clientes a qualquer hora, filtre oportunidades quentes e automatize tarefas repetitivas com inteligência humanizada.",
     highlights: [
-      "Atendimento instantâneo multicanal",
+      "Atendimento imediato 24 horas por dia",
       "Qualificação e direcionamento de leads",
-      "Integração com CRMs, ERPs e bancos",
+      "Integração com WhatsApp, CRM e ERPs",
     ],
     href: "/agentes-ia",
     ctaLabel: "Explorar Agentes de IA",
@@ -51,11 +51,11 @@ export const serviceAreas: readonly ServiceArea[] = [
     tag: "Motor de Vendas B2B",
     title: "Prospect",
     description:
-      "Encontre empresas no seu perfil de cliente ideal, descubra contatos de decisores e pré-qualifique oportunidades com IA.",
+      "Localize empresas no perfil ideal, obtenha contatos diretos de decisores e use IA para iniciar o diálogo comercial.",
     highlights: [
-      "Segmentação avançada por CNAE e região",
-      "Extração de sócios e contatos verificados",
-      "Campanhas e pré-qualificação inteligente",
+      "Busca segmentada por atividade e região",
+      "Contatos verificados de sócios e diretores",
+      "Abordagem e triagem automática de leads",
     ],
     href: "/prospect",
     ctaLabel: "Conhecer o Prospect",
@@ -66,11 +66,11 @@ export const serviceAreas: readonly ServiceArea[] = [
     tag: "Engenharia de Software",
     title: "Soluções",
     description:
-      "Desenvolvimento de plataformas web, sistemas corporativos, SaaS escaláveis e integrações profundas de APIs sob medida.",
+      "Landing pages de alta conversão, portais web, sistemas corporativos e plataformas personalizadas feitas para durar e crescer.",
     highlights: [
-      "Sistemas web e portais administrativos",
-      "Plataformas SaaS e arquiteturas cloud",
-      "Conexão de APIs e dashboards em tempo real",
+      "Páginas e portais focados em conversão",
+      "Sistemas sob medida para sua regra de negócio",
+      "Painéis de indicadores e conexão de APIs",
     ],
     href: "/solucoes",
     ctaLabel: "Ver Soluções Digitais",
@@ -95,8 +95,9 @@ export const partnersSection = {
 
 export const contactSection = {
   eyebrow: "/04 — contato",
-  title:
-    "Vamos construir uma solução mais inteligente, conectada e preparada para o futuro.",
-  description: "Conte o que está travando a sua operação. A gente desenha o caminho.",
+  title: "Pronto para destravar a eficiência da sua operação?",
+  description:
+    "Conte-nos o principal desafio da sua empresa hoje. Desenhamos a solução ideal para o seu cenário.",
   ctaLabel: "Falar com a Solint",
 } as const;
+

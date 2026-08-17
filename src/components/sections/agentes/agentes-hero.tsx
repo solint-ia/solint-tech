@@ -1,17 +1,17 @@
 import { HeroMesh } from "@/components/layout";
-import { AgentFeed, TypedHeading } from "@/components/features";
+import { InteractiveCore, TypedHeading } from "@/components/features";
 import { Button, Reveal, SectionMarker } from "@/components/ui";
 import { agentesHero } from "@/config/content/agentes";
 
-/** Hero de Agentes de IA: título com typewriter e feed de agente ao vivo. */
+/** Hero de Agentes de IA: título com typewriter e visual 3D interativo. */
 export function AgentesHero() {
   return (
-    <section className="relative overflow-hidden px-6 pt-46 pb-24">
+    <section className="relative overflow-hidden px-6 pt-46 pb-25">
       <SectionMarker label={agentesHero.eyebrow} position="hero" tone="dark" />
       <HeroMesh pattern="dots" />
 
-      <div className="relative mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(330px,1fr))] items-center gap-[clamp(36px,5vw,64px)]">
-        <div>
+      <div className="relative mx-auto grid max-w-[1240px] grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] items-center gap-[clamp(28px,5vw,72px)]">
+        <div className="relative z-10">
           <Reveal>
             <TypedHeading
               lead={agentesHero.titleLead}
@@ -35,9 +35,13 @@ export function AgentesHero() {
           </Reveal>
         </div>
 
-        <Reveal direction="left" delay={0.1}>
-          <AgentFeed />
-        </Reveal>
+        {/* Visual 3D Holográfico */}
+        <div className="pointer-events-none absolute left-1/2 top-[32%] sm:top-[36%] -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[460px] opacity-25 sm:opacity-35 z-0 select-none lg:pointer-events-auto lg:static lg:top-auto lg:left-auto lg:translate-x-0 lg:translate-y-0 lg:mx-auto lg:w-full lg:max-w-[580px] lg:opacity-100 lg:z-auto">
+          <InteractiveCore
+            src="/imagens-hero/agentes-ia.png"
+            alt="Solint Agente de IA 3D"
+          />
+        </div>
       </div>
     </section>
   );
