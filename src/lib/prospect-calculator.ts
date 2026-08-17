@@ -25,14 +25,14 @@ const MONTHS_PER_YEAR = 12;
 
 /**
  * Tabela de pacotes adicionais de créditos:
- * - 500 créditos: R$ 500 (R$ 1,00/crédito)
- * - 1.000 créditos: R$ 720 (R$ 0,72/crédito)
- * - 3.000 créditos: R$ 1.050 (R$ 0,35/crédito)
+ * - 500 créditos: R$ 900 (R$ 1,80/crédito)
+ * - 1.000 créditos: R$ 1.400 (R$ 1,40/crédito)
+ * - 3.000 créditos: R$ 2.400 (R$ 0,80/crédito)
  */
 export const CREDIT_ADDON_TIERS: readonly CreditAddonPackage[] = [
-  { credits: 500, price: 500 },
-  { credits: 1000, price: 720 },
-  { credits: 3000, price: 1050 },
+  { credits: 500, price: 900 },
+  { credits: 1000, price: 1400 },
+  { credits: 3000, price: 2400 },
 ] as const;
 
 /**
@@ -58,7 +58,7 @@ export function calculateCreditAddons(
 
   const sorted = [...tiers].sort((a, b) => a.credits - b.credits);
   const pkg500: CreditAddonPackage =
-    sorted.find((p) => p.credits === 500) ?? sorted[0] ?? { credits: 500, price: 500 };
+    sorted.find((p) => p.credits === 500) ?? sorted[0] ?? { credits: 500, price: 900 };
   const pkg1000: CreditAddonPackage =
     sorted.find((p) => p.credits === 1000) ?? sorted[1] ?? pkg500;
   const pkg3000: CreditAddonPackage =
