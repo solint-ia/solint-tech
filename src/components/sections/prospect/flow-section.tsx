@@ -31,16 +31,16 @@ function QualificationQuestions() {
 /** Painel de destino: a progressão de status do lead até estar pronto para fechar. */
 function DestinationPanel() {
   return (
-    <div className="relative mx-auto flex max-w-[1080px] flex-col items-center">
-      {/* Cauda que liga o último passo do fluxo ao painel */}
+    <div className="relative mx-auto max-w-[1040px] px-3 sm:px-6">
+      {/* Cauda que liga o último passo do fluxo ao painel com alinhamento milimétrico */}
       <div
         aria-hidden="true"
-        className="relative ml-3.5 h-[clamp(56px,7vw,84px)] w-px self-start bg-[linear-gradient(180deg,rgb(22_140_255/0.5),rgb(53_217_255/0.14))] lg:ml-0 lg:self-center"
+        className="pointer-events-none relative left-6 sm:left-8 h-[clamp(56px,7vw,84px)] w-px bg-[linear-gradient(180deg,rgb(22_140_255/0.55),rgb(53_217_255/0.2))] lg:left-1/2 lg:-translate-x-1/2"
       >
-        <span className="absolute -bottom-1 -left-1 size-[9px] rounded-full bg-accent-soft shadow-[0_0_14px_4px_rgb(53_217_255/0.6)]" />
+        <span className="absolute -bottom-1 -left-[4px] size-[9px] rounded-full bg-accent shadow-[0_0_14px_4px_rgb(53_217_255/0.7)]" />
       </div>
 
-      <Reveal className="relative w-full overflow-hidden rounded-[22px] border border-accent/30 bg-[linear-gradient(140deg,rgb(16_24_38/0.88),rgb(9_12_17/0.72))] p-[clamp(32px,4vw,48px)] text-center">
+      <Reveal className="relative w-full overflow-hidden rounded-[22px] border border-accent/30 bg-[linear-gradient(140deg,rgb(16_24_38/0.88),rgb(9_12_17/0.72))] p-[clamp(28px,4vw,48px)] text-center">
         <div
           aria-hidden="true"
           className="animate-glowpan pointer-events-none absolute inset-0 bg-[radial-gradient(620px_280px_at_50%_0%,rgb(53_217_255/0.18),transparent_72%)]"

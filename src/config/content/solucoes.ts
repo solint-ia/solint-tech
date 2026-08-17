@@ -139,41 +139,41 @@ export const developmentSection = {
 /** Etapas da espiral de desenvolvimento e entrega. */
 export const developmentSteps: readonly ProcessStep[] = [
   {
-    title: "Estratégia & Escopo",
-    description: "Entendimento da sua necessidade, definição dos requisitos e planejamento detalhado das entregas.",
-    tags: ["Planejamento", "Definição de Escopo"],
+    title: "Estratégia & Diagnóstico",
+    description: "Entendimento da sua necessidade, definição clara do que será construído e planejamento de cada entrega.",
+    tags: ["Planejamento", "Objetivos Claros"],
     badge: "Etapa 01",
   },
   {
-    title: "Arquitetura & Design",
-    description: "Criação do visual das telas, fluxo de navegação e estrutura de segurança e banco de dados.",
-    tags: ["Protótipos de Telas", "Estrutura Segura"],
+    title: "Design & Experiência",
+    description: "Criação do visual das telas, fluxo de navegação intuitivo e aprovação visual antes de programar.",
+    tags: ["Protótipos de Telas", "Aprovação Visual"],
     badge: "Etapa 02",
   },
   {
-    title: "Desenvolvimento Ágil",
-    description: "Construção do sistema com entregas contínuas e acompanhamento próximo da sua equipe.",
-    tags: ["Entregas Frequentes", "Código Modular"],
+    title: "Construção do Sistema",
+    description: "Desenvolvimento prático com entregas em etapas para você acompanhar o avanço e testar cada módulo.",
+    tags: ["Entregas em Etapas", "Acompanhamento Próximo"],
     badge: "Etapa 03",
   },
   {
-    title: "Testes & Publicação",
-    description: "Validação rigorosa de desempenho, segurança e colocação do sistema no ar pronto para uso.",
-    tags: ["Alta Performance", "Deploy Seguro"],
+    title: "Revisão & Lançamento",
+    description: "Testes completos de funcionamento, velocidade e segurança antes de colocar o sistema no ar pronto para uso.",
+    tags: ["Revisão Completa", "Lançamento Seguro"],
     badge: "Etapa 04",
   },
 ] as const;
 
 export const developmentClosing: ClosingStep = {
-  eyebrow: "Evolução Contínua",
-  title: "Publicação e monitoramento ativo",
+  eyebrow: "Manutenibilidade & Suporte",
+  title: "Sistema no ar com manutenção e evolução contínua",
   description:
-    "No ar, monitorado e evoluído com base em uso real. O produto entra em ciclo de melhorias contínuas e telemetria ativa.",
+    "Após o lançamento, cuidamos da estabilidade, segurança e melhorias para que sua empresa tenha tranquilidade e nunca fique na mão.",
   indicators: [
-    "Deploy em produção",
-    "Monitoramento ativo 24/7",
-    "Sprints de evolução",
-    "Alta disponibilidade cloud",
+    "Sistema 100% no ar",
+    "Manutenção & Suporte contínuo",
+    "Melhorias e novas funções",
+    "Estabilidade e segurança garantidas",
   ],
 };
 

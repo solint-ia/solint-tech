@@ -676,15 +676,17 @@ export function LeadCalculator({
                 ))}
               </div>
 
-              <p
+              <div
                 className={cn(
-                  "mt-2.5 m-0 flex items-start gap-1.5 text-[0.79rem]/[1.5]",
-                  recommendationReason === "beyondPlans" ? "text-amber" : "text-muted",
+                  "mt-4 flex items-start gap-2.5 rounded-xl border p-3 text-[0.81rem]/[1.5] transition-all",
+                  recommendationReason === "beyondPlans"
+                    ? "border-amber/30 bg-amber/10 text-amber"
+                    : "border-accent/20 bg-panel/75 text-muted",
                 )}
               >
                 <Sparkles
                   className={cn(
-                    "mt-0.5 size-3.5 shrink-0",
+                    "mt-0.5 size-4 shrink-0",
                     recommendationReason === "beyondPlans" ? "text-amber" : "text-accent",
                   )}
                 />
@@ -696,7 +698,7 @@ export function LeadCalculator({
                   )}
                   {recommendationText}
                 </span>
-              </p>
+              </div>
             </div>
 
             {/* Comparativo de investimento */}
