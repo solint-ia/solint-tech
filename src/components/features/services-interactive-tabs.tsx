@@ -84,19 +84,19 @@ function PresencaPreview() {
         <span className="font-mono text-[10.5px] font-semibold text-steel-2 uppercase tracking-wide">
           Eventos de Conversão ao Vivo
         </span>
-        <div className="flex items-center justify-between text-[11.5px] text-muted font-light">
-          <div className="flex items-center gap-1.5 text-fg-strong">
+        <div className="flex items-center justify-between text-[11px] sm:text-[11.5px] text-muted font-light gap-2">
+          <div className="flex items-center gap-1.5 text-fg-strong min-w-0 flex-1">
             <CheckCircle2 className="size-3.5 text-emerald-400 shrink-0" />
-            <span>Lead qualificado capturado via Landing Page</span>
+            <span className="truncate">Lead capturado via Landing Page</span>
           </div>
-          <span className="font-mono text-[10px] text-accent">Agora</span>
+          <span className="font-mono text-[10px] text-accent shrink-0">Agora</span>
         </div>
-        <div className="flex items-center justify-between text-[11.5px] text-muted font-light">
-          <div className="flex items-center gap-1.5 text-fg-strong">
+        <div className="flex items-center justify-between text-[11px] sm:text-[11.5px] text-muted font-light gap-2">
+          <div className="flex items-center gap-1.5 text-fg-strong min-w-0 flex-1">
             <CheckCircle2 className="size-3.5 text-accent shrink-0" />
-            <span>Pedido sincronizado com ERP</span>
+            <span className="truncate">Pedido sincronizado com ERP</span>
           </div>
-          <span className="font-mono text-[10px] text-accent">Recente</span>
+          <span className="font-mono text-[10px] text-accent shrink-0">Recente</span>
         </div>
       </div>
     </div>
@@ -108,30 +108,30 @@ function SistemasPreview() {
     <div className="flex flex-col gap-3 p-4 sm:p-5">
       {/* Header do Sistema / Multi-tenant */}
       <div className="flex items-center justify-between gap-2 border-b border-accent/15 pb-3">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="size-4 text-accent" />
-          <span className="font-mono text-[11px] font-semibold text-white">
+        <div className="flex items-center gap-2 min-w-0">
+          <ShieldCheck className="size-4 text-accent shrink-0" />
+          <span className="font-mono text-[11px] font-semibold text-white truncate">
             app.empresa.com.br/admin
           </span>
         </div>
-        <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-accent">
-          RBAC · Nível Corporativo
+        <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-accent shrink-0">
+          Nível Corporativo
         </span>
       </div>
 
       {/* Grid de Métricas de Operação */}
-      <div className="grid grid-cols-3 gap-2">
-        <div className="rounded-xl border border-accent/15 bg-ink/75 p-2.5 text-center">
-          <span className="block font-mono text-[9px] text-steel-2 uppercase">Workspaces</span>
-          <span className="font-display text-sm sm:text-base font-bold text-white">Multi-tenant</span>
+      <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
+        <div className="rounded-xl border border-accent/15 bg-ink/75 p-2 sm:p-2.5 text-center flex flex-col justify-center">
+          <span className="block font-mono text-[8px] sm:text-[9px] text-steel-2 uppercase truncate">Workspaces</span>
+          <span className="font-display text-[0.74rem] sm:text-sm font-bold text-white tracking-tight truncate">Multi-tenant</span>
         </div>
-        <div className="rounded-xl border border-accent/15 bg-ink/75 p-2.5 text-center">
-          <span className="block font-mono text-[9px] text-steel-2 uppercase">Processos</span>
-          <span className="font-display text-sm sm:text-base font-bold text-emerald-400">Automatizados</span>
+        <div className="rounded-xl border border-accent/15 bg-ink/75 p-2 sm:p-2.5 text-center flex flex-col justify-center">
+          <span className="block font-mono text-[8px] sm:text-[9px] text-steel-2 uppercase truncate">Processos</span>
+          <span className="font-display text-[0.74rem] sm:text-sm font-bold text-emerald-400 tracking-tight truncate">Automatizados</span>
         </div>
-        <div className="rounded-xl border border-accent/15 bg-ink/75 p-2.5 text-center">
-          <span className="block font-mono text-[9px] text-steel-2 uppercase">SLA Cloud</span>
-          <span className="font-display text-sm sm:text-base font-bold text-accent">Alta Disp.</span>
+        <div className="rounded-xl border border-accent/15 bg-ink/75 p-2 sm:p-2.5 text-center flex flex-col justify-center">
+          <span className="block font-mono text-[8px] sm:text-[9px] text-steel-2 uppercase truncate">SLA Cloud</span>
+          <span className="font-display text-[0.74rem] sm:text-sm font-bold text-accent tracking-tight truncate">Alta Disp.</span>
         </div>
       </div>
 
@@ -140,21 +140,21 @@ function SistemasPreview() {
         <span className="font-mono text-[10.5px] font-semibold text-steel-2 uppercase tracking-wide">
           Pipeline de Workflows Auditáveis
         </span>
-        <div className="flex items-center justify-between text-[11.5px] text-fg-strong">
-          <div className="flex items-center gap-1.5">
+        <div className="flex items-center justify-between text-[11px] sm:text-[11.5px] text-fg-strong gap-2">
+          <div className="flex items-center gap-1.5 min-w-0 flex-1">
             <Lock className="size-3.5 text-accent shrink-0" />
-            <span>Aprovação de Contrato (Diretoria)</span>
+            <span className="truncate">Aprovação de Contrato (Diretoria)</span>
           </div>
-          <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[9px] font-bold text-emerald-400">
+          <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[9px] font-bold text-emerald-400 shrink-0">
             Aprovado
           </span>
         </div>
-        <div className="flex items-center justify-between text-[11.5px] text-fg-strong">
-          <div className="flex items-center gap-1.5">
+        <div className="flex items-center justify-between text-[11px] sm:text-[11.5px] text-fg-strong gap-2">
+          <div className="flex items-center gap-1.5 min-w-0 flex-1">
             <Server className="size-3.5 text-[#BE95FF] shrink-0" />
-            <span>Faturamento SaaS recorrente consolidado</span>
+            <span className="truncate">Faturamento recorrente consolidado</span>
           </div>
-          <span className="rounded bg-accent/20 px-1.5 py-0.5 font-mono text-[9px] font-bold text-accent">
+          <span className="rounded bg-accent/20 px-1.5 py-0.5 font-mono text-[9px] font-bold text-accent shrink-0">
             Executado
           </span>
         </div>
@@ -168,14 +168,14 @@ function IntegracoesPreview() {
     <div className="flex flex-col gap-3 p-4 sm:p-5">
       {/* Header do Hub de APIs */}
       <div className="flex items-center justify-between gap-2 border-b border-accent/15 pb-3">
-        <div className="flex items-center gap-2">
-          <Zap className="size-4 text-amber" />
-          <span className="font-mono text-[11px] font-semibold text-white">
+        <div className="flex items-center gap-2 min-w-0">
+          <Zap className="size-4 text-amber shrink-0" />
+          <span className="font-mono text-[11px] font-semibold text-white truncate">
             api.solint.tech/v1/sync
           </span>
         </div>
-        <span className="rounded-full border border-amber/30 bg-amber/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-amber">
-          Sincronia em Tempo Real
+        <span className="rounded-full border border-amber/30 bg-amber/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-amber shrink-0">
+          Tempo Real
         </span>
       </div>
 
@@ -205,19 +205,19 @@ function IntegracoesPreview() {
         <span className="font-mono text-[10.5px] font-semibold text-steel-2 uppercase tracking-wide">
           Telemetria de APIs & Webhooks
         </span>
-        <div className="flex items-center justify-between text-[11px] font-mono text-fg-strong">
-          <div className="flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-emerald-400" />
-            <span>POST /webhooks/hubspot</span>
+        <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-fg-strong gap-2">
+          <div className="flex items-center gap-1.5 min-w-0 flex-1">
+            <span className="size-1.5 rounded-full bg-emerald-400 shrink-0" />
+            <span className="truncate">POST /webhooks/hubspot</span>
           </div>
-          <span className="text-emerald-400 font-semibold">200 OK · Sincronizado</span>
+          <span className="text-emerald-400 font-semibold shrink-0 whitespace-nowrap">200 OK · Sincronizado</span>
         </div>
-        <div className="flex items-center justify-between text-[11px] font-mono text-fg-strong">
-          <div className="flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-emerald-400" />
-            <span>POST /webhooks/sap-totvs</span>
+        <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-fg-strong gap-2">
+          <div className="flex items-center gap-1.5 min-w-0 flex-1">
+            <span className="size-1.5 rounded-full bg-emerald-400 shrink-0" />
+            <span className="truncate">POST /webhooks/sap-totvs</span>
           </div>
-          <span className="text-emerald-400 font-semibold">200 OK · Ativo</span>
+          <span className="text-emerald-400 font-semibold shrink-0 whitespace-nowrap">200 OK · Ativo</span>
         </div>
       </div>
     </div>
