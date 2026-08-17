@@ -14,7 +14,7 @@ export const homeHero = {
   /** Linhas rotacionadas no terminal simulado abaixo dos CTAs. */
   terminalLines: [
     "mapeando processos da operação… ok",
-    "ativando agentes de atendimento e vendas… ok",
+    "ativando agentes autônomos e operações inteligentes… ok",
     "integrando WhatsApp, CRM e sistemas… ok",
     "eliminando tarefas manuais repetitivas… ok",
   ],
@@ -25,7 +25,7 @@ export const serviceAreasSection = {
   eyebrow: "/02 — ecossistema solint",
   title: "Três frentes, um objetivo: sua empresa operando com máxima eficiência.",
   description:
-    "Soluções modulares que atuam no atendimento, na prospecção de clientes e no desenvolvimento de ferramentas exclusivas para o seu negócio.",
+    "Soluções modulares e independentes para automação de processos com agentes de IA, prospecção ativa de clientes e desenvolvimento de ferramentas exclusivas para o seu negócio.",
   hint: "Arraste para girar ou use as setas do teclado para explorar.",
 } as const;
 
@@ -33,12 +33,12 @@ export const serviceAreas: readonly ServiceArea[] = [
   {
     icon: Bot,
     number: "01",
-    tag: "Atendimento & Automação 24/7",
+    tag: "Automação & Agentes Autônomos",
     title: "Agentes de IA",
     description:
-      "Atenda clientes a qualquer hora, filtre oportunidades quentes e automatize tarefas repetitivas com inteligência humanizada.",
+      "Automatize rotinas operacionais, qualifique oportunidades em tempo real e integre inteligência autônoma aos seus sistemas e canais de comunicação.",
     highlights: [
-      "Atendimento imediato 24 horas por dia",
+      "Automação de processos e rotinas 24/7",
       "Qualificação e direcionamento de leads",
       "Integração com WhatsApp, CRM e ERPs",
     ],
