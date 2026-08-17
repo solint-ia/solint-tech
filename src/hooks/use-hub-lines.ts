@@ -54,8 +54,24 @@ export function useHubLines<W extends HTMLElement>(redrawKey?: unknown) {
     if (!wrap || !group) return;
 
     const hub = wrap.querySelector(`[${HUB_NODE_ATTR}]`);
-    const spokes = wrap.querySelectorAll(`[${SPOKE_NODE_ATTR}]`);
-    if (!hub || spokes.length === 0) {
+    if (!hub) {
+      group.innerHTML = "";
+      return;
+    }
+
+    const hubRect = hub.getBoundingClientRect();
+    if (hubRect.width === 0 || hubRect.height === 0) {
+      group.innerHTML = "";
+      return;
+    }
+
+    const allSpokes = wrap.querySelectorAll(`[${SPOKE_NODE_ATTR}]`);
+    const visibleSpokes = Array.from(allSpokes).filter((spoke) => {
+      const rect = spoke.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    });
+
+    if (visibleSpokes.length === 0) {
       group.innerHTML = "";
       return;
     }
@@ -63,7 +79,7 @@ export function useHubLines<W extends HTMLElement>(redrawKey?: unknown) {
     const origin = wrap.getBoundingClientRect();
     const hubCenter = centerOf(hub, origin);
 
-    group.innerHTML = Array.from(spokes)
+    group.innerHTML = visibleSpokes
       .map((spoke) => {
         const d = arcPath(hubCenter, centerOf(spoke, origin));
         return (

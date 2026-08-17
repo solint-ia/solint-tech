@@ -147,10 +147,16 @@ function CategoryBadgeIcon({ category }: { category?: string }) {
   return <Layers className="size-4" />;
 }
 
-function SpokeCard({ group }: { group: TechnologyGroup }) {
+function SpokeCard({
+  group,
+  asSpoke = true,
+}: {
+  group: TechnologyGroup;
+  asSpoke?: boolean;
+}) {
   return (
     <div
-      {...{ [SPOKE_NODE_ATTR]: "" }}
+      {...(asSpoke ? { [SPOKE_NODE_ATTR]: "" } : {})}
       className="group relative h-full rounded-2xl border border-accent/20 bg-[#070D18]/85 p-4.5 sm:p-5 shadow-[0_8px_24px_rgb(2_8_18/0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-[#0C172B]/90 hover:shadow-[0_12px_36px_rgb(22_140_255/0.18)]"
     >
       {/* Conector de nó no mobile */}
@@ -372,7 +378,7 @@ export function EcosystemHub({
           {/* Bloco Ativo Renderizado */}
           {groups[activeMobileIndex] ? (
             <div key={`mobile-tab-${activeMobileIndex}`}>
-              <SpokeCard group={groups[activeMobileIndex]} />
+              <SpokeCard group={groups[activeMobileIndex]} asSpoke={false} />
             </div>
           ) : null}
         </div>
