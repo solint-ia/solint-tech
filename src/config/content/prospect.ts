@@ -54,7 +54,7 @@ export const flowSection = {
   title: "Um fluxo completo e automatizado para transformar sua prospecção",
 } as const;
 
-/** As 6 etapas do fluxo em S. A etapa 5 concentra o destaque com as perguntas da IA. */
+/** As 6 etapas do fluxo de prospecção. A etapa 5 concentra o destaque com o núcleo de IA. */
 export const prospectSteps: readonly ProcessStep[] = [
   {
     title: "Pesquisa segmentada",
@@ -88,16 +88,6 @@ export const prospectSteps: readonly ProcessStep[] = [
 /** Índice (base 0) da etapa destacada do fluxo. */
 export const HIGHLIGHTED_STEP_INDEX = 4;
 
-/** Perguntas que a IA usa na pré-qualificação (etapa 5). */
-export const qualificationQuestions: readonly string[] = [
-  "Qual seu interesse?",
-  "Quando pretende comprar?",
-  "Qual seu orçamento?",
-  "Você é o decisor?",
-  "Tem interesse real?",
-  "Prazo de decisão?",
-] as const;
-
 export const destinationPanel = {
   eyebrow: "Destino do fluxo",
   title: "O lead chega pronto. Hora de vender.",
@@ -119,7 +109,7 @@ export const platformSection = {
   ctaHref: CONTACT_ANCHOR,
   highlights: [
     "Eliminação do trabalho braçal de busca",
-    "Sincronização instantânea com seu CRM",
+    "Sincronização instantânea com nosso CRM",
   ],
   capabilities: [
     {
@@ -146,7 +136,7 @@ export const platformSection = {
 
 export const prospectCta = {
   title: "Seu time comercial falando apenas com quem quer comprar.",
-  description: "Veja o Prospect funcionando na prática com o perfil de cliente ideal da sua empresa.",
+  description: "Agende uma demonstração prática e veja o Prospect funcionando na prática com o perfil de cliente ideal da sua empresa.",
   ctaLabel: "Falar com a Solint",
   ctaHref: CONTACT_ANCHOR,
 } as const;

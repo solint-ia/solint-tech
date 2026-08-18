@@ -18,7 +18,7 @@ export const homeHero = {
     "integrando WhatsApp, CRM e sistemas… ok",
     "eliminando tarefas manuais repetitivas… ok",
   ],
-  keywords: ["Agentes de IA", "Prospecção B2B", "Sistemas Web", "Integrações"],
+  keywords: ["Agentes de IA", "Prospecção B2B", "Sistemas Web"],
 } as const;
 
 export const serviceAreasSection = {
@@ -82,14 +82,14 @@ export const partnersSection = {
   title: "Empresas que aceleram com a Solint",
   description: "Da automação de processos comerciais ao desenvolvimento de produtos digitais robustos.",
   brands: [
-    { name: "Nexora Tech", category: "SaaS & Cloud" },
-    { name: "Vanguard Capital", category: "Fintech" },
-    { name: "Atlas Logística", category: "Supply Chain" },
-    { name: "Lumina Health", category: "Healthtech" },
-    { name: "Delta B2B", category: "Distribuição" },
-    { name: "Vertex Soluções", category: "Indústria" },
-    { name: "Aura Inteligência", category: "Consultoria" },
-    { name: "Prime Agro", category: "Agronegócio" },
+    { name: "Odonto Excellence", category: "Saúde & Odontologia" },
+    { name: "Zenco", category: "Engenharia & Negócios" },
+    { name: "Aura Regenera", category: "Saúde & Estética Médica" },
+    { name: "Alternativa Provedor", category: "Telecom & Internet" },
+    { name: "University Telecom", category: "Telecomunicações" },
+    { name: "Victor Hugo Advocacia", category: "Serviços Jurídicos" },
+    { name: "Mapion App", category: "App & Tecnologia" },
+    { name: "Ecotech", category: "Educação Ambiental" },
   ],
 } as const;
 
