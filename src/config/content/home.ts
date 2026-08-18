@@ -83,7 +83,7 @@ export const partnersSection = {
   description: "Da automação de processos comerciais ao desenvolvimento de produtos digitais robustos.",
   brands: [
     { name: "Odonto Excellence", category: "Saúde & Odontologia" },
-    { name: "Zenco", category: "Engenharia & Negócios" },
+    { name: "Zenco", category: "Agência de Marketing Digital" },
     { name: "Aura Regenera", category: "Saúde & Estética Médica" },
     { name: "Alternativa Provedor", category: "Telecom & Internet" },
     { name: "University Telecom", category: "Telecomunicações" },
