@@ -55,14 +55,17 @@ export const SCREEN_HEIGHT = 1800;
    ========================================================================== */
 export const crmSpotlight = {
   badge: "Produto Solint",
-  title: "Solint CRM: atendimento, vendas e IA na mesma tela.",
+  titleLead: "Solint CRM: ",
+  titleAccent: "atendimento, vendas e IA",
+  titleTail: " na mesma tela.",
   description:
-    "A plataforma que a Solint construiu para quem vende pelo WhatsApp. Caixa de entrada multiatendente, agentes de IA que respondem 24h, funil de vendas e follow-up automático, sem ferramentas soltas.",
+    "A plataforma que a Solint construiu para quem vende pelo WhatsApp: caixa de entrada multiatendente, agentes de IA 24h, funil de vendas e follow-up automático, sem ferramentas soltas.",
+  /** Destaques com os mesmos ícones coloridos da página /crm. */
   highlights: [
-    "WhatsApp pela API oficial ou por QR Code",
-    "Agentes de IA treinados com os dados da sua empresa",
-    "Funil Kanban, follow-up e campanhas integrados",
-    "Painel com tempo de resposta, fila e CSAT",
+    { title: "WhatsApp", text: "API oficial ou QR Code", image: "/crm/icons/whatsapp.svg" },
+    { title: "Agentes de IA", text: "Treinados com seus dados", image: "/crm/icons/agentes.png" },
+    { title: "Funil e follow-up", text: "Kanban e retomada automática", image: "/crm/icons/funil.svg" },
+    { title: "Painel", text: "Fila, tempo de resposta e CSAT", image: "/crm/icons/painel.png" },
   ],
   primaryCta: { label: "Conhecer o Solint CRM", href: "/crm" },
   secondaryCta: { label: "Acessar plataforma", href: CRM_APP_URL },
