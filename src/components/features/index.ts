@@ -1,4 +1,5 @@
 export { AgentFeed } from "./agent-feed";
+export { CrmModuleCarousel } from "./crm-module-carousel";
 export { CrmTour } from "./crm-tour";
 export { ProductFrame } from "./product-frame";
 export { ApplicationsConstellation } from "./applications-constellation";

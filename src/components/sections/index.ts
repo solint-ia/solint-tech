@@ -3,7 +3,6 @@ export { ClosingCta } from "./closing-cta";
 export { CrmHero } from "./crm/crm-hero";
 export { CrmJourneySection } from "./crm/crm-journey-section";
 export { CrmModulesSection } from "./crm/crm-modules-section";
-export { CrmTourSection } from "./crm/crm-tour-section";
 
 export { AgentesHero } from "./agentes/agentes-hero";
 export { ApplicationsSection } from "./agentes/applications-section";

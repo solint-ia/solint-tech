@@ -72,99 +72,128 @@ export const crmSpotlight = {
    Página /crm
    ========================================================================== */
 export const crmHero = {
-  eyebrow: "/01 — solint crm",
-  badge: "Plataforma própria Solint",
-  titleLead: "Atendimento, vendas e IA ",
-  titleTyped: "no mesmo lugar",
+  marker: "/01 — solint crm",
+  eyebrow: "CRM",
+  titleLead: "Gestão comercial completa, do primeiro contato ",
+  titleTyped: "ao fechamento",
   titleTail: ".",
   description:
-    "O Solint CRM reúne o WhatsApp da sua empresa, agentes de IA, funil de vendas e follow-up numa plataforma só. Sua equipe atende mais rápido e nenhuma oportunidade fica sem retorno.",
-  primaryCta: { label: "Acessar o CRM", href: CRM_APP_URL },
-  secondaryCta: { label: "Agendar demonstração", href: CONTACT_ANCHOR },
-  stats: [
-    { value: "24/7", label: "agentes de IA de plantão" },
-    { value: "8", label: "módulos integrados" },
-    { value: "1", label: "plataforma no lugar de várias" },
-  ],
-  /** Cartões flutuantes sobre o mockup do hero. */
-  floating: {
-    ai: { title: "Clara · Vendas", text: "respondeu em 4s", tag: "IA" },
-    deal: { title: "Oportunidade movida", text: "Proposta → Negociação" },
-  },
+    "Organize oportunidades, automatize follow-ups e acompanhe o desempenho da sua equipe em tempo real, com o CRM da Solint.",
 } as const;
+
+/** Ícones de linha da navegação do tour (mapeados para Lucide no componente). */
+export type CrmTourIcon = "inbox" | "bot" | "funnel" | "workflow" | "megaphone" | "calendar" | "chart";
 
 export interface CrmTourItem {
   key: CrmScreenKey;
+  icon: CrmTourIcon;
   label: string;
   title: string;
   description: string;
+  /** Destaques exibidos em linha abaixo do módulo ativo. */
   points: readonly string[];
+  /** Detalhes revelados por "Ver mais detalhes". */
+  details: readonly string[];
 }
-
-export const crmTourSection = {
-  eyebrow: "Por dentro da plataforma",
-  title: "Uma operação, uma visão.",
-  description:
-    "Tudo o que acontece com o cliente, do primeiro “oi” ao fechamento, registrado e visível para a equipe e a gestão.",
-} as const;
 
 export const crmTour: readonly CrmTourItem[] = [
   {
-    key: "funil",
-    label: "Funil de vendas",
-    title: "Funil Kanban de oportunidades",
+    key: "atendimento",
+    icon: "inbox",
+    label: "Caixa de entrada",
+    title: "Caixa de entrada multiatendente",
     description:
-      "Cada negociação, do novo lead ao fechamento, com follow-up por etapa e alerta de oportunidades paradas.",
-    points: ["Etapas configuráveis", "Conversão ponderada", "Arrastar e soltar"],
-  },
-  {
-    key: "painel",
-    label: "Painel",
-    title: "Gestão com números em tempo real",
-    description:
-      "Fila aberta, conversas sem responsável, tempo de primeira resposta e satisfação do cliente no mesmo painel.",
-    points: ["Precisa de atenção", "CSAT e resolvidos", "Filtros por caixa e período"],
+      "Todas as conversas de WhatsApp da empresa num lugar só, com responsável, prioridade, etiquetas e notas internas.",
+    points: ["Vários números e equipes", "Pausar IA e assumir a conversa", "Áudio, imagem e anexos"],
+    details: [
+      "Conecte pela API oficial da Meta ou por QR Code e organize as conversas em caixas por área.",
+      "Distribua automaticamente entre atendentes e veja quem está sem responsável.",
+      "Notas internas e menções para a equipe combinar o próximo passo sem sair da conversa.",
+    ],
   },
   {
     key: "agente",
+    icon: "bot",
     label: "Agentes de IA",
-    title: "Agentes de IA que você mesmo configura",
+    title: "Agentes de IA",
     description:
       "Escreva as instruções como orientaria um atendente novo, conecte a base de conhecimento e teste antes de publicar.",
-    points: ["Base de conhecimento", "Testador e versões", "Agenda e catálogo integrados"],
+    points: ["Atendimento 24/7", "Base de conhecimento", "Passa para humano"],
+    details: [
+      "Respondem, qualificam, consultam o catálogo e marcam horários na agenda da empresa.",
+      "Testador integrado e histórico de versões para ajustar com segurança.",
+      "Transferem a conversa para a equipe quando o cliente pede ou a regra exige.",
+    ],
+  },
+  {
+    key: "funil",
+    icon: "funnel",
+    label: "Funil de vendas",
+    title: "Funil de vendas",
+    description:
+      "Cada negociação, do novo lead ao fechamento, em um quadro Kanban com valores, responsável e alerta de oportunidades paradas.",
+    points: ["Etapas configuráveis", "Conversão ponderada", "Arrastar e soltar"],
+    details: [
+      "Crie funis por produto ou equipe, com etapas e probabilidades próprias.",
+      "Valor previsto e conversão ponderada por etapa para projetar o mês.",
+      "Follow-up por etapa e aviso quando uma oportunidade fica parada.",
+    ],
   },
   {
     key: "followup",
-    label: "Follow-up e automações",
-    title: "Follow-up visual, sem código",
+    icon: "workflow",
+    label: "Follow-up",
+    title: "Follow-up e automações",
     description:
       "Monte a cadência em blocos: mensagem, espera, resposta ou silêncio, ação no CRM e passagem para o vendedor.",
-    points: ["Ramos por resposta", "Ações no funil", "Passar para humano"],
+    points: ["Ramos por resposta", "Ações no funil", "Sem código"],
+    details: [
+      "Fluxos visuais que retomam automaticamente quem parou de responder.",
+      "Ramifique pela resposta do cliente e mova a oportunidade no funil.",
+      "Passe para uma pessoa da equipe no momento certo da conversa.",
+    ],
   },
   {
     key: "campanhas",
+    icon: "megaphone",
     label: "Campanhas",
-    title: "Campanhas para a base inteira",
+    title: "Campanhas",
     description:
-      "Dispare pela API oficial ou por QR Code, em lotes seguros, e acompanhe quem recebeu, leu e respondeu.",
+      "Dispare para a base pela API oficial ou por QR Code, em lotes seguros, e acompanhe quem recebeu, leu e respondeu.",
     points: ["Agendamento", "Envio em lotes", "Métricas por destinatário"],
+    details: [
+      "Templates aprovados pela Meta e listas segmentadas por etiqueta ou etapa.",
+      "Intervalos e lotes configuráveis para proteger o número da empresa.",
+      "Entregues, lidos, respostas e falhas acompanhados em tempo real.",
+    ],
   },
   {
     key: "agenda",
+    icon: "calendar",
     label: "Agenda",
-    title: "Agenda da equipe e do agente de IA",
+    title: "Agenda",
     description:
-      "Várias agendas por área, horários de atendimento e compromissos marcados pelo time ou pela IA.",
-    points: ["Google Agenda", "Visões dia, semana e lista", "Bloqueios de horário"],
+      "Várias agendas por área, horários de atendimento e compromissos marcados pelo time ou pelo agente de IA.",
+    points: ["Google Agenda", "Dia, semana e lista", "Bloqueios de horário"],
+    details: [
+      "Sincronização com o Google Agenda de cada pessoa da equipe.",
+      "O agente de IA consulta horários livres e confirma o compromisso na conversa.",
+      "Cores por agenda e bloqueios para folgas e feriados.",
+    ],
   },
   {
-    // Por último: a caixa de entrada já aparece no hero, logo acima.
-    key: "atendimento",
-    label: "Atendimento",
-    title: "Caixa de entrada multiatendente",
+    key: "painel",
+    icon: "chart",
+    label: "Painel e relatórios",
+    title: "Painel e relatórios",
     description:
-      "Todas as conversas da empresa num lugar só, com responsável, prioridade, etiquetas e notas internas.",
-    points: ["Vários números e equipes", "Pausar IA e assumir a conversa", "Áudio, imagem e anexos"],
+      "Fila aberta, conversas sem responsável, tempo de primeira resposta e satisfação do cliente no mesmo painel.",
+    points: ["Precisa de atenção", "CSAT e resolvidos", "Filtros por caixa e período"],
+    details: [
+      "Desempenho por atendente, por caixa de entrada e por período.",
+      "Tempo de primeira resposta e de resolução para acompanhar o SLA.",
+      "Pesquisa de satisfação (CSAT) ao final de cada atendimento.",
+    ],
   },
 ] as const;
 
@@ -175,69 +204,140 @@ export const crmModulesSection = {
     "Ative só o que faz sentido para o seu momento. Os módulos conversam entre si, sem integração para manter.",
 } as const;
 
+/** Ícones de linha das etiquetas dos módulos (mapeados para Lucide no componente). */
+export type CrmTagIcon =
+  | "message"
+  | "qr"
+  | "users"
+  | "note"
+  | "clock"
+  | "book"
+  | "hand"
+  | "kanban"
+  | "target"
+  | "branch"
+  | "zap"
+  | "send"
+  | "checks"
+  | "calendar"
+  | "building"
+  | "pin"
+  | "timer"
+  | "smile";
+
 export interface CrmModule {
-  iconKey: string;
+  key: string;
   title: string;
+  /** Rótulo curto do card no carrossel. */
+  shortTitle: string;
   description: string;
-  /** Largura em colunas (de 12) no desktop. */
-  span: 4 | 5 | 7;
-  highlight?: boolean;
-  tags?: readonly string[];
+  /** Ícone colorido em `public/crm/icons`. */
+  image: string;
+  tags: readonly { label: string; icon: CrmTagIcon }[];
 }
 
 export const crmModules: readonly CrmModule[] = [
   {
-    iconKey: "inbox",
-    title: "Caixa de entrada omnichannel",
+    key: "inbox",
+    title: "Caixa de entrada multiatendente",
+    shortTitle: "Caixa de entrada",
     description:
       "WhatsApp pela API oficial da Meta ou por QR Code, com várias caixas, equipes e distribuição de conversas.",
-    span: 7,
-    highlight: true,
-    tags: ["API oficial", "QR Code", "Multiatendente", "Notas internas"],
+    image: "/crm/icons/whatsapp.svg",
+    tags: [
+      { label: "API oficial", icon: "message" },
+      { label: "QR Code", icon: "qr" },
+      { label: "Multiatendente", icon: "users" },
+      { label: "Notas internas", icon: "note" },
+    ],
   },
   {
-    iconKey: "bot",
+    key: "bot",
     title: "Agentes de IA",
+    shortTitle: "Agentes de IA",
     description:
       "Respondem, qualificam, consultam o catálogo e marcam horários. Passam para uma pessoa quando precisa.",
-    span: 5,
-    tags: ["24/7", "Base de conhecimento"],
+    image: "/crm/icons/agentes.png",
+    tags: [
+      { label: "Atendimento 24/7", icon: "clock" },
+      { label: "Base de conhecimento", icon: "book" },
+      { label: "Passa para humano", icon: "hand" },
+    ],
   },
   {
-    iconKey: "kanban",
+    key: "funnel",
     title: "Funil de vendas",
-    description: "Quadro Kanban com etapas próprias, valores e responsável por oportunidade.",
-    span: 4,
+    shortTitle: "Funil de vendas",
+    description:
+      "Quadro Kanban com etapas próprias, valores, responsável por oportunidade e conversão ponderada.",
+    image: "/crm/icons/funil.svg",
+    tags: [
+      { label: "Kanban", icon: "kanban" },
+      { label: "Etapas próprias", icon: "branch" },
+      { label: "Previsão de receita", icon: "target" },
+    ],
   },
   {
-    iconKey: "workflow",
+    key: "followup",
     title: "Follow-up e automações",
-    description: "Fluxos de retomada montados em blocos: esperar, ramificar pela resposta, agir no funil e passar para humano.",
-    span: 4,
+    shortTitle: "Follow-up",
+    description:
+      "Fluxos de retomada montados em blocos: esperar, ramificar pela resposta, agir no funil e passar para humano.",
+    image: "/crm/icons/automacoes.png",
+    tags: [
+      { label: "Construtor visual", icon: "branch" },
+      { label: "Ações no funil", icon: "zap" },
+      { label: "Esperas inteligentes", icon: "timer" },
+    ],
   },
   {
-    iconKey: "megaphone",
+    key: "campaigns",
     title: "Campanhas",
-    description: "Disparos para a base com templates aprovados e acompanhamento de entregues, lidos e respostas.",
-    span: 4,
+    shortTitle: "Campanhas",
+    description:
+      "Disparos para a base com templates aprovados e acompanhamento de entregues, lidos e respostas.",
+    image: "/crm/icons/campanhas.png",
+    tags: [
+      { label: "Templates aprovados", icon: "checks" },
+      { label: "Envio em lotes", icon: "send" },
+      { label: "Agendamento", icon: "clock" },
+    ],
   },
   {
-    iconKey: "calendar",
+    key: "calendar",
     title: "Agenda + Google",
+    shortTitle: "Agenda",
     description: "Várias agendas, horários de atendimento e sincronização com o Google Agenda.",
-    span: 4,
+    image: "/crm/icons/agenda.png",
+    tags: [
+      { label: "Google Agenda", icon: "calendar" },
+      { label: "Várias agendas", icon: "users" },
+      { label: "Marcação pela IA", icon: "zap" },
+    ],
   },
   {
-    iconKey: "radar",
+    key: "prospect",
     title: "Prospecção B2B",
+    shortTitle: "Prospecção B2B",
     description: "Busque empresas por CNAE e região e leve sócios e decisores direto para o CRM.",
-    span: 4,
+    image: "/crm/icons/prospeccao.png",
+    tags: [
+      { label: "Busca por CNAE", icon: "building" },
+      { label: "Filtro por região", icon: "pin" },
+      { label: "Sócios e decisores", icon: "users" },
+    ],
   },
   {
-    iconKey: "chart",
+    key: "reports",
     title: "Painel e relatórios",
-    description: "Atendimentos, tempo de resposta, desempenho por atendente e CSAT.",
-    span: 4,
+    shortTitle: "Painel e relatórios",
+    description: "Atendimentos, tempo de resposta, desempenho por atendente e satisfação do cliente.",
+    image: "/crm/icons/painel.png",
+    tags: [
+      { label: "Tempo de resposta", icon: "timer" },
+      { label: "Por atendente", icon: "users" },
+      { label: "CSAT", icon: "smile" },
+    ],
   },
 ] as const;
 

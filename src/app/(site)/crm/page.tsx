@@ -5,7 +5,6 @@ import {
   CrmHero,
   CrmJourneySection,
   CrmModulesSection,
-  CrmTourSection,
 } from "@/components/sections";
 import { crmCta } from "@/config/content/crm";
 
@@ -26,7 +25,6 @@ export default function CrmPage() {
     <>
       <PageGlow preset="crm" />
       <CrmHero />
-      <CrmTourSection />
       <CrmModulesSection />
       <CrmJourneySection />
       <ClosingCta
