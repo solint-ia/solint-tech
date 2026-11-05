@@ -58,7 +58,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav aria-label="Navegação principal" className="hidden items-center gap-11 lg:flex">
+        <nav aria-label="Navegação principal" className="hidden items-center gap-8 lg:flex xl:gap-11">
           {navLinks.map((link) => {
             const isActive = isActiveRoute(pathname, link.href);
             return (
@@ -67,7 +67,7 @@ export function SiteHeader() {
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "border-b py-1.5 text-sm/none font-medium tracking-[0.01em] transition-[color,border-color] duration-200",
+                  "border-b py-1.5 text-sm/none font-medium tracking-[0.01em] whitespace-nowrap transition-[color,border-color] duration-200",
                   isActive
                     ? "border-accent text-white"
                     : "border-transparent text-nav hover:text-white",

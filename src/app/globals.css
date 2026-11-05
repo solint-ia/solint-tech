@@ -391,6 +391,14 @@
    Rede de segurança global: os hooks que animam via JS também consultam
    `usePrefersReducedMotion` antes de iniciar.
    ========================================================================== */
+/* Rolagem horizontal sem barra visível (carrosséis e faixas de abas no mobile). */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -22,6 +22,7 @@ src/
 │   │   ├── layout.tsx       # header + main + footer
 │   │   ├── page.tsx         # Home
 │   │   ├── agentes-ia/
+│   │   ├── crm/             # produto Solint CRM (crm.solint.tech)
 │   │   ├── prospect/
 │   │   └── solucoes/
 │   ├── layout.tsx           # root: fontes, metadata, viewport
@@ -56,7 +57,7 @@ Tudo é Server Component por padrão. São `"use client"` apenas: hooks, compone
 - Acento primário: `--color-accent` ciano `#35D9FF`, `--color-blue` `#168CFF`, `--color-blue-deep` `#174EFF`
 - CTA: `CTA_GRADIENT` (`linear-gradient(100deg,#174EFF,#168CFF,#35D9FF)`), exportado por `components/ui/button`
 - Acento secundário (etapa final/conclusão): `--color-amber` `#FFB65C`
-- Faixas claras (`--color-paper` `#F4F7FB`): **1x por página** — Home "Parceiros", Agentes "Projetos", Prospect "Plataforma", Soluções "Portfólio"
+- Faixas claras (`--color-paper` `#F4F7FB`): **1x por página** — Home "Parceiros", Agentes "Projetos", Prospect "Plataforma", CRM "Jornada" (Soluções não tem faixa clara)
 - Texto: títulos brancos puros; corpo em cinza-azulado neutro (`--color-muted`, `--color-steel`), nunca ciano
 
 Use sempre os tokens (`bg-ink`, `text-muted`, `border-accent/16`). Hex literal só em gradientes e sombras compostas.
@@ -65,7 +66,9 @@ Use sempre os tokens (`bg-ink`, `text-muted`, `border-accent/16`). Hex literal s
 - **Home** — hero com terminal simulado + typewriter no H1, núcleo 3D (`InteractiveCore`), carrossel 3D de áreas (`ServiceCarousel`), timeline de processo em S (6 etapas, 06 em âmbar), faixa clara "Parceiros".
 - **Agentes de IA** — hero com feed de agente ao vivo, "Como podemos ajudar" em constelação assimétrica (1 card principal + 7 tiles clicáveis), tecnologias em hub-and-spoke (centro = logo Solint pulsante em âmbar), grade clara de Projetos com hover-dimming.
 - **Prospect** — hero com pipeline vertical, fluxo em S de 6 etapas com espinha luminosa contínua e arcos de conexão, painel de destino com progressão de status (Identificado → Qualificado → Interesse confirmado → Pronto para fechar), calculadora de resultados (wizard de 4 etapas: métricas → custos/plano → meta → resultado, etapa final em âmbar), faixa clara "Plataforma".
-- **Soluções** — hero com mockup de produto, "Serviços" em bento grid assimétrico (3 grupos, rail luminoso lateral), "Como a Solint desenvolve" em espiral vertical de 6 etapas (etapa ativa detectada por scroll, 06 = painel de encerramento), Portfólio claro com hover-dimming.
+- **Soluções** — hero com mockup de produto, "Serviços" em bento grid assimétrico (3 grupos, rail luminoso lateral), "Como a Solint desenvolve" em espiral vertical de 6 etapas (etapa ativa detectada por scroll, 06 = painel de encerramento). Sem seção de portfólio (removida por decisão da diretoria).
+- **CRM** — hero centralizado com a captura real do produto em `ProductFrame` (janela de navegador em perspectiva) e eventos flutuantes, tour em abas (`CrmTour`) pelas telas, bento de 8 módulos, faixa clara "Jornada" em 5 passos. A Home destaca o produto logo após o hero (`CrmSpotlightSection`).
+- **Capturas do CRM** (`public/crm/*.webp`, 2880×1800): geradas no repositório do CRM, com dados fictícios num banco descartável `solint_teste` — nunca usar prints com clientes reais.
 
 ## Convenções técnicas
 - **Estilo**: Tailwind utilitário. `style` inline só para valores calculados em runtime (delays, offsets, posições de partícula).
@@ -78,7 +81,7 @@ Use sempre os tokens (`bg-ink`, `text-muted`, `border-accent/16`). Hex literal s
 - **Mobile**: fluxos verticais colapsam para coluna única com o rail/espinha à esquerda, preservando a ordem temporal.
 
 ## Pendências conhecidas
-- Conteúdo real de Parceiros, Projetos (Agentes) e Portfólio (Soluções) — atualmente placeholders em `config/content/`.
+- Conteúdo real de Parceiros e Projetos (Agentes) — atualmente placeholders em `config/content/`.
 - Telefone e links de redes sociais em `config/site.ts` / `config/navigation.ts` estão como placeholder.
 - Planos, preços e créditos da calculadora do Prospect (`config/content/prospect-calculator.ts`) são placeholder — substituir pelos valores oficiais. A taxa de validação de leads (40%) vive em `lib/prospect-calculator.ts`.
 - Hero de Soluções: animação de módulos em camadas (não implementada).

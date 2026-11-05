@@ -1,4 +1,6 @@
 export { AgentFeed } from "./agent-feed";
+export { CrmTour } from "./crm-tour";
+export { ProductFrame } from "./product-frame";
 export { ApplicationsConstellation } from "./applications-constellation";
 export { DevelopmentSpiral } from "./development-spiral";
 export { EcosystemHub } from "./ecosystem-hub";

@@ -5,7 +5,7 @@ import type { LucideIcon } from "lucide-react";
    ========================================================================== */
 
 /** Chave estável de cada rota do site, usada para marcar o item ativo no header. */
-export type NavKey = "home" | "agentes" | "prospect" | "solucoes";
+export type NavKey = "home" | "crm" | "agentes" | "prospect" | "solucoes";
 
 export interface NavLink {
   key: NavKey;

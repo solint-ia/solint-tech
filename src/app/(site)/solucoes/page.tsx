@@ -3,7 +3,6 @@ import { PageGlow } from "@/components/layout";
 import {
   ClosingCta,
   DevelopmentSection,
-  PortfolioSection,
   ServicesSection,
   SolucoesHero,
 } from "@/components/sections";
@@ -22,7 +21,6 @@ export default function SolucoesPage() {
       <SolucoesHero />
       <ServicesSection />
       <DevelopmentSection />
-      <PortfolioSection />
       <ClosingCta
         title={solucoesCta.title}
         description={solucoesCta.description}

@@ -1,6 +1,7 @@
 import { PageGlow } from "@/components/layout";
 import {
   ContactSection,
+  CrmSpotlightSection,
   HomeHero,
   PartnersSection,
   ServiceAreasSection,
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <PageGlow preset="home" />
       <HomeHero />
+      <CrmSpotlightSection />
       <ServiceAreasSection />
       <PartnersSection />
       <ContactSection />

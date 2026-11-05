@@ -6,6 +6,7 @@ export const CONTACT_ANCHOR = "https://wa.me/557996809911";
 
 export const navLinks: readonly NavLink[] = [
   { key: "home", label: "Home", href: "/" },
+  { key: "crm", label: "CRM", href: "/crm" },
   { key: "prospect", label: "Prospect", href: "/prospect" },
   { key: "agentes", label: "Agentes de IA", href: "/agentes-ia" },
   { key: "solucoes", label: "Soluções", href: "/solucoes" },
@@ -14,6 +15,7 @@ export const navLinks: readonly NavLink[] = [
 /** Rótulos completos usados no rodapé, onde há espaço para o nome por extenso. */
 export const footerNavLinks: readonly NavLink[] = [
   { key: "home", label: "Home", href: "/" },
+  { key: "crm", label: "Solint CRM", href: "/crm" },
   { key: "agentes", label: "Agentes de IA", href: "/agentes-ia" },
   { key: "prospect", label: "Prospect", href: "/prospect" },
   { key: "solucoes", label: "Soluções", href: "/solucoes" },
